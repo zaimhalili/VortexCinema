@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-*{
+* {
     font-family: "Outfit", sans-serif;
     margin: 0;
     box-sizing: border-box;
@@ -11,10 +11,11 @@ h1 {
     font-family: "Russo One", Arial, Helvetica, sans-serif;
 }
 
-:root{
-    --font:#40362D;
+:root {
+    --font: #40362D;
     --body: #F2E2CE;
     --mid: #D9C6A3;
-    --btn:#9CA653;
+    --btn: #9CA653;
 }
 
+/* Footer styles are defined in footer-component.css */
