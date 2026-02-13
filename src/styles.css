@@ -11,3 +11,10 @@ h1 {
     font-family: "Russo One", Arial, Helvetica, sans-serif;
 }
 
+:root{
+    --font:#40362D;
+    --body: #F2E2CE;
+    --mid: #D9C6A3;
+    --btn:#9CA653;
+}
+
