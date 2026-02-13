@@ -1,0 +1,25 @@
+h1{
+    color: var(--font);
+    text-align: center;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+    background-color: var(--mid);
+
+}
+
+.logo {
+  display: flex;
+  height: 50px;
+  width: auto;
+  margin-right: 15px;    
+  border-radius: 50%;    
+}
