@@ -16,7 +16,7 @@ a{
 
 main h1{
     color: var(--font);
-    padding-bottom: 1rem;
+    padding-bottom: 2rem;
 }
 
 .card-container{
@@ -29,7 +29,7 @@ main h1{
 
 .card{
     height: fit-content;
-    height: 400px;
+    height: 420px;
     width: 1/5;
     flex: 1;
     overflow: hidden;
@@ -43,12 +43,17 @@ main h1{
     transition: 0.3s ease-in-out;
 }
 
+.card:hover{
+    background-color: #eeddc7;
+}
+
 .card .image{
     width: 100%;
     height: 80%;
     overflow: hidden;   
     border-radius: 20px; 
-    position: relative;  
+    position: relative; 
+    transition: 0.3s ease-in;
 }
 
 .image img{
@@ -61,6 +66,20 @@ main h1{
 .card:hover img{
     filter: sepia(0);
     transform: scale(1.05);
+}
+
+
+.card:hover .duration{
+    display: inline-block;
+}
+
+
+/* .card:hover .image{
+    border-radius: 20px 20px 0px 0px;
+} */
+
+.card:hover .dark-overlay{
+    opacity: 1;
 }
 
 .duration{
@@ -78,8 +97,15 @@ main h1{
     width: 100%;
     position: absolute;
     bottom: 0;
-    background: linear-gradient(0deg, black, transparent);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9 ) 13%, transparent);
     z-index: 10;
+    opacity: 0;
+    transition: 0.2s ease-in;
+}
+
+.duration{
+    font-weight: 200;
+    display: none;
 }
 
 .details{
@@ -87,14 +113,24 @@ main h1{
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem;
     color: var(--font);
 }
 
 .details h3{
     font-size: 1rem;
+    padding: 0 1rem;
 }
 
 .details h4{
     font-weight: 200;
+    padding: 0 1rem;
 }
+
+/* .details button{
+    margin-top: 10px;
+    background-color: var(--font);
+    color: var(--body);
+    cursor: pointer;
+    padding: 0.8rem 0;
+    width: 100%;
+} */
