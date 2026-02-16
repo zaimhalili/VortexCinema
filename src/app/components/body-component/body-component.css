@@ -10,6 +10,8 @@ main{
 }
 
 main h1{
+    text-align: center;
+    text-shadow: 0 0 15px var(--font);
     color: var(--font);
     padding-bottom: 1rem;
 }
