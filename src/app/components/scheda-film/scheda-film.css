@@ -1,0 +1,16 @@
+main{
+    background-color: var(--body);
+    min-height: 90vh;
+    padding: 2rem 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+section{
+    display: flex;
+}
+
+section div{
+    width: 40%;
+    overflow: hidden;
+}
