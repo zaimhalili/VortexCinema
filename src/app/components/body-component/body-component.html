@@ -4,15 +4,14 @@
         <a [routerLink]="'film/' + film.id" class="card" *ngFor="let film of films">
             <div class="image">
                 <img [src]="film.copertina" alt="copertina film">
-                <!-- <div class="dark-overlay"></div>
+                <div class="dark-overlay"></div>
                 <div class="duration">
                     {{ film.durata ? formatDuration(film.durata) : '' }}
-                </div> -->
+                </div>
             </div>
             <div class="details">
                 <h3>{{ film.titolo }}</h3>
-                <h4>{{film.durata}} minuti</h4>
-                <button type="button">Scheda Film</button>
+                <h4>{{ film.anno }}</h4>    
             </div>
         </a>
     </section>
