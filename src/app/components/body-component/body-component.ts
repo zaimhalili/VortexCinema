@@ -20,7 +20,7 @@ export class BodyComponent {
 
     return `${hours}h ${mins}m`;
   }
-  
+
 
   films: Film[] = [];
 

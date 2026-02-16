@@ -44,17 +44,25 @@ header {
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   padding: 10px 12px;
-  border-radius: 20px;
   background-color: #efcf93;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border-radius: 5px;
   min-width: 52px;
   height: 52px;
   white-space: nowrap;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.Link a:first-child{
+  border-radius: 20px 5px 5px 20px;
+}
+
+.Link a:last-child{
+  border-radius: 5px 20px 20px 5px;
 }
 
 .icon {
@@ -69,21 +77,14 @@ header {
   max-width: 0;
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: inline-block;
+  display: none;
 }
 
-.icon-gif {
+.icon-gif { 
   width: 32px;
   height: 32px;
   object-fit: contain;
   flex-shrink: 0;
-}
-
-.link-text {
-  max-width: 0;
-  opacity: 0;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: inline-block;
 }
 
 .Link a:hover {
@@ -94,6 +95,15 @@ header {
 }
 
 .Link a:hover .link-text {
+  display: inline-block;
   max-width: 100px;
   opacity: 1;
+}
+
+.Link a:first-child{
+  border-radius: 25px 5px 5px 25px;
+}
+
+.Link a:last-child {
+  border-radius: 5px 25px 25px 5px;
 }
