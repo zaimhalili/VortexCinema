@@ -6,7 +6,7 @@
         <article>
             <h1>{{filmDetails?.titolo}}</h1>
             <p>
-                Regista<b>{{filmDetails?.regista}}</b> | Durata<b>{{filmDetails?.durata}} minuti</b> |
+                Regista<b>{{filmDetails?.regista}}</b> | Durata<b>{{ filmDetails?.durata ? formatDuration(filmDetails?.durata!) : '' }}</b> |
                 Anno<b>{{filmDetails?.anno}}</b>
             </p>
             <p>{{filmDetails?.trama}}</p>
