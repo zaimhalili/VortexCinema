@@ -1,3 +1,10 @@
+.contenitore-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+
 h1 {
   color: var(--font);
   text-align: center;
@@ -34,6 +41,7 @@ header {
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: inset 0 0 10px black;
+  flex-wrap: nowrap;
 }
 
 .Link a {
@@ -57,11 +65,11 @@ header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
-.Link a:first-child{
+.Link a:first-child {
   border-radius: 20px 5px 5px 20px;
 }
 
-.Link a:last-child{
+.Link a:last-child {
   border-radius: 5px 20px 20px 5px;
 }
 
@@ -80,7 +88,7 @@ header {
   display: none;
 }
 
-.icon-gif { 
+.icon-gif {
   width: 32px;
   height: 32px;
   object-fit: contain;
@@ -100,10 +108,34 @@ header {
   opacity: 1;
 }
 
-.Link a:first-child{
+.Link a:first-child {
   border-radius: 25px 5px 5px 25px;
 }
 
 .Link a:last-child {
   border-radius: 5px 25px 25px 5px;
+}
+
+@media (max-width: 600px) {
+
+.contenitore-logo{
+  display: flex;
+}
+
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo {
+    display: flex;
+    margin-right: 0;
+    align-items:flex-start;
+  }
+
+  .Link {
+    margin-left: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
