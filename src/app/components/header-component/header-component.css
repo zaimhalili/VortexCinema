@@ -10,7 +10,6 @@ header {
   align-items: center;
   padding: 10px 20px;
   width: 100%;
-  position: sticky;
   top: 0;
   background-color: var(--mid);
 
