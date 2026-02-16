@@ -13,14 +13,14 @@ footer {
     font-size: 12px;
     font-weight: 600;
     color: var(--body);
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     letter-spacing: 1px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 40px;
     align-items: flex-start;
 }
 
@@ -33,10 +33,10 @@ footer {
 .label {
     font-size: 10px;
     font-weight: 700;
-    color: #ccc;
+    color: var(--body);
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid var(--body);
     padding-bottom: 8px;
     width: fit-content;
 }
@@ -73,7 +73,7 @@ footer {
 .footer-column h4 {
     font-size: 14px;
     font-weight: 700;
-    color: #333;
+    color: var(--font);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
