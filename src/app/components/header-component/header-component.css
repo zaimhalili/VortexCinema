@@ -1,10 +1,20 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(169, 118, 80, 0.6) 0%, var(--mid) 25%, rgba(169, 118, 80, 0.8) 50%, var(--mid) 75%, rgba(169, 118, 80, 0.6) 100%);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
 .contenitore-logo {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--font);
 }
@@ -15,16 +25,6 @@ h1 {
   font-weight: 900;
   font-size: 40px;
   margin: 0;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 30px;
-  width: 100%;
-  background: linear-gradient(90deg, rgba(169, 118, 80, 0.6) 0%, var(--mid) 25%, rgba(169, 118, 80, 0.8) 50%, var(--mid) 75%, rgba(169, 118, 80, 0.6) 100%);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .logo {
@@ -149,14 +149,6 @@ header {
   display: inline-block;
   max-width: 100px;
   opacity: 1;
-}
-
-.Link a:first-child {
-  border-radius: 25px 5px 5px 25px;
-}
-
-.Link a:last-child {
-  border-radius: 5px 25px 25px 5px;
 }
 
 @media (max-width: 600px) {
