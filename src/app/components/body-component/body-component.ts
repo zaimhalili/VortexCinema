@@ -28,12 +28,13 @@ export class BodyComponent {
 
   films: Film[] = [];
 
-  constructor(private cinemaService: CinemaService) { }
+  constructor(private cinemaService: CinemaService, private cd:ChangeDetectorRef) { }
 
   ngOnInit() {
     this.cinemaService.getAll().subscribe((films) => {
       console.log(films);
       this.films = films;
+      this.cd.detectChanges()
     });
   }
 }
