@@ -57,11 +57,12 @@ header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
-.icon-gif {
+.icon {
   width: 32px;
   height: 32px;
   object-fit: contain;
   flex-shrink: 0;
+  align-items: center;
 }
 
 .link-text {
