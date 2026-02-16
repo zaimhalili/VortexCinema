@@ -49,7 +49,7 @@ footer {
 }
 
 .footer-dark-section {
-    background-color: var(--body);
+    background-color: var(--mid);
     padding: 50px 60px;
 }
 
@@ -63,6 +63,11 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 12px;
+}
+
+.social {
+    display: flex;
+    gap: 20px;
 }
 
 .footer-column h4 {
@@ -109,4 +114,9 @@ footer {
     .value {
         font-size: 28px;
     }
+}
+
+.bi {
+    font-size: 20px;
+    color: var(--font);
 }
