@@ -1,6 +1,6 @@
 <main>
     <h1>Film Consigliati</h1>
-    <section class="card-container">
+    <section class="card-container" *ngIf="films.length > 0">
         <a [routerLink]="'film/' + film.id" class="card" *ngFor="let film of films">
             <div class="image">
                 <img [src]="film.copertina" alt="copertina film">

@@ -6,6 +6,7 @@
 
 
 h1 {
+  text-shadow: 0 0 15px #9d7b3b;
   color: var(--font);
   text-align: center;
   font-weight: 900;
@@ -15,7 +16,7 @@ h1 {
 
 header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
   width: 100%;
@@ -109,6 +110,44 @@ header {
   opacity: 1;
 }
 
+.user-icon {
+  position: relative;
+  color: var(--font);
+  border: 1px solid black;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  padding: 10px 12px;
+  background-color: #efcf93;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 52px;
+  height: 52px;
+  white-space: nowrap;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.user-icon:hover {
+  min-width: 140px;
+  background-color: #dab776;
+  transform: scale(1.05);
+  box-shadow: 0 0 15px black;
+  border: black 1px solid;
+}
+
+.user-icon:hover .link-text {
+  display: inline-block;
+  max-width: 100px;
+  opacity: 1;
+}
+
 .Link a:first-child {
   border-radius: 25px 5px 5px 25px;
 }
@@ -119,9 +158,9 @@ header {
 
 @media (max-width: 600px) {
 
-.contenitore-logo{
-  display: flex;
-}
+  .contenitore-logo {
+    display: flex;
+  }
 
   header {
     flex-direction: column;
@@ -131,12 +170,17 @@ header {
   .logo {
     display: flex;
     margin-right: 0;
-    align-items:flex-start;
+    align-items: flex-start;
   }
 
   .Link {
     margin-left: 0;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .user-icon {
+    margin-left: auto;
+    margin-right: 5px;
   }
 }
