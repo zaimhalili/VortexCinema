@@ -1,16 +1,18 @@
 <main>
     <section>
-        <div>
+        <div class="Copertina">
             <img [src]="filmDetails?.copertina" alt="copertina film">
         </div>
         <article>
             <h1>{{filmDetails?.titolo}}</h1>
             <p>
-                {{filmDetails?.durata}}
+                {{filmDetails?.regista}} - {{filmDetails?.durata}} Minuti - {{filmDetails?.anno}}
             </p>
             <p>{{filmDetails?.trama}}</p>
-            <p>{{filmDetails?.trama}}</p>
-            <p>{{filmDetails?.regista}}</p>
+
+            <a href=""><img src="img/Icona-Carrello.png" alt="Acquista" class="icon">
+                <span class="link-text">Acquista</span>
+            </a>
         </article>
 
     </section>
