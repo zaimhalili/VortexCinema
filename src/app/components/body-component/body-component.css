@@ -5,7 +5,7 @@ main{
     margin: 0 auto;
     flex-direction: column;
     background-color: var(--body);
-    padding: 30px 40px;
+    padding: 2rem 40px;
     min-height: 90vh;
 }
 

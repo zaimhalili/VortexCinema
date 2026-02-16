@@ -12,11 +12,15 @@ import { Film } from '../../models/Film';
   styleUrl: './body-component.css',
 })
 export class BodyComponent {
-  formatDuration(duration: number) {
-    const hours = Math.floor(duration / 60)
-    const minutes = duration % 60
-    return `${hours}h ${minutes}min`
+  formatDuration(minutes: number): string {
+    if (!minutes && minutes !== 0) return '';
+
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+
+    return `${hours}h ${mins}m`;
   }
+  
 
   films: Film[] = [];
 

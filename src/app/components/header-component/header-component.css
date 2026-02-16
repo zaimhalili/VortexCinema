@@ -32,6 +32,7 @@ header {
   padding: 8px 12px;
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 0 10px black;
 }
 
 .Link a {
@@ -42,7 +43,6 @@ header {
   font-weight: 600;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   padding: 10px 16px;
-  border: 2px solid var(--font);
   border-radius: 20px;
   background-color: #efcf93;
   display: inline-flex;
@@ -51,14 +51,14 @@ header {
   min-width: 50px;
   white-space: nowrap;
   overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .Link a:hover {
   min-width: 140px;
-  border-color: #A97650;
   background-color: #dab776;
   transform: scale(1.05);
-  box-shadow: 0 4px 12px #dbbf8b;
+  box-shadow: 0 0 15px black;
 }
 
 .Link a:hover::after {
