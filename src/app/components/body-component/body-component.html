@@ -1,18 +1,18 @@
 <main>
     <h1>Film Consigliati</h1>
     <section class="card-container">
-        <div class="card" *ngFor="let film of films">
+        <a [routerLink]="'film/' + film.id" class="card" *ngFor="let film of films">
             <div class="image">
-                <img [src]="film.copertina" alt="">
-                <div class="dark-overlay"></div>
+                <img [src]="film.copertina" alt="copertina film">
+                <!-- <div class="dark-overlay"></div>
                 <div class="duration">
                     {{ film.durata ? formatDuration(film.durata) : '' }}
-                </div>
+                </div> -->
             </div>
             <div class="details">
                 <h3>{{ film.titolo }}</h3>
                 <h4>{{ film.anno }}</h4>
             </div>
-        </div>
+        </a>
     </section>
 </main>

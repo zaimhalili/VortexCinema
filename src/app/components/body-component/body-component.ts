@@ -13,10 +13,14 @@ import { Film } from '../../models/Film';
 })
 export class BodyComponent {
   formatDuration(minutes: number): string {
-    if (!minutes && minutes !== 0) return '';
+    if (minutes == null || !minutes) return '';
 
     const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;
+
+    if (mins === 0) {
+      return `${hours}h`;
+    }
 
     return `${hours}h ${mins}m`;
   }
