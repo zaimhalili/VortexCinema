@@ -6,6 +6,12 @@ main{
     flex-direction: column;
     background-color: var(--body);
     padding: 30px 40px;
+    min-height: 90vh;
+}
+
+main h1{
+    color: var(--font);
+    padding-bottom: 1rem;
 }
 
 .card-container{
@@ -13,7 +19,7 @@ main{
     flex-wrap: wrap;
     gap: 15px;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .card{
@@ -43,17 +49,17 @@ main{
 .image img{
     width: 100%;
     object-fit: contain;
-    filter: saturate(0);
+    filter: sepia(0.8);
     transition: 0.3s ease-in;
 }
 
 .card:hover img{
-    filter: saturate(1);
+    filter: sepia(0);
     transform: scale(1.05);
 }
 
 .duration{
-    color: white;
+    color: var(--body);
     position: absolute;
     bottom: 10px;
     z-index: 11;
@@ -78,4 +84,12 @@ main{
     flex-direction: column;
     padding: 0 1rem;
     color: var(--font);
+}
+
+.details h3{
+    font-size: 1rem;
+}
+
+.details h4{
+    font-weight: 200;
 }
