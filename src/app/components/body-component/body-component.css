@@ -25,6 +25,7 @@ main h1{
     gap: 15px;
     width: 100%;
     justify-content: space-between;
+    margin-top: 2rem;
 }
 
 .card{
@@ -123,14 +124,4 @@ main h1{
 
 .details h4{
     font-weight: 200;
-    padding: 0 1rem;
 }
-
-/* .details button{
-    margin-top: 10px;
-    background-color: var(--font);
-    color: var(--body);
-    cursor: pointer;
-    padding: 0.8rem 0;
-    width: 100%;
-} */

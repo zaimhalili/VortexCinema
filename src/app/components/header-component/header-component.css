@@ -18,7 +18,7 @@ a {
   border-radius: 50px;
   display: flex;
   align-items: center;
-  gap: 10px;  
+  gap: 10px;
   width: 62px;
   /* start collapsed */
   transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -47,7 +47,7 @@ a {
   font-weight: 900;
   font-size: 40px;
   margin: 0;
-} 
+}
 
 header {
   display: flex;

@@ -1,0 +1,243 @@
+.chi-siamo-container {
+    display: flex;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: var(--body);
+    padding: 2rem 40px;
+    min-height: 90vh;
+    gap: 3rem;
+}
+
+.team-section-wrapper {
+    position: relative;
+    padding: 2.5rem;
+    border-radius: 25px;
+    background-color: var(--body);
+    order: -1;
+}
+
+.team-section-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 25px;
+    background: conic-gradient(from 0deg, var(--mid), var(--font), var(--mid), var(--body));
+    z-index: -1;
+    animation: rotate-border 8s linear infinite;
+}
+
+@keyframes rotate-border {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.chi-siamo-container h1 {
+    color: var(--font);
+    text-shadow: 0px 0px 2px var(--font);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 900;
+}
+
+.chi-siamo-container > h2 {
+    color: var(--font);
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-align: center;
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.chi-siamo-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-bottom: 3rem;
+}
+
+.chi-siamo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.chi-siamo-text h2 {
+    color: var(--font);
+    text-shadow: 0px 0px 2px var(--font);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.chi-siamo-text p {
+    color: var(--font);
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.chi-siamo-section {
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.4) 0%, rgba(242, 226, 206, 0.4) 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(217, 198, 163, 0.6);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.chi-siamo-section:hover {
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.6) 0%, rgba(242, 226, 206, 0.6) 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.chi-siamo-section h3 {
+    color: var(--font);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.chi-siamo-section p {
+    color: var(--font);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.team-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.team-section h2 {
+    color: var(--font);
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    text-align: center;
+    width: 100%;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    border-radius: 25px;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.15) 0%, rgba(242, 226, 206, 0.15) 100%);
+    animation: rotateBorderTeam 8s linear infinite;
+    box-shadow: 0 0 15px rgba(64, 54, 45, 0.2);
+}
+
+@keyframes rotateBorderTeam {
+    0%, 100% {
+        box-shadow: 0 0 15px rgba(64, 54, 45, 0.2), inset 0 0 0 3px rgba(217, 198, 163, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(64, 54, 45, 0.4), inset 0 0 0 3px rgba(217, 198, 163, 0.6);
+    }
+}
+
+.team-member {
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.3) 0%, rgba(242, 226, 206, 0.3) 100%);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--font);
+    transition: all 0.3s ease-in-out;
+}
+
+.team-member:hover {
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.5) 0%, rgba(242, 226, 206, 0.5) 100%);
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.team-member h3 {
+    color: var(--font);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    color: var(--font);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.team-member-desc {
+    color: var(--font);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+@media (max-width: 1024px) {
+    .chi-siamo-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+
+    .chi-siamo-container {
+        padding: 1.5rem 20px;
+    }
+
+    .chi-siamo-container h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .chi-siamo-container {
+        padding: 1rem 15px;
+        min-height: auto;
+    }
+
+    .chi-siamo-container h1 {
+        font-size: 1.7rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .chi-siamo-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .chi-siamo-text p {
+        font-size: 0.95rem;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .team-section h2 {
+        font-size: 1.4rem;
+    }
+}
