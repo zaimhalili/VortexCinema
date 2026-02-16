@@ -8,33 +8,74 @@ main{
     padding: 30px 40px;
 }
 
-.image-container{
+.card-container{
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     width: 100%;
+    justify-content: space-around;
 }
 
 .card{
     height: fit-content;
     height: 400px;
     width: 1/5;
+    flex: 1;
+    overflow: hidden;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    max-width: 230px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
 }
 
 .card .image{
     width: 100%;
-    height: 50%;
+    height: 80%;
     overflow: hidden;
+    border-radius: 20px; 
+    position: relative;  
 }
 
 .image img{
     width: 100%;
-    height: 100%;
     object-fit: contain;
+    filter: saturate(0);
+    transition: 0.3s ease-in;
+}
+
+.card:hover img{
+    filter: saturate(1);
+    transform: scale(1.05);
+}
+
+.duration{
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    z-index: 11;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.dark-overlay{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(0deg, black, transparent);
+    z-index: 10;
 }
 
 .details{
-    height: 50%;
+    height: fit-content;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0 1rem;
+    color: var(--font);
 }
