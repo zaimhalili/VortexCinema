@@ -1,65 +1,16 @@
 <main>
-    <h2>Film consigliati</h2>
-    <section class="card-container">
-        <div class="card">
+    <h1>Film consigliati</h1>
+    <section class="card-container" *ngIf="films.length > 0">
+        <div class="card" *ngFor="let film of films">
             <div class="image">
-                <img src="https://fineartfrance.com/cdn/shop/files/S4b2245664d0c4a3abb864e1e71aa2662I_2048x.webp?v=1711978540" alt="">
+                <img [src]="film.copertina" alt="Copertina">
                 <div class="dark-overlay"></div>
-                <div class="duration">1h 30min</div>
+                <div class="duration">{{film.durata}}</div>
             </div>
             <div class="details">
-                <h3>Oppenheimer</h3>
-                <h4>2024</h4>
+                <h3>{{film.titolo}}</h3>
+                <h4>{{film.anno}}</h4>
             </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <div class="dark-overlay"></div>
-                <img src="https://fineartfrance.com/cdn/shop/files/S4b2245664d0c4a3abb864e1e71aa2662I_2048x.webp?v=1711978540" alt="">
-                <div class="duration">1h 30min</div>
-
-            </div>
-            <div class="details">
-                <h3>Oppenheimer</h3>
-                <h4>2024</h4>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <div class="dark-overlay"></div>
-                <img src="https://fineartfrance.com/cdn/shop/files/S4b2245664d0c4a3abb864e1e71aa2662I_2048x.webp?v=1711978540" alt="">
-                <div class="duration">1h 30min</div>
-
-            </div>
-            <div class="details">
-                <h3>Oppenheimer</h3>
-                <h4>2024</h4>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <div class="dark-overlay"></div>
-                <img src="https://fineartfrance.com/cdn/shop/files/S4b2245664d0c4a3abb864e1e71aa2662I_2048x.webp?v=1711978540" alt="">
-                <div class="duration">1h 30min</div>
-
-            </div>
-            <div class="details">
-                <h3>Oppenheimer</h3>
-                <h4>2024</h4>
-            </div>
-
-        </div>
-        <div class="card">
-            <div class="image">
-                <div class="dark-overlay"></div>
-                <img src="https://fineartfrance.com/cdn/shop/files/S4b2245664d0c4a3abb864e1e71aa2662I_2048x.webp?v=1711978540" alt="">
-                <div class="duration">1h 30min</div>
-            </div>
-            <div class="details">
-                <h3>Oppenheimer</h3>
-                <h4>2024</h4>
-            </div>
-
         </div>
     </section>
 </main>
