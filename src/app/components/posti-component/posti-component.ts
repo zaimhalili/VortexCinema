@@ -10,22 +10,19 @@ import { Component } from '@angular/core';
 })
 export class PostiComponent {
 
+  numFile:number = 15;
+  SEDIE_PER_FILA:number = 20;
   rows: number[][] = [];
-  readonly numFile = 15;
-  readonly SEDIE_PER_FILA = 20;
-
-  selected:boolean = false;
 
 
-  selezionaSedia() {
+  selezionaSedia(row:number, seat:number) {
     const selectSeat = document.getElementsByClassName('seat');
+    const pos = row * this.SEDIE_PER_FILA + seat - 1;
 
-    if(!this.selected){
-      selectSeat[0].classList.add('selected');
-      this.selected = true;
+    if(!selectSeat[pos].classList.contains('selected')){
+      selectSeat[pos].classList.add('selected');
     }else{
-      selectSeat[0].classList.remove('selected');
-      this.selected = false;
+      selectSeat[pos].classList.remove('selected');
     }
     
   }
@@ -39,7 +36,7 @@ export class PostiComponent {
       }
 
       this.rows.push(row);
-    }
+    }   
   }
 
 
