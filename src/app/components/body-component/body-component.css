@@ -4,7 +4,7 @@ main {
     max-width: 1600px;
     margin: 0 auto;
     flex-direction: column;
-    background-color: var(--body);
+    background-color: var(--mid);
     padding: 2rem 40px;
     min-height: 90vh;
 }
@@ -48,6 +48,9 @@ main h1 {
 
 .card:hover {
     background-color: #eeddc7;
+}
+.card:hover{
+    background-color: var(--mid);
 }
 
 .card .image {

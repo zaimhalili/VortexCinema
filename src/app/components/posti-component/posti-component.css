@@ -1,5 +1,5 @@
 #biglietti {
-    background: var(--body);
+    background: var(--mid);
     padding: 80px 20px;
     min-height: 100vh;
     display: flex;
@@ -27,7 +27,7 @@
 
 .biglietti-header .subtitle {
     font-size: 16px;
-    color: #999;
+    color: var(--font);
     margin: 0;
     font-weight: 300;
     letter-spacing: 0.5px;
@@ -165,7 +165,7 @@
     padding: 25px;
     background: rgba(218, 183, 118, 0.05);
     border-radius: 8px;
-    border: 1px solid rgba(218, 183, 118, 0.1);
+    border: 1px solid #E4C484;
 }
 
 .legend-item {
@@ -174,19 +174,20 @@
     gap: 12px;
     font-size: 13px;
     font-weight: 600;
-    color: #999;
+    color: var(--body);
 }
 
 .legend-seat {
     width: 24px;
     height: 24px;
     border-radius: 2px;
-    border: 2px solid #333;
+    border: 2px solid rgb(255, 196, 0);
 }
 
 .legend-seat.available {
-    background-color: #222;
-    border-color: #333;
+    background-color: red;
+    border-color: #c11d1d;
+    
 }
 
 .legend-seat.selected {
@@ -198,7 +199,7 @@
 }
 
 .legend-seat.occupied {
-    background-color: #444;
+    background-color: #747272;
     border-color: #555;
 }
 
