@@ -44,7 +44,7 @@
     padding: 32px;
     background-size: cover;
     background-position: center;
-    border: 1px solid rgba(218, 183, 118, 0.3);
+    border: 5px solid rgba(71, 43, 198, 0.3);
     border-radius: 12px;
     transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     overflow: hidden;
@@ -66,6 +66,7 @@
 }
 
 .film-item-overlay {
+    border-radius: 12px;
     position: absolute;
     top: 0;
     left: 0;
