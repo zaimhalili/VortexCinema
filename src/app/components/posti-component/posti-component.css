@@ -132,7 +132,7 @@
 
 .seat:hover {
     transform: translateY(-2px) scale(1.2);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8    );
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
 }
 
 .seat.selected {
@@ -187,7 +187,7 @@
 .legend-seat.available {
     background-color: red;
     border-color: #c11d1d;
-    
+
 }
 
 .legend-seat.selected {
@@ -206,30 +206,30 @@
 .confirm-button {
     width: 100%;
     padding: 18px 32px;
-    background: linear-gradient(135deg, #dab776 0%, #c49e5f 100%);
-    color: #1a1a1a;
+    background: linear-gradient(135deg, #C9A961 0%, #B8902F 100%);
+    color: var(--font);
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 2px;
     border: none;
-    border-radius: 6px;
+    border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(218, 183, 118, 0.3),
+    box-shadow: 0 10px 30px rgba(201, 169, 97, 0.5),
         0 4px 8px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
 }
 
 .confirm-button:hover {
-    background: linear-gradient(135deg, #e8c989 0%, #dab776 100%);
+    background: linear-gradient(135deg, #D4AF37 0%, #C9A961 100%);
     transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(218, 183, 118, 0.4),
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6),
         0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 .confirm-button:active {
     transform: translateY(0);
-    box-shadow: 0 5px 15px rgba(218, 183, 118, 0.3),
+    box-shadow: 0 5px 15px rgba(201, 169, 97, 0.4),
         0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
