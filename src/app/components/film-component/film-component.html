@@ -1,0 +1,33 @@
+<div class="calendario">
+    <div class="calendario-header">
+        <h1>I Nostri Film</h1>
+        <p>Scopri gli ultimi film in uscita</p>
+    </div>
+
+    <div class="films-container">
+        <div *ngFor="let film of films" class="film-item" [style.backgroundImage]="'url(' + film.copertina + ')'">
+            <div class="film-item-overlay"></div>
+
+            <div class="film-poster">
+                <img [src]="film.copertina" [alt]="film.titolo">
+            </div>
+            <div class="film-content">
+                <div class="distributor">Film</div>
+                <h2 class="film-title">{{ film.titolo }}</h2>
+                <div class="film-meta">
+                    <div class="meta-item">
+                        <span class="label">Durata:</span>
+                        <span class="value">{{ formatDuration(film.durata) }}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="label">Anno:</span>
+                        <span class="value">{{ film.anno }}</span>
+                    </div>
+                </div>
+                <div class="film-watermark">
+                    <p>NG Movies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
