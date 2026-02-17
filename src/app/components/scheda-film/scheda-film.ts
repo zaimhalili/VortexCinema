@@ -13,7 +13,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './scheda-film.css',
 })
 export class SchedaFilm {
-
   formatDuration(minutes: number): string {
     if (minutes == null || !minutes) return '';
 
