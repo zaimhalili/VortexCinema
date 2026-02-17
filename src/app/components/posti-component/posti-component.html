@@ -1,4 +1,4 @@
-<!-- <div id="biglietti">
+<div id="biglietti">
     <div class="biglietti-container">
         <div class="biglietti-header">
             <h1>Scegli i Posti</h1>
@@ -12,8 +12,7 @@
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
                     <div class="row-label">{{ rowIndex + 1 }}</div>
                     <div class="seats-container">
-                        <button *ngFor="let seat of row" class="seat" [attr.data-row]="rowIndex + 1"
-                            [attr.data-seat]="seat">
+                        <button (click)="selezionaSedia()" *ngFor="let seat of row" class="seat" [attr.data-row]="rowIndex + 1" [attr.data-seat]="seat">
                         </button>
                     </div>
                 </div>
@@ -37,4 +36,4 @@
 
         <button class="confirm-button">CONFERMA PRENOTAZIONE</button>
     </div>
-</div> -->
+</div>

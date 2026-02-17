@@ -11,18 +11,36 @@ import { Component } from '@angular/core';
 export class PostiComponent {
 
   rows: number[][] = [];
-  readonly ROWS = 15;
-  readonly SEATS_PER_ROW = 20;
+  readonly numFile = 15;
+  readonly SEDIE_PER_FILA = 20;
+
+  selected:boolean = false;
+
+
+  selezionaSedia() {
+    const selectSeat = document.getElementsByClassName('seat');
+
+    if(!this.selected){
+      selectSeat[0].classList.add('selected');
+      this.selected = true;
+    }else{
+      selectSeat[0].classList.remove('selected');
+      this.selected = false;
+    }
+    
+  }
 
   ngOnInit() {
-    for (let i = 0; i < this.ROWS; i++) {
+    for (let i = 0; i < this.numFile; i++) {
       const row: number[] = [];
 
-      for (let j = 1; j <= this.SEATS_PER_ROW; j++) {
+      for (let j = 1; j <= this.SEDIE_PER_FILA; j++) {
         row.push(j);
       }
 
       this.rows.push(row);
     }
   }
+
+
 }
