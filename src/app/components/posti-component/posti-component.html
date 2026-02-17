@@ -1,13 +1,28 @@
 <div id="biglietti">
     <div class="biglietti-container">
-        <div class="biglietti-header">
-            <h1>Scegli i Posti</h1>
-            <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
+
+        <div id="tipo-biglietti">
+            <div class="biglietti-header">
+                <h1>Scegli i Posti</h1>
+                <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
+            </div>
+            <p class="domanda">Quanti biglietti a prezzo intero?</p>
+            <div class="input-number">
+                <input type="number" name="" id="" class="numBiglietti" placeholder="Inserire il numero di biglietti a prezzo intero...">
+                <button class="add">+</button>
+            </div>
+
+            <p class="domanda">Quanti biglietti sono a prezzi riddoti?</p>
+            <div class="input-number">
+                <input type="number" name="" id="" class="numBiglietti" placeholder="Inserire il numero di biglietti a prezzo intero...">
+                <button class="add">+</button>
+            </div>
+            <button class="confirm-button">CONFERMA PRENOTAZIONE</button>
+
         </div>
 
         <div class="biglietti-content">
             <div class="screen-label">SCHERMO</div>
-
             <div class="seats-grid">
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
                     <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
@@ -15,6 +30,7 @@
                         <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row" class="seat"
                             [class.disabled]="isSeatOccupied(rowIndex, seat)" [attr.data-row]=" rowIndex + 1"
                             [attr.data-seat]="seat">
+                            {{ seat }}
                         </button>
                     </div>
                 </div>
@@ -36,6 +52,5 @@
             </div>
         </div>
 
-        <button class="confirm-button">CONFERMA PRENOTAZIONE</button>
     </div>
 </div>
