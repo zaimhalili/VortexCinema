@@ -12,21 +12,34 @@
             </p>
             <p>{{filmDetails?.trama}}</p>
 
-            
+
 
         </article>
 
     </section>
     <div id="biglietti" *ngIf="filmDetails?.spettacoli?.length">
-    
-        <h2>Spettacoli disponibili</h2>
-    
+
+        <div class="header-with-line">
+            <h2><b>Spettacoli disponibili</b></h2>
+            <hr>
+        </div>
+
         <div class="spettacoli-container">
             <a [routerLink]="['/acquista', spettacolo.id]" class="spettacolo-card"
                 *ngFor="let spettacolo of filmDetails?.spettacoli">
-                <div>{{ spettacolo.data }} - {{ spettacolo.orario }}</div>
+                <div class="spettacolo-info">
+                    <div class="info-item">
+                        <span class="info-label"><b>Data</b></span>
+                        <span class="info-value">{{ spettacolo.data }}</span>
+                    </div>
+                    <div class="info-divider"></div>
+                    <div class="info-item">
+                        <span class="info-label"><b>Orario</b></span>
+                        <span class="info-value">{{ spettacolo.orario }}</span>
+                    </div>
+                </div>
             </a>
-    
+
         </div>
     </div>
 </main>

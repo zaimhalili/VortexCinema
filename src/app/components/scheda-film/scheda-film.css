@@ -146,37 +146,93 @@ article a:hover .icon {
     transform: scale(1.15);
 }
 
-#biglietti{
+#biglietti {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
 }
 
-.spettacoli-container{
+.spettacoli-container {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
 }
 
-h2{
+.header-with-line {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.header-with-line h2 {
     color: var(--body);
+    margin: 0;
+    white-space: nowrap;
 }
 
-#biglietti a{
-    border-radius: 5px;
-    max-width: 180px;
+.header-with-line hr {
+    flex: 1;
+    border: none;
+    border-top: 2px solid var(--body);
+    margin: 0;
+}
+
+.spettacolo-card {
     text-decoration: none;
-    background-color: var(--body);
-    padding: 0.5rem 1rem;
-    color: var(--font);
+    background-color: var(--font);
+    border: 2px solid #dab776;
+    border-radius: 12px;
+    padding: 20px 24px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    min-width: 280px;
+    cursor: pointer;
 }
 
-#biglietti a:hover{
-    background-color: var(--mid);
-}   
-
-#biglietti a:active{
-    scale: 0.95;
+.spettacolo-card:hover {
+    transform: translateY(-5px);
+    border-color: #dab776;
+    background-color: var(--font);
+    box-shadow: 0 8px 25px rgba(218, 183, 118, 0.3);
 }
 
+.spettacolo-card:active {
+    transform: translateY(-2px) scale(0.98);
+}
+
+.spettacolo-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.info-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #dab776;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--body);
+    letter-spacing: 0.3px;
+}
+
+.info-divider {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, #dab776, transparent);
+    opacity: 0.5;
+}
