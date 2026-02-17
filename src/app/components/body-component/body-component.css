@@ -1,4 +1,4 @@
-main{
+main {
     display: flex;
     width: 100%;
     max-width: 1600px;
@@ -9,18 +9,18 @@ main{
     min-height: 90vh;
 }
 
-a{
+a {
     text-decoration: none;
     color: var(--font);
 }
 
-main h1{
+main h1 {
     color: var(--font);
     padding-bottom: 2rem;
     text-align: center;
 }
 
-.card-container{
+.card-container {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
@@ -30,7 +30,7 @@ main h1{
     min-height: 50vh;
 }
 
-.card{
+.card {
     height: fit-content;
     height: 420px;
     width: 1/5;
@@ -46,20 +46,20 @@ main h1{
     transition: 0.3s ease-in-out;
 }
 
-.card:hover{
+.card:hover {
     background-color: #eeddc7;
 }
 
-.card .image{
+.card .image {
     width: 100%;
     height: 80%;
-    overflow: hidden;   
-    border-radius: 20px; 
-    position: relative; 
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
     transition: 0.3s ease-in;
 }
 
-.image img{
+.image img {
     width: 100%;
     object-fit: contain;
     filter: sepia(0);
@@ -72,7 +72,7 @@ main h1{
 }
 
 
-.card:hover .duration{
+.card:hover .duration {
     display: inline-block;
 }
 
@@ -81,11 +81,11 @@ main h1{
     border-radius: 20px 20px 0px 0px;
 } */
 
-.card:hover .dark-overlay{
+.card:hover .dark-overlay {
     opacity: 1;
 }
 
-.duration{
+.duration {
     color: var(--body);
     position: absolute;
     bottom: 10px;
@@ -95,23 +95,23 @@ main h1{
     text-align: center;
 }
 
-.dark-overlay{
+.dark-overlay {
     height: 100%;
     width: 100%;
     position: absolute;
     bottom: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9 ) 13%, transparent);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9) 13%, transparent);
     z-index: 10;
     opacity: 0;
     transition: 0.2s ease-in;
 }
 
-.duration{
+.duration {
     font-weight: 200;
     display: none;
 }
 
-.details{
+.details {
     height: fit-content;
     width: 100%;
     display: flex;
@@ -119,24 +119,24 @@ main h1{
     color: var(--font);
 }
 
-.details h3{
+.details h3 {
     font-size: 1rem;
     padding: 0 1rem;
 }
 
-.details h4{
+.details h4 {
     font-weight: 200;
-    padding: 0 1rem;    
+    padding: 0 1rem;
 }
 
-.cinema{
+.cinema {
     display: flex;
     justify-content: center;
     margin-top: 4rem;
     padding: 3rem 0;
 }
 
-.cinema-wrapper{
+.cinema-wrapper {
     display: flex;
     gap: 2rem;
     align-items: flex-start;
@@ -144,14 +144,14 @@ main h1{
     width: 100%;
 }
 
-.cinema-content{
+.cinema-content {
     display: flex;
     align-items: center;
     gap: 3rem;
     flex: 1;
 }
 
-.cinema-description{
+.cinema-description {
     flex: 1;
     color: var(--font);
     padding: 2rem;
@@ -160,7 +160,7 @@ main h1{
     backdrop-filter: blur(10px);
 }
 
-.cinema-description h2{
+.cinema-description h2 {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
     color: var(--font);
@@ -169,7 +169,7 @@ main h1{
     letter-spacing: 1px;
 }
 
-.cinema-description p{
+.cinema-description p {
     font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
@@ -178,13 +178,13 @@ main h1{
     font-weight: 500;
 }
 
-.cinema-image{
+.cinema-image {
     flex: 1;
     display: flex;
     justify-content: flex-start;
 }
 
-.cinema-image img{
+.cinema-image img {
     width: 100%;
     max-width: 500px;
     border-radius: 20px;
@@ -193,12 +193,12 @@ main h1{
     object-fit: contain;
 }
 
-.cinema-image img:hover{
+.cinema-image img:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
 }
 
-.side-images{
+.side-images {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -206,7 +206,7 @@ main h1{
     flex-shrink: 0;
 }
 
-.side-img{
+.side-img {
     width: 100%;
     max-width: 300px;
     border-radius: 15px;
@@ -215,12 +215,12 @@ main h1{
     object-fit: contain;
 }
 
-.side-img:hover{
+.side-img:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
 }
 
-.riga{
+.riga {
     width: 100%;
     height: 1.5px;
     background-color: var(--font);
@@ -228,47 +228,47 @@ main h1{
 }
 
 @media (max-width: 768px) {
-    main{
+    main {
         padding: 2rem 20px;
     }
 
-    .cinema-wrapper{
+    .cinema-wrapper {
         flex-direction: column;
         gap: 1.5rem;
         align-items: stretch;
     }
 
-    .cinema-content{
+    .cinema-content {
         flex-direction: column;
         gap: 2rem;
     }
 
-    .cinema-image{
+    .cinema-image {
         justify-content: center;
         width: 100%;
     }
 
-    .cinema-image img{
+    .cinema-image img {
         max-width: 300px;
     }
 
-    .cinema-description{
+    .cinema-description {
         padding: 1.5rem;
         width: 100%;
         border-radius: 12px;
     }
 
-    .cinema-description h2{
+    .cinema-description h2 {
         font-size: 2rem;
         margin-bottom: 1rem;
     }
 
-    .cinema-description p{
+    .cinema-description p {
         font-size: 1rem;
         line-height: 1.6;
     }
 
-    .side-images{
+    .side-images {
         align-items: center;
         flex-direction: row;
         justify-content: center;
@@ -276,67 +276,270 @@ main h1{
         gap: 1.2rem;
     }
 
-    .side-img{
+    .side-img {
         max-width: 220px;
     }
 }
 
 @media (max-width: 480px) {
-    main{
+    main {
         padding: 1.5rem 15px;
     }
 
-    .cinema{
+    .cinema {
         margin-top: 2rem;
         padding: 2rem 0;
     }
 
-    .cinema-wrapper{
+    .cinema-wrapper {
         flex-direction: column;
         gap: 1rem;
     }
 
-    .cinema-content{
+    .cinema-content {
         flex-direction: column;
         gap: 1.5rem;
         width: 100%;
     }
 
-    .cinema-image{
+    .cinema-image {
         justify-content: center;
         width: 100%;
     }
 
-    .cinema-image img{
+    .cinema-image img {
         max-width: 220px;
     }
 
-    .cinema-description{
+    .cinema-description {
         padding: 1rem;
         width: 100%;
         border-radius: 10px;
     }
 
-    .cinema-description h2{
+    .cinema-description h2 {
         font-size: 1.5rem;
         margin-bottom: 0.8rem;
         letter-spacing: 0.5px;
     }
 
-    .cinema-description p{
+    .cinema-description p {
         font-size: 0.95rem;
         line-height: 1.5;
         margin-bottom: 0.8rem;
     }
 
-    .side-images{
+    .side-images {
         flex-direction: row;
         justify-content: center;
         gap: 1rem;
         width: 100%;
     }
 
-    .side-img{
+    .side-img {
         max-width: 160px;
+    }
+}
+
+.prezzi {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-top: 4rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(238, 221, 199, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border-radius: 20px;
+    border: 1px solid rgba(238, 221, 199, 0.15);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1.5px solid var(--font)
+}
+
+.prezzi h2 {
+    font-size: 2.8rem;
+    color: var(--font);
+    font-weight: 900;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.25);
+    letter-spacing: 2px;
+    text-align: center;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.prezzi h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, rgba(238, 221, 199, 0.6), transparent);
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.prezzi>p:first-of-type {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--font);
+    opacity: 0.95;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.prezzi ul {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.prezzi li {
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(238, 221, 199, 0.05) 100%);
+    border: 1.5px solid rgba(238, 221, 199, 0.3);
+    border-radius: 15px;
+    font-size: 1.15rem;
+    color: var(--font);
+    transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--font);
+}
+
+.prezzi li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(238, 221, 199, 0.2) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.prezzi li::after {
+    content: '🎬';
+    position: absolute;
+    right: 0px;
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 4rem;
+    opacity: 0.15;
+    transition: right 0.4s ease;
+}
+
+.prezzi li:hover {
+    border-color: rgba(238, 221, 199, 0.6);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(238, 221, 199, 0.12) 100%);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    border: 1.5px solid var(--font);
+}
+
+.prezzi li:hover::after {
+    right: 10px;
+    opacity: 0.25;
+}
+
+.prezzi li:hover::before {
+    opacity: 1;
+}
+
+.prezzi li strong {
+    color: var(--font);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.prezzi>p:last-of-type {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--font);
+    opacity: 0.9;
+    text-align: center;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .prezzi {
+        padding: 2rem;
+        margin-top: 3rem;
+        gap: 1.8rem;
+    }
+
+    .prezzi h2 {
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+    }
+
+    .prezzi>p:first-of-type {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+
+    .prezzi ul {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .prezzi li {
+        padding: 1.8rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .prezzi {
+        padding: 1.5rem;
+        margin-top: 2.5rem;
+        gap: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .prezzi h2 {
+        font-size: 1.8rem;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.8rem;
+    }
+
+    .prezzi h2::after {
+        width: 60px;
+        margin-top: 0.8rem;
+    }
+
+    .prezzi>p:first-of-type {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .prezzi ul {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin: 1.5rem 0;
+    }
+
+    .prezzi li {
+        padding: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .prezzi li strong {
+        font-size: 1.1rem;
+    }
+
+    .prezzi>p:last-of-type {
+        font-size: 1rem;
+        line-height: 1.5;
     }
 }
