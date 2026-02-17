@@ -134,7 +134,7 @@ header {
 
 .Link a:hover {
   min-width: 140px;
-  /* background-color: #dab776; */
+  background-color: var(--body);
   transform: scale(1.05);
   box-shadow: 0 0 15px black;
 }

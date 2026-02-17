@@ -17,6 +17,7 @@ a{
 main h1{
     color: var(--font);
     padding-bottom: 2rem;
+    text-align: center;
 }
 
 .card-container{
