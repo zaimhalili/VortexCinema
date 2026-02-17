@@ -144,18 +144,21 @@
     opacity: 1;
 }
 
-.seat:disabled {
+.disabled {
     background-color: #444;
     border-color: #555;
-    cursor: not-allowed;
+    cursor: default; 
     opacity: 0.6;
 }
 
-.seat:disabled:hover {
+.disabled:hover {
     background-color: #444;
-    border-color: #555;
     transform: none;
     box-shadow: none;
+}
+
+.seat.disabled::before {
+    background-color: #2b2b2b;
 }
 
 .seats-legend {
