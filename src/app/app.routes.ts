@@ -10,7 +10,7 @@ import { PostiComponent } from './components/posti-component/posti-component';
 
 export const routes: Routes = [
     { path: "", component: BodyComponent },
-    { path: "film", component: FilmComponent },
+    { path: "filmList", component: FilmComponent },
     { path: "film/:id", component: SchedaFilm },
     { path: "acquista/:id", component: PostiComponent },
     { path: "chisiamo", component: ChiSiamo},

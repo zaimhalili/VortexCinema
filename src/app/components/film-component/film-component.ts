@@ -3,11 +3,12 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CinemaService } from '../../services/cinema-service';
 import { FilmDetails } from '../../models/FilmDetails';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-film-component',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './film-component.html',
   styleUrl: './film-component.css',
 })
