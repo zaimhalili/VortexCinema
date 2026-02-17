@@ -12,52 +12,21 @@
             </p>
             <p>{{filmDetails?.trama}}</p>
 
-            <a href="#biglietti">
-                <img src="img/Icona-Carrello.png" alt="Acquista" class="icon">
-                <span class="link-text">Acquista</span>
-            </a>
+            
+
         </article>
 
     </section>
-</main>
-
-<div id="biglietti">
-    <div class="biglietti-container">
-        <div class="biglietti-header">
-            <h1>Scegli i Posti</h1>
-            <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
+    <div id="biglietti" *ngIf="filmDetails?.spettacoli?.length">
+    
+        <h2>Spettacoli disponibili</h2>
+    
+        <div class="spettacoli-container">
+            <a [routerLink]="['/acquista', spettacolo.id]" class="spettacolo-card"
+                *ngFor="let spettacolo of filmDetails?.spettacoli">
+                <div>{{ spettacolo.data }} - {{ spettacolo.orario }}</div>
+            </a>
+    
         </div>
-
-        <div class="biglietti-content">
-            <div class="screen-label">SCHERMO</div>
-
-            <div class="seats-grid">
-                <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
-                    <div class="row-label">{{ rowIndex + 1 }}</div>
-                    <div class="seats-container">
-                        <button *ngFor="let seat of row" class="seat" [attr.data-row]="rowIndex + 1"
-                            [attr.data-seat]="seat">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="seats-legend">
-                <div class="legend-item">
-                    <div class="legend-seat available"></div>
-                    <span>Disponibile</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-seat selected"></div>
-                    <span>Selezionato</span>
-                </div>
-                <div class="legend-item">
-                    <div class="legend-seat occupied"></div>
-                    <span>Occupato</span>
-                </div>
-            </div>
-        </div>
-
-        <button class="confirm-button">CONFERMA PRENOTAZIONE</button>
     </div>
-</div>
+</main>
