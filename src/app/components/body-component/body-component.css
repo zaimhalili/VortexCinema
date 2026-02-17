@@ -48,6 +48,7 @@ main h1 {
 
 .card:hover {
     background-color: #eeddc7;
+}
 .card:hover{
     background-color: var(--mid);
 }
