@@ -127,3 +127,163 @@ main h1{
     font-weight: 200;
     padding: 0 1rem;    
 }
+
+.cinema{
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    padding: 3rem 0;
+}
+
+.cinema-content{
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.cinema-description{
+    flex: 1;
+    color: var(--font);
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.cinema-description h2{
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--font);
+    font-weight: 900;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+    letter-spacing: 1px;
+}
+
+.cinema-description p{
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    color: var(--font);
+    opacity: 0.95;
+    font-weight: 500;
+}
+
+.cinema-image{
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cinema-image img{
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease-in-out;
+    object-fit: contain;
+}
+
+.cinema-image img:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.side-images{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-end;
+    margin-top: 3rem;
+    padding-right: 2rem;
+}
+
+.side-img{
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease-in-out;
+    object-fit: contain;
+}
+
+.side-img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+    main{
+        padding: 2rem 20px;
+    }
+
+    .cinema-content{
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .cinema-image{
+        justify-content: center;
+    }
+
+    .cinema-image img{
+        max-width: 300px;
+    }
+
+    .cinema-description{
+        padding: 1.5rem;
+    }
+
+    .cinema-description h2{
+        font-size: 2rem;
+    }
+
+    .cinema-description p{
+        font-size: 1rem;
+    }
+
+    .side-images{
+        align-items: center;
+        padding-right: 0;
+        margin-top: 2rem;
+        gap: 1.2rem;
+    }
+
+    .side-img{
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    main{
+        padding: 1.5rem 15px;
+    }
+
+    .cinema{
+        margin-top: 2rem;
+        padding: 2rem 0;
+    }
+
+    .cinema-image img{
+        max-width: 250px;
+    }
+
+    .cinema-description h2{
+        font-size: 1.5rem;
+    }
+
+    .cinema-description p{
+        font-size: 0.95rem;
+    }
+
+    .side-images{
+        margin-top: 1.5rem;
+        padding-right: 0;
+        align-items: center;
+    }
+
+    .side-img{
+        max-width: 200px;
+    }
+}
