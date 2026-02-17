@@ -3,12 +3,12 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { FilmDetails } from '../../models/FilmDetails';
 import { CinemaService } from '../../services/cinema-service';
 import { Film } from '../../models/Film';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-scheda-film',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './scheda-film.html',
   styleUrl: './scheda-film.css',
 })
@@ -46,6 +46,7 @@ export class SchedaFilm {
     }
 
     this.cinemaService.getOne(id).subscribe((film) => {
+      // console.log(film)  
       this.filmDetails = film
       cd.detectChanges()
     })
