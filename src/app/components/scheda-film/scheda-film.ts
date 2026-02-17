@@ -13,6 +13,9 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './scheda-film.css',
 })
 export class SchedaFilm {
+  rows: Array<number[]> = [];
+  readonly ROWS = 15;
+  readonly SEATS_PER_ROW = 20;
 
   formatDuration(minutes: number): string {
     if (minutes == null || !minutes) return '';
@@ -27,11 +30,20 @@ export class SchedaFilm {
     return `${hours}h ${mins}m`;
   }
 
-  
+
   filmDetails: FilmDetails | undefined
 
   constructor(private cinemaService: CinemaService, private route: ActivatedRoute, private cd: ChangeDetectorRef) {
     let id = Number(this.route.snapshot.paramMap.get("id"))
+
+    // Genera la griglia di posti (15 file × 20 posti)
+    for (let i = 1; i <= this.ROWS; i++) {
+      const row: number[] = [];
+      for (let j = 1; j <= this.SEATS_PER_ROW; j++) {
+        row.push(j);
+      }
+      this.rows.push(row);
+    }
 
     this.cinemaService.getOne(id).subscribe((film) => {
       this.filmDetails = film
