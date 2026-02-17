@@ -27,6 +27,7 @@ main h1{
     width: 100%;
     justify-content: space-between;
     margin-top: 2rem;
+    min-height: 50vh;
 }
 
 .card{

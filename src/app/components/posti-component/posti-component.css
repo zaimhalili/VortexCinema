@@ -1,5 +1,5 @@
 #biglietti {
-    background: linear-gradient(135deg, #252424 0%, #0d0d0d 100%);
+    background: var(--body);
     padding: 80px 20px;
     min-height: 100vh;
     display: flex;
@@ -21,10 +21,8 @@
 .biglietti-header h1 {
     font-size: 48px;
     font-weight: 900;
-    color: #dab776;
+    color: var(--font);
     margin: 0 0 16px 0;
-    letter-spacing: 2px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .biglietti-header .subtitle {
@@ -37,7 +35,6 @@
 
 .biglietti-content {
     background: linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
-    border: 2px solid #dab776;
     border-radius: 12px;
     padding: 50px 40px;
     margin-bottom: 40px;
@@ -107,8 +104,8 @@
     width: 32px;
     height: 32px;
     padding: 0;
-    border: 2px solid #c4a063;
-    background-color: #9d8a6d;
+    border: none;
+    background-color: darkred;
     color: transparent;
     font-size: 0;
     font-weight: 700;
@@ -125,28 +122,25 @@
 .seat::before {
     content: '';
     position: absolute;
-    width: 12px;
-    height: 12px;
-    background: radial-gradient(circle at 30% 30%, rgba(218, 183, 118, 0.7), #7d6a54);
-    border-radius: 2px;
+    top: 0;
+    width: 16px;
+    height: 70%;
+    background: rgb(95, 0, 0);
+    border-radius: 0px 0px 2px 2px;
     opacity: 0.8;
 }
 
 .seat:hover {
-    border-color: #dab776;
-    background-color: rgba(218, 183, 118, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(218, 183, 118, 0.2);
+    transform: translateY(-2px) scale(1.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8    );
 }
 
 .seat.selected {
-    background-color: #dab776;
-    border-color: #dab776;
-    box-shadow: 0 4px 12px rgba(218, 183, 118, 0.4);
+    background-color: gold;
 }
 
 .seat.selected::before {
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), #1a1a1a);
+    background-color: darkgoldenrod;
     opacity: 1;
 }
 
@@ -196,8 +190,11 @@
 }
 
 .legend-seat.selected {
-    background-color: #dab776;
-    border-color: #dab776;
+    background-color: gold;
+}
+
+.legend-seat.selected::before {
+    background-color: darkgoldenrod;
 }
 
 .legend-seat.occupied {
