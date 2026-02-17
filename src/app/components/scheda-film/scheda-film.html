@@ -1,3 +1,17 @@
+<div>
+    <main [style.backgroundImage]="'url(' + filmDetails?.copertina + ')'">
+        <section>
+            <div class="Copertina">
+                <img [src]="filmDetails?.copertina" alt="copertina film">
+            </div>
+            <article>
+                <h1>{{filmDetails?.titolo}}</h1>
+                <p>
+                    Regista<b>{{filmDetails?.regista}}</b> | Durata<b>{{ filmDetails?.durata ?
+                        formatDuration(filmDetails?.durata!) : '' }}</b> |
+                    Anno<b>{{filmDetails?.anno}}</b>
+                </p>
+                <p>{{filmDetails?.trama}}</p>
 <main [style.backgroundImage]="'url(' + filmDetails?.copertina + ')'">
     <section>
         <div class="Copertina">
@@ -12,14 +26,14 @@
             </p>
             <p>{{filmDetails?.trama}}</p>
 
-            <a href="#biglietti">
-                <img src="img/Icona-Carrello.png" alt="Acquista" class="icon">
-                <span class="link-text">Acquista</span>
-            </a>
-        </article>
+                <a href="#biglietti">
+                    <img src="img/Icona-Carrello.png" alt="Acquista" class="icon">
+                    <span class="link-text">Acquista</span>
+                </a>
+            </article>
 
-    </section>
-</main>
+        </section>
+    </main>
 
 <div id="biglietti">
     <div class="biglietti-container">
