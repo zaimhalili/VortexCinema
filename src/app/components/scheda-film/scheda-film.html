@@ -6,15 +6,20 @@
         <article>
             <h1>{{filmDetails?.titolo}}</h1>
             <p>
-                Regista<b>{{filmDetails?.regista}}</b> | Durata<b>{{filmDetails?.durata}} minuti</b> |
+                Regista<b>{{filmDetails?.regista}}</b> | Durata<b>{{ filmDetails?.durata ? formatDuration(filmDetails?.durata!) : '' }}</b> |
                 Anno<b>{{filmDetails?.anno}}</b>
             </p>
             <p>{{filmDetails?.trama}}</p>
 
-            <a href=""><img src="img/Icona-Carrello.png" alt="Acquista" class="icon">
+            <a href="#biglietti">
+                <img src="img/Icona-Carrello.png" alt="Acquista" class="icon">
                 <span class="link-text">Acquista</span>
             </a>
         </article>
 
     </section>
 </main>
+
+<div id="biglietti">
+
+</div>

@@ -42,7 +42,7 @@ a {
   opacity: 1;
   /* transform: translateX(-10px); */
   transition: opacity 0.3s ease, transform 0.3s ease;
-  color: var(--mid);
+  color: var(--body);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   font-weight: 900;
   font-size: 40px;
