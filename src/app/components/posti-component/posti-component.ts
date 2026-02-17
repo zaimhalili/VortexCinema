@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Posti } from '../../models/Posti';
+import { CinemaService } from '../../services/cinema-service';
 
 
 @Component({
@@ -8,26 +10,37 @@ import { Component } from '@angular/core';
   templateUrl: './posti-component.html',
   styleUrl: './posti-component.css',
 })
+
 export class PostiComponent {
+  posti: Posti[] = []
 
+  numFile: number = 15;
+  SEDIE_PER_FILA: number = 20;
   rows: number[][] = [];
-  readonly numFile = 15;
-  readonly SEDIE_PER_FILA = 20;
 
-  selected:boolean = false;
+  constructor(private cinemaService: CinemaService) { }
+
+  isSeatOccupied(row: number, column: number): boolean {
+    const fila : number = row + 1
+    const posto = this.posti.find(p =>
+      p.fila === fila && p.posto === column
+    )
+
+    return posto ? posto.occupato : false;
+  }
 
 
-  selezionaSedia() {
+  selezionaSedia(row: number, seat: number) {
     const selectSeat = document.getElementsByClassName('seat');
+    const pos = row * this.SEDIE_PER_FILA + seat - 1;
 
-    if(!this.selected){
-      selectSeat[0].classList.add('selected');
-      this.selected = true;
-    }else{
-      selectSeat[0].classList.remove('selected');
-      this.selected = false;
+    if (!selectSeat[pos].classList.contains('disabled')) {
+      if (!selectSeat[pos].classList.contains('selected')) {
+        selectSeat[pos].classList.add('selected');
+      } else {
+        selectSeat[pos].classList.remove('selected');
+      }
     }
-    
   }
 
   ngOnInit() {
@@ -40,7 +53,9 @@ export class PostiComponent {
 
       this.rows.push(row);
     }
+
+    this.cinemaService.getSeat(1).subscribe(res =>{
+      this.posti = res.posti
+    })
   }
-
-
 }

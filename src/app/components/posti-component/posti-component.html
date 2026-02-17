@@ -12,7 +12,9 @@
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
                     <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
                     <div class="seats-container">
-                        <button (click)="selezionaSedia()" *ngFor="let seat of row" class="seat" [attr.data-row]="rowIndex + 1" [attr.data-seat]="seat">
+                        <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row" class="seat"
+                            [class.disabled]="isSeatOccupied(rowIndex, seat)" [attr.data-row]=" rowIndex + 1"
+                            [attr.data-seat]="seat">
                         </button>
                     </div>
                 </div>
