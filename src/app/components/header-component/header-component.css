@@ -20,32 +20,32 @@ a {
   align-items: center;
   gap: 10px;
   /* start collapsed */
+  width: 62px;
   transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  width: 300px;
+  padding-left: 0;
   width: 245px;
 }
 
-/* #titolo:hover {
-  width: 300px;
-} */
-
-/* #titolo:hover h2 {
-  opacity: 1;
-  transform: translateX(0);
-  text-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-} */
-
+#titolo:hover {
+  width: 380px;
+}
 
 #titolo h2 {
   white-space: nowrap;
-  /* opacity: 0; */
   opacity: 1;
-  /* transform: translateX(-10px); */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, text-align 0.4s ease;
   color: var(--mid);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   font-weight: 900;
   font-size: 2rem;
   margin: 0;
+  flex: 1;
+}
+
+#titolo:hover h1 {
+  text-align: center;
+  padding-right: 62px;
 }
 
 header {
