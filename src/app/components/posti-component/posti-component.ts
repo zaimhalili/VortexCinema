@@ -43,6 +43,15 @@ export class PostiComponent {
     }
   }
 
+  addBigliettoIntero(num: number){
+    num++;
+  }
+
+  addBigliettoRidotto(num: number) {
+    document.getElementsByClassName("input-number")[1]
+    num++;
+  }
+
   ngOnInit() {
     for (let i = 0; i < this.numFile; i++) {
       const row: number[] = [];
