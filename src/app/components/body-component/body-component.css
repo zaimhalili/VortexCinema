@@ -39,7 +39,7 @@ main h1 {
     gap: 10px;
     display: flex;
     flex-direction: column;
-    min-width: 200px;
+    min-width: 160px;
     max-width: 230px;
     cursor: pointer;
     border-radius: 20px;
@@ -232,6 +232,9 @@ main h1 {
 }
 
 @media (max-width: 768px) {
+    .card-container{
+        justify-content: center;
+    }
     main {
         padding: 2rem 20px;
     }
