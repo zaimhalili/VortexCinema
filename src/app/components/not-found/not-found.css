@@ -1,0 +1,172 @@
+.nf-wrapper {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mid);
+    padding: 2rem;
+}
+
+.nf-card {
+    background: var(--font);
+    border-radius: 24px;
+    padding: 4rem 3rem;
+    max-width: 640px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+/* --- Film reel decoration --- */
+.nf-reel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.reel-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--body);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: spin 8s linear infinite;
+    border: 4px solid var(--mid);
+}
+
+.reel-hole {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--font);
+    border: 3px solid var(--mid);
+    z-index: 2;
+}
+
+.reel-spoke {
+    position: absolute;
+    width: 4px;
+    height: 60%;
+    background: var(--mid);
+    border-radius: 2px;
+    top: 20%;
+    left: calc(50% - 2px);
+    transform-origin: center bottom;
+}
+
+.reel-spoke.s2 {
+    transform: rotate(60deg);
+}
+
+.reel-spoke.s3 {
+    transform: rotate(120deg);
+}
+
+.film-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.film-strip span {
+    display: block;
+    width: 32px;
+    height: 8px;
+    background: var(--body);
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
+.film-strip span:nth-child(even) {
+    opacity: 0.3;
+    width: 20px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* --- Text content --- */
+.nf-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nf-code {
+    font-family: "Russo One", Arial, sans-serif;
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--body);
+    letter-spacing: 8px;
+    text-shadow: 0 0 40px rgba(242, 226, 206, 0.25);
+}
+
+.nf-title {
+    font-family: "Russo One", Arial, sans-serif;
+    font-size: 1.8rem;
+    color: var(--body);
+    letter-spacing: 2px;
+    margin-bottom: 0.25rem;
+}
+
+.nf-sub {
+    font-size: 1rem;
+    color: var(--mid);
+    line-height: 1.7;
+    font-weight: 300;
+    max-width: 480px;
+}
+
+.nf-btn {
+    margin-top: 0.75rem;
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, var(--body) 0%, var(--mid) 100%);
+    color: var(--font);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 100px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.nf-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.45);
+}
+
+.nf-btn:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 480px) {
+    .nf-card {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .nf-code {
+        font-size: 5rem;
+    }
+
+    .nf-title {
+        font-size: 1.4rem;
+    }
+}

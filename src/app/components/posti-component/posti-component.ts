@@ -2,13 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Posti } from '../../models/Posti';
 import { CinemaService } from '../../services/cinema-service';
-import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
   selector: 'app-posti-component',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   templateUrl: './posti-component.html',
   styleUrl: './posti-component.css',
 })
@@ -108,8 +107,8 @@ export class PostiComponent {
 
     this.calculateCost();
   }
-  
-  
+
+
 
   isSeatSelected(rowIndex: number, seat: number): boolean {
     const fila = rowIndex + 1;

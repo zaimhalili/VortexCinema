@@ -1,62 +1,23 @@
+/* ============================
+   PAGE WRAPPER
+   ============================ */
 #biglietti {
     background: var(--mid);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
     padding: 2rem 40px;
     min-height: 90vh;
     max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 
-.biglietti {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--body);
-    padding: 1rem;
-    margin-bottom: 5px;
-    align-items: center;
-    font-size: 1.1rem;
-    max-height: 500px;
-    overflow-y: auto;
-}
-
-.scroll-area {
-    max-height: 300px;
-    overflow-y: auto;
-    background-color: var(--mid);
-    border: 2px solid var(--font);
-    margin-bottom: 20px;
-}
-
-select {
-    /* border-radius: 5px; */
-    font-size: 1.1rem;
-    cursor: pointer;
-    background-color: var(--body);
-}
-
-.biglietti button{
-    cursor: pointer;
-    background-color: var(--body);
-
-}
-
-.biglietti button:hover{
-    background-color: var(--mid);
-}
-
-option {
-    border-radius: 5px;
-    background-color: var(--body);
-    cursor: pointer;
-}
-
-select:focus{
-    outline: 1px solid var(--font);
-}
-
+/* ============================
+   LAYOUT CONTAINER
+   ============================ */
 .biglietti-container {
     width: 100%;
     margin: 0 auto;
@@ -66,13 +27,17 @@ select:focus{
     flex-wrap: wrap;
 }
 
-#tipo-biglietto {
+/* ============================
+   LEFT PANEL
+   ============================ */
+#tipo-biglietti {
     width: 40%;
     flex: 1;
+    min-width: 280px;
 }
 
 .biglietti-header {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
 }
 
 .biglietti-header h1 {
@@ -88,6 +53,233 @@ select:focus{
     letter-spacing: 0.5px;
 }
 
+/* scroll area */
+.scroll-area {
+    max-height: 340px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-right: 4px;
+}
+
+.scroll-area::-webkit-scrollbar {
+    width: 4px;
+}
+
+.scroll-area::-webkit-scrollbar-thumb {
+    background: var(--font);
+    border-radius: 4px;
+}
+
+/* empty state */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 2rem;
+    color: var(--font);
+    opacity: 0.45;
+    font-size: 0.95rem;
+    border: 2px dashed var(--font);
+    border-radius: 14px;
+}
+
+.empty-state i {
+    font-size: 2rem;
+}
+
+/* ============================
+   TICKET CARD
+   ============================ */
+.ticket-card {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: var(--font);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    min-height: 76px;
+}
+
+.ticket-left,
+.ticket-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    min-width: 60px;
+}
+
+.ticket-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mid);
+    opacity: 0.75;
+}
+
+.ticket-value {
+    font-family: "Russo One", Arial, sans-serif;
+    font-size: 1.8rem;
+    color: var(--body);
+    line-height: 1.1;
+}
+
+/* perforated divider */
+.ticket-divider {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    padding: 0 4px;
+}
+
+.ticket-divider span {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--mid);
+    opacity: 0.45;
+}
+
+/* toggle buttons */
+.ticket-toggle {
+    display: flex;
+    gap: 6px;
+    padding: 0 12px;
+    flex: 1;
+    justify-content: center;
+}
+
+.toggle-btn {
+    padding: 8px 12px;
+    border: 2px solid var(--mid);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s ease;
+    line-height: 1.3;
+    opacity: 0.6;
+}
+
+.toggle-btn small {
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+.toggle-btn:hover {
+    opacity: 0.85;
+    border-color: var(--body);
+}
+
+.toggle-btn.active {
+    background: var(--body);
+    color: var(--font);
+    border-color: var(--body);
+    opacity: 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* remove button */
+.ticket-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 76px;
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--mid);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s ease, color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.ticket-remove:hover {
+    background: rgba(255, 80, 80, 0.25);
+    color: #ff8080;
+}
+
+/* ============================
+   PRICE ROW
+   ============================ */
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--body);
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--font);
+    margin-bottom: 14px;
+    border: 1.5px solid var(--font);
+}
+
+.price-amount {
+    font-family: "Russo One", Arial, sans-serif;
+    font-size: 1.5rem;
+    color: var(--font);
+}
+
+/* ============================
+   LOADING STATE
+   ============================ */
+.seats-loader {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(20, 15, 10, 0.75);
+    border-radius: 8px;
+    z-index: 10;
+    color: var(--body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    backdrop-filter: blur(3px);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(217, 198, 163, 0.2);
+    border-top-color: var(--body);
+    border-radius: 50%;
+    animation: rotate 0.8s linear infinite;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.seats-grid.is-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+/* ============================
+   RIGHT PANEL: SEAT MAP
+   ============================ */
 .biglietti-content {
     width: fit-content;
     display: flex;
@@ -317,13 +509,23 @@ select:focus{
 }
 
 .modal-box {
-    background: #1f1f1f;
+    background: var(--font);
     padding: 30px;
     border-radius: 16px;
     text-align: center;
-    width: 300px;
-    color: white;
+    width: 320px;
+    color: var(--body);
     animation: fadeIn 0.3s ease;
+}
+
+.modal-box p {
+    font-size: 0.9rem;
+    opacity: 0.75;
+    margin-top: 6px;
+}
+
+.modal-box h2 {
+    color: var(--body);
 }
 
 .success-icon {
@@ -334,12 +536,19 @@ select:focus{
 
 .modal-box button {
     margin-top: 15px;
-    padding: 8px 20px;
-    border-radius: 8px;
+    padding: 10px 28px;
+    border-radius: 100px;
     border: none;
-    background: #e50914;
-    color: white;
+    background: var(--body);
+    color: var(--font);
+    font-weight: 700;
+    letter-spacing: 1px;
     cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.modal-box button:hover {
+    opacity: 0.85;
 }
 
 @keyframes fadeIn {
