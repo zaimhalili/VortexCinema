@@ -20,8 +20,13 @@ export class FilmComponent implements OnInit {
 
   ngOnInit(): void {
     this.cinemaService.getAll().subscribe((data: any[]) => {
-      this.films = data.slice(0, 5);
-      this.cd.detectChanges();
+      const filmIds = data.slice(0, 5).map(f => f.id);
+      filmIds.forEach(id => {
+        this.cinemaService.getOne(id).subscribe(filmDetails => {
+          this.films.push(filmDetails);
+          this.cd.detectChanges();
+        });
+      });
     });
   }
 
