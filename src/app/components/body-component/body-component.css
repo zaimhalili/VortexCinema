@@ -355,7 +355,7 @@ main h1 {
     gap: 2.5rem;
     margin-top: 4rem;
     padding: 3rem;
-    background: linear-gradient(135deg, rgba(238, 221, 199, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    background-color: var(--body);
     border-radius: 20px;
     border: 1px solid rgba(238, 221, 199, 0.15);
     backdrop-filter: blur(15px);
@@ -410,7 +410,7 @@ main h1 {
 
 .prezzi li {
     padding: 2rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(238, 221, 199, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.3) 0%, var(--body) 100%);
     border: 1.5px solid rgba(238, 221, 199, 0.3);
     border-radius: 15px;
     font-size: 1.15rem;
@@ -447,7 +447,7 @@ main h1 {
 
 .prezzi li:hover {
     border-color: rgba(238, 221, 199, 0.6);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(238, 221, 199, 0.12) 100%);
+    background: linear-gradient(135deg, rgba(217, 198, 163, 0.5) 0%, rgba(242, 226, 206, 0.5) 100%);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     transform: translateY(-5px);
     border: 1.5px solid var(--font);

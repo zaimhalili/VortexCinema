@@ -25,4 +25,8 @@ export class CalendarioComponents {
   getShows(film: FilmDetails) {
     return film.spettacoli.filter(s => s.data === this.selectedDate.toISOString().split('T')[0]);
   }
+
+  formatTime(time: string): string {
+    return time.substring(0, 5);
+  }
 }

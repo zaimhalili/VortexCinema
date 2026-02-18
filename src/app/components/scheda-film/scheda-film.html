@@ -11,36 +11,35 @@
                 Anno<b>{{filmDetails?.anno}}</b>
             </p>
             <p>{{filmDetails?.trama}}</p>
-            
+
 
 
 
         </article>
 
     </section>
-    <div id="biglietti" *ngIf="filmDetails?.spettacoli?.length">
+    <div class="spettacoli-container">
+        <a *ngFor="let spettacolo of filmDetails?.spettacoli" [routerLink]="['/acquista', spettacolo.id]"
+            class="spettacolo-card">
 
-        <div class="header-with-line">
-            <h2><b>Spettacoli disponibili</b></h2>
-            <hr>
-        </div>
+            <div class="icon-box">
+                <i class="fa-solid fa-ticket"></i>
+            </div>
 
-        <div class="spettacoli-container">
-            <a [routerLink]="['/acquista', spettacolo.id]" class="spettacolo-card"
-                *ngFor="let spettacolo of filmDetails?.spettacoli">
-                <div class="spettacolo-info">
-                    <div class="info-item">
-                        <span class="info-label"><b>Data</b></span>
-                        <span class="info-value">{{ spettacolo.data }}</span>
-                    </div>
-                    <div class="info-divider"></div>
-                    <div class="info-item">
-                        <span class="info-label"><b>Orario</b></span>
-                        <span class="info-value">{{ spettacolo.orario }}</span>
-                    </div>
+            <div class="time-box">
+                <div class="time-range">
+                    {{ formatTime(spettacolo.orario) }}
+                    <span class="arrow">→</span>
+                    {{ getEndTime(spettacolo.orario, filmDetails?.durata || 0) }}
                 </div>
-            </a>
 
-        </div>
+                <div class="date">
+                    {{ spettacolo.data }}
+                </div>
+            </div>
+
+        </a>
     </div>
+
+
 </main>
