@@ -21,8 +21,8 @@ export class PostiComponent {
   bigliettiInteri: number = 1;
   bigliettiRidotti: number = 0;
   prezzo: number = 10;
-  sedieSelezionate: number = 0;
-  selectedSeats: object[] = [];
+  selectedSeats: { fila: number, posto: number }[] = [];
+  numBiglietti : number = this.bigliettiInteri + this.bigliettiRidotti
 
   constructor(private cinemaService: CinemaService) { }
 
@@ -36,19 +36,45 @@ export class PostiComponent {
   }
 
 
-  selezionaSedia(row: number, seat: number) {
-    const selectSeat = document.getElementsByClassName('seat');
-    const pos = row * this.SEDIE_PER_FILA + seat - 1;
-    if (!selectSeat[pos].classList.contains('selected')) {
-      selectSeat[pos].classList.add('selected');
-    } else {
-      selectSeat[pos].classList.remove('selected');
+  selezionaSedia(rowIndex: number, seat: number) {
+
+    const fila = rowIndex + 1;
+
+    if (this.isSeatOccupied(rowIndex, seat)) return;
+
+    this.numBiglietti = this.bigliettiInteri + this.bigliettiRidotti;
+
+    for (let i = 0; i < this.selectedSeats.length; i++) {
+      if (
+        this.selectedSeats[i].fila === fila &&
+        this.selectedSeats[i].posto === seat
+      ) {
+        this.selectedSeats.splice(i, 1);
+        return;
+      }
     }
 
-    this.sedieSelezionate++;
-    this.selectedSeats.push([row, seat]);
-    console.log(this.selectedSeats);
+    if (this.selectedSeats.length >= this.numBiglietti) return;
+
+    this.selectedSeats.push({ fila, posto: seat });
   }
+  
+
+  isSeatSelected(rowIndex: number, seat: number): boolean {
+    const fila = rowIndex + 1;
+
+    for (let i = 0; i < this.selectedSeats.length; i++) {
+      if (
+        this.selectedSeats[i].fila === fila &&
+        this.selectedSeats[i].posto === seat
+      ) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
 
   changeBigliettoIntero(add: boolean) {
     if (add) {
@@ -72,8 +98,9 @@ export class PostiComponent {
     this.onTicketChange();
   }
 
-  calculateCost() {
+  calculateCost() : number{
     this.prezzo = this.bigliettiInteri * 10 + this.bigliettiRidotti * 7
+    return this.prezzo
   }
   onTicketChange() {
 
@@ -100,29 +127,32 @@ export class PostiComponent {
     this.calculateCost();
   }
 
-  prenotazioneCheck(){
+  prenotazioneCheck(): boolean {
+
     const maxSeats = this.numFile * this.SEDIE_PER_FILA;
-    const total = this.bigliettiInteri + this.bigliettiRidotti;
+    this.numBiglietti = this.bigliettiInteri + this.bigliettiRidotti;
 
-    if (total > maxSeats) {
+    if (this.numBiglietti > maxSeats) {
       alert("Hai superato il numero massimo di posti disponibili.");
-      return;
+      return false;
     }
 
-    if (this.selectedSeats.length !== total) {
+    if (this.selectedSeats.length !== this.numBiglietti) {
       alert("Devi selezionare un numero di posti uguale ai biglietti scelti.");
-      return;
+      return false;
     }
+
+    return true;
   }
 
-  confermaPrenotazione() {
-    this.prenotazioneCheck()
 
-    
+  confermaPrenotazione() {
+    if (!this.prenotazioneCheck()) return;
 
     console.log("Prenotazione confermata");
   }
-  
+
+
 
   ngOnInit() {
     for (let i = 0; i < this.numFile; i++) {

@@ -10,8 +10,7 @@
             <div class="input-number">
                 <button class="add" (click)="changeBigliettoIntero(false)">-</button>
                 <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo intero..."
-                    [value]="bigliettiInteri" min="0" minlength="0" maxlength="3"
-                    [max]="numFile * SEDIE_PER_FILA - bigliettiRidotti" [(ngModel)]="bigliettiInteri"
+                    min="0" [max]="numFile * SEDIE_PER_FILA - bigliettiRidotti" [(ngModel)]="bigliettiInteri"
                     (ngModelChange)="onTicketChange()">
                 <button class="add" (click)="changeBigliettoIntero(true)">+</button>
             </div>
@@ -20,14 +19,19 @@
             <div class="input-number">
                 <button class="add" (click)="changeBigliettoRidotto(false)">-</button>
                 <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo ridotto..."
-                    [value]="bigliettiRidotti" minlength="1" maxlength="3" min="0"
-                    [max]="numFile * SEDIE_PER_FILA - bigliettiInteri" [(ngModel)]="bigliettiRidotti"
+                    min="0" [max]="numFile * SEDIE_PER_FILA - bigliettiInteri" [(ngModel)]="bigliettiRidotti"
                     (ngModelChange)="onTicketChange()">
                 <button class="add" (click)="changeBigliettoRidotto(true)">+</button>
             </div>
 
+            <div class="biglietti" *ngFor="let s of selectedSeats">
+                Sedia: Fila {{ s.fila }} - Posto {{ s.posto }}
+            </div>
             <div>Prezzo Totale: <strong>{{'€'+ prezzo}}</strong></div>
-            <button class="confirm-button" [disabled]="bigliettiInteri + bigliettiRidotti > numFile * SEDIE_PER_FILA" (click)="confermaPrenotazione()">CONFERMA PRENOTAZIONE</button>
+            <button class="confirm-button" [disabled]="
+            bigliettiInteri + bigliettiRidotti > numFile * SEDIE_PER_FILA ||
+            selectedSeats.length !== bigliettiInteri + bigliettiRidotti" (click)="confermaPrenotazione()">CONFERMA
+                PRENOTAZIONE</button>
 
         </div>
 
@@ -38,7 +42,8 @@
                     <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
                     <div class="seats-container">
                         <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row" class="seat"
-                            [class.disabled]="isSeatOccupied(rowIndex, seat)" [attr.data-row]=" rowIndex + 1"
+                            [class.disabled]="isSeatOccupied(rowIndex, seat)"
+                            [class.selected]="isSeatSelected(rowIndex, seat)" [attr.data-row]=" rowIndex + 1"
                             [attr.data-seat]="seat" [disabled]="isSeatOccupied(rowIndex, seat)">
                             {{ seat }}
                         </button>
