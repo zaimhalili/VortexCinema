@@ -76,7 +76,6 @@ export class SchedaFilm {
   constructor(private cinemaService: CinemaService, private route: ActivatedRoute, private cd: ChangeDetectorRef) {
     let id = Number(this.route.snapshot.paramMap.get("id"))
 
-    // Genera la griglia di posti (15 file × 20 posti)
     for (let i = 1; i <= this.ROWS; i++) {
       const row: number[] = [];
       for (let j = 1; j <= this.SEATS_PER_ROW; j++) {
@@ -86,7 +85,6 @@ export class SchedaFilm {
     }
 
     this.cinemaService.getOne(id).subscribe((film) => {
-      // console.log(film)  
       this.filmDetails = film
       cd.detectChanges()
     })

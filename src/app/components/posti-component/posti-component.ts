@@ -102,7 +102,7 @@ export class PostiComponent {
       ) {
 
         this.selectedSeats.splice(i, 1);
-        break; // stop loop after removing
+        break;
       }
     }
 

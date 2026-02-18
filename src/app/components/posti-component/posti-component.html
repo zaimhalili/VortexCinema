@@ -7,6 +7,7 @@
                 <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
             </div>
 
+
             <div class="scroll-area">
                 <div *ngIf="selectedSeats.length === 0" class="empty-state">
                     <i class="fa-solid fa-ticket"></i>
@@ -54,8 +55,6 @@
             <div class="screen-label">SCHERMO</div>
 
             <div class="seats-grid">
-
-
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
                     <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
                     <div class="seats-container">
