@@ -190,77 +190,79 @@ header {
 .Link a:last-child {
   border-radius: 5px 25px 25px 5px;
 }
-@media (max-width: 350px){
+
+@media (max-width: 350px) {
   #titolo {
-      width: fit-content;
-    }
-  
-    #titolo h2 {
-      display: none;
-      opacity: 0;
-    }
-  
-    .contenitore-logo {
-      display: flex;
-    }
-  
-    header {
-      gap: 15px;
-    }
-  
-    .logo {
-      display: flex;
-      margin-right: 0;
-      align-items: flex-start;
-    }
-  
-    .Link {
-      margin-left: 0;
-      width: fit-content;
-      flex-wrap: wrap;
-      justify-content: center;
-      /* flex: 1; */
-    }
-  
-    .user-icon {
-      margin-left: auto;
-      margin-right: 5px;
-    }
+    width: fit-content;
+  }
+
+  #titolo h2 {
+    display: none;
+    opacity: 0;
+  }
+
+  .contenitore-logo {
+    display: flex;
+  }
+
+  header {
+    gap: 15px;
+  }
+
+  .logo {
+    display: flex;
+    margin-right: 0;
+    align-items: flex-start;
+  }
+
+  .Link {
+    margin-left: 0;
+    width: fit-content;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex: 1; */
+  }
+
+  .user-icon {
+    margin-left: auto;
+    margin-right: 5px;
+  }
 }
+
 @media (max-width: 600px) {
   #titolo {
-      width: fit-content;
-    }
-  
-    #titolo h2 {
-      display: none;
-      opacity: 0;
-    }
-  
-    .contenitore-logo {
-      display: flex;
-    }
-  
-    header {
-      gap: 15px;
-    }
-  
-    .logo {
-      display: flex;
-      margin-right: 0;
-      align-items: flex-start;
-    }
-  
-    .Link {
-      margin-left: 0;
-      width: fit-content;
-      flex-wrap: wrap;
-      justify-content: center;
-      /* flex: 1; */
-    }
-  
-    .user-icon {
-      margin-left: auto;
-      margin-right: 5px;
-    }
+    width: fit-content;
+  }
+
+  #titolo h2 {
+    display: none;
+    opacity: 0;
+  }
+
+  .contenitore-logo {
+    display: flex;
+  }
+
+  header {
+    gap: 15px;
+  }
+
+  .logo {
+    display: flex;
+    margin-right: 0;
+    align-items: flex-start;
+  }
+
+  .Link {
+    margin-left: 0;
+    width: fit-content;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* flex: 1; */
+  }
+
+  .user-icon {
+    margin-left: auto;
+    margin-right: 5px;
+  }
 }
