@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CinemaService } from '../../services/cinema-service';
 import { FilmDetails } from '../../models/FilmDetails';
 import { CommonModule } from '@angular/common';
@@ -15,8 +15,11 @@ export class CalendarioComponents {
   films: FilmDetails[] = [];
   selectedDate = new Date();
 
-  constructor(service: CinemaService) {
-    service.getAll().subscribe(f => f.forEach(film => service.getOne(film.id).subscribe(d => this.films.push(d))));
+  constructor(service: CinemaService, private cd: ChangeDetectorRef) {
+    service.getAll().subscribe(f => f.forEach(film => service.getOne(film.id).subscribe(d => {
+      this.films.push(d);
+      this.cd.detectChanges();
+    })));
   }
 
   getShows(film: FilmDetails) {
