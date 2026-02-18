@@ -25,7 +25,7 @@ export class CinemaService {
     }
 
     acquista(idSpettacolo: number, posti: any[]) {
-        return this.http.post(`http://localhost:8080/acquista/${idSpettacolo}`,
+        return this.http.post(`https://cinemaapi-97482589905.europe-west8.run.app/api/v1/acquista/${idSpettacolo}`,
             posti
         );
     }
