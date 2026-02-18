@@ -8,15 +8,20 @@
             </div>
             <p class="domanda">Quanti biglietti a prezzo intero?</p>
             <div class="input-number">
-                <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo intero...">
-                <button class="add">+</button>
+                <button class="add" (click)="changeBigliettoIntero(1, false)">-</button>
+                <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo intero..."
+                    value="1" min="0" minlength="0" maxlength="3">
+                <button class="add" (click)="changeBigliettoIntero(1, true)">+</button>
             </div>
 
             <p class="domanda">Quanti biglietti sono a prezzi riddoti?</p>
             <div class="input-number">
+                <button class="add" (click)="changeBigliettoRidotto(1, false)">-</button>
                 <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo ridotto...">
-                <button class="add" (click)="addBigliettoRidotto(1)">+</button>
+                <button class="add" (click)="changeBigliettoRidotto(1, true)">+</button>
             </div>
+
+            <div>Prezzo Totale: <strong>$27.92</strong></div>
             <button class="confirm-button">CONFERMA PRENOTAZIONE</button>
 
         </div>
@@ -29,7 +34,8 @@
                     <div class="seats-container">
                         <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row" class="seat"
                             [class.disabled]="isSeatOccupied(rowIndex, seat)" [attr.data-row]=" rowIndex + 1"
-                            [attr.data-seat]="seat">
+                            [attr.data-seat]="seat"
+                            [disabled]="isSeatOccupied(rowIndex, seat)">
                             {{ seat }}
                         </button>
                     </div>
