@@ -11,6 +11,10 @@ html{
     scroll-behavior: smooth;
 }
 
+body{
+    background-color: var(--mid);
+}
+
 h1 {
     font-family: "Russo One", Arial, Helvetica, sans-serif;
 }
