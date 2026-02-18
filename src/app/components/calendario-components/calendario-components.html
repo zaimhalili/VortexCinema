@@ -16,7 +16,7 @@
                 <div class="film-title">{{ film.titolo }}</div>
                 <div class="showtimes">
                     <div class="showtime" *ngFor="let s of getShows(film)">
-                        <div class="time">{{ s.orario }}</div>
+                        <div class="time">{{ formatTime(s.orario) }}</div>
                         <button class="btn-acquista" [routerLink]="'/acquista/' + s.id">Acquista</button>
                     </div>
                 </div>
