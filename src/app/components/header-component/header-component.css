@@ -19,7 +19,6 @@ a {
   display: flex;
   align-items: center;
   gap: 10px;
-  /* start collapsed */
   width: 62px;
   transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   width: 300px;
@@ -34,18 +33,20 @@ a {
 #titolo h2 {
   white-space: nowrap;
   opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease, text-align 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   color: var(--mid);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
   font-weight: 900;
   font-size: 2rem;
   margin: 0;
   flex: 1;
+  text-align: left;
+  padding-right: 0;
 }
 
-#titolo:hover h1 {
+#titolo:hover h2 {
   text-align: center;
-  padding-right: 62px;
+  padding-right: 50px;
 }
 
 header {
