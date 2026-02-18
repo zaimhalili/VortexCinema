@@ -293,21 +293,17 @@ h3 {
     article p:last-of-type {
         grid-column: 1 / -1;
         grid-row: auto;
-        
+
     }
 
-     b :first-child {
+    b :first-child {
         display: block;
         margin-bottom: 8px;
-     }
+    }
 
-     article h1 {
+    article h1 {
         font-size: 32px;
         text-align: center;
-     }
+    }
 
-
-
-
-    
 }

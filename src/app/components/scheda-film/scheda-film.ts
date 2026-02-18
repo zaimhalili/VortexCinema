@@ -46,9 +46,10 @@ export class SchedaFilm {
     const endHours = Math.floor(totalMinutes / 60) % 24;
     const endMinutes = totalMinutes % 60;
 
+    const formattedHours = endHours < 10 ? '0' + endHours : endHours;
     const formattedMinutes = endMinutes < 10 ? '0' + endMinutes : endMinutes;
 
-    return `${endHours}:${formattedMinutes}`;
+    return `${formattedHours}:${formattedMinutes}`;
   }
 
   formatTime(orario: string): string {
@@ -64,8 +65,11 @@ export class SchedaFilm {
     return `${formattedHours}:${formattedMinutes}`;
   }
 
-
-
+  formatDate(data: string): string {
+    if (!data) return '';
+    const parts = data.split('-');
+    return `${parts[2]}/${parts[1]}/${parts[0]}`;
+  }
 
   filmDetails: FilmDetails | undefined
 
