@@ -95,10 +95,9 @@
 .row-label {
     font-size: 11px;
     font-weight: 700;
-    color: var(--font);
+    color: var(--body);
     text-align: center;
-    background-color: var(--body);
-    width: 24px;
+    width: 17px;
     height: 24px;
     display: flex;
     align-items: center;
@@ -118,20 +117,22 @@
     padding: 0;
     border: none;
     background-color: darkred;
-    color: black;
-    font-size: 11px;
+    color: white;
+    letter-spacing: 1.1;
+    font-size: 12px;
     font-weight: 700;
+    font-weight: 300;
     border-radius: 3px;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     position: relative;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.seat::before {
+/* .seat::before {
     content: '';
     position: absolute;
     top: 0;
@@ -140,7 +141,7 @@
     background: rgb(95, 0, 0);
     border-radius: 0px 0px 2px 2px;
     opacity: 0.6;
-}
+} */
 
 .seat:hover {
     transform: translateY(-2px) scale(1.2);
@@ -149,6 +150,7 @@
 
 .seat.selected {
     background-color: gold;
+    color: var(--font);
 }
 
 .seat.selected::before {
@@ -251,4 +253,3 @@
     cursor: not-allowed;
     transform: none;
 }
-

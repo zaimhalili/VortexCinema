@@ -5,7 +5,8 @@
     </div>
 
     <div class="films-container">
-        <div [routerLink]="'/film/' + film.id" *ngFor="let film of films" class="film-item" [style.backgroundImage]="'url(' + film.copertina + ')'">
+        <div [routerLink]="'/film/' + film.id" *ngFor="let film of films" class="film-item"
+            [style.backgroundImage]="'url(' + film.copertina + ')'">
             <div class="film-item-overlay"></div>
 
             <div class="film-poster">
