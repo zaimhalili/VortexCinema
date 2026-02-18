@@ -19,6 +19,7 @@ main::before {
     bottom: 0;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%);
     z-index: 1;
+    backdrop-filter: blur(4px);
 }
 
 main>* {
@@ -252,20 +253,22 @@ article a:hover .icon {
     gap: 15px;
     width: 240px;
     padding: 18px;
-    border-radius: 14px;
+    border-radius: 5px;
     text-decoration: none;
     color: var(--font);
     background: var(--body);
     transition: all 0.3s ease;
-    border: 1px solid #2c2c2c;
+    border: none;
+    box-shadow: none;
 }
 
 .spettacolo-card:hover {
     background: var(--mid);
+    transform: none;
 }
 
 .spettacolo-card:active {
-    scale: 0.98;
+    scale: 0.95;
 }
 
 .icon-box {
