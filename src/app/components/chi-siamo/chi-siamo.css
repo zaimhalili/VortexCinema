@@ -4,7 +4,7 @@
     max-width: 1600px;
     margin: 0 auto;
     flex-direction: column;
-    background-color: var(--body);
+    background-color: var(--mid);
     padding: 2rem 40px;
     min-height: 90vh;
     gap: 3rem;
@@ -35,6 +35,7 @@
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -42,14 +43,13 @@
 
 .chi-siamo-container h1 {
     color: var(--font);
-    text-shadow: 0px 0px 2px var(--font);
     font-size: 2.5rem;
     margin-bottom: 2rem;
     text-align: center;
     font-weight: 900;
 }
 
-.chi-siamo-container > h2 {
+.chi-siamo-container>h2 {
     color: var(--font);
     font-size: 1.8rem;
     font-weight: 900;
@@ -67,9 +67,21 @@
 }
 
 .chi-siamo-text {
+    background-color: var(--body);
+    border: 1px solid var(--font);
+    border-radius: 20px;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+}
+
+.chi-siamo-text:hover {
+    background-color: var(--body);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
 .chi-siamo-text h2 {
@@ -77,7 +89,7 @@
     text-shadow: 0px 0px 2px var(--font);
     font-size: 1.8rem;
     font-weight: 700;
-    margin-top: 1rem;
+    margin-top: 0;
 }
 
 .chi-siamo-text p {
@@ -88,16 +100,16 @@
 }
 
 .chi-siamo-section {
-    background: linear-gradient(135deg, rgba(217, 198, 163, 0.4) 0%, rgba(242, 226, 206, 0.4) 100%);
+    background-color: var(--body);
     padding: 2rem;
     border-radius: 20px;
-    border: 1px solid rgba(217, 198, 163, 0.6);
+    border: 1px solid var(--font);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease-in-out;
 }
 
 .chi-siamo-section:hover {
-    background: linear-gradient(135deg, rgba(217, 198, 163, 0.6) 0%, rgba(242, 226, 206, 0.6) 100%);
+    background-color: var(--body);
     transform: translateY(-5px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
@@ -143,23 +155,27 @@
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     border-radius: 25px;
+    border: 1px solid var(--font);
     padding: 2.5rem;
-    background: linear-gradient(135deg, rgba(217, 198, 163, 0.15) 0%, rgba(242, 226, 206, 0.15) 100%);
+    background-color: var(--body);
     animation: rotateBorderTeam 8s linear infinite;
     box-shadow: 0 0 15px rgba(64, 54, 45, 0.2);
 }
 
 @keyframes rotateBorderTeam {
-    0%, 100% {
+
+    0%,
+    100% {
         box-shadow: 0 0 15px rgba(64, 54, 45, 0.2), inset 0 0 0 3px rgba(217, 198, 163, 0.3);
     }
+
     50% {
         box-shadow: 0 0 30px rgba(64, 54, 45, 0.4), inset 0 0 0 3px rgba(217, 198, 163, 0.6);
     }
 }
 
 .team-member {
-    background: linear-gradient(135deg, rgba(217, 198, 163, 0.3) 0%, rgba(242, 226, 206, 0.3) 100%);
+    background-color: var(--mid);
     padding: 2rem;
     border-radius: 20px;
     text-align: center;
