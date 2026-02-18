@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { Posti } from '../../models/Posti';
 import { CinemaService } from '../../services/cinema-service';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,13 +20,37 @@ export class PostiComponent {
   SEDIE_PER_FILA: number = 20;
   rows: number[][] = [];
   prezzo: number = 10;
+  idSpettacolo: number = 0
   selectedSeats: {
     fila: number,
     posto: number,
     tipo: 'INTERO' | 'RIDOTTO'
   }[] = [];
 
-  constructor(private cinemaService: CinemaService) { }
+
+  constructor(private cinemaService: CinemaService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    for (let i = 0; i < this.numFile; i++) {
+      const row: number[] = [];
+
+      for (let j = 1; j <= this.SEDIE_PER_FILA; j++) {
+        row.push(j);
+      }
+
+      this.rows.push(row);
+    }
+
+    this.idSpettacolo = Number(this.route.snapshot.paramMap.get('id'))
+
+    this.cinemaService.getSeat(this.idSpettacolo).subscribe(res => {
+      this.posti = res.posti
+    })
+  }
+
+  getImporto(tipo: "INTERO" | "RIDOTTO") {
+    return tipo === "RIDOTTO" ? 7 : 10
+  }
 
   isSeatOccupied(row: number, column: number): boolean {
     const fila: number = row + 1
@@ -38,7 +63,6 @@ export class PostiComponent {
 
 
   selezionaSedia(rowIndex: number, seat: number) {
-
     const fila = rowIndex + 1;
 
     if (this.isSeatOccupied(rowIndex, seat)) return;
@@ -66,8 +90,8 @@ export class PostiComponent {
   changeTipo(seat: any, tipo: 'INTERO' | 'RIDOTTO') {
     seat.tipo = tipo;
     this.calculateCost();
-  }  
-  
+  }
+
   isSeatSelected(rowIndex: number, seat: number): boolean {
     const fila = rowIndex + 1;
 
@@ -103,25 +127,27 @@ export class PostiComponent {
       return;
     }
 
-    console.log("Prenotazione confermata:", this.selectedSeats);
-  }
-  
+    const data: any[] = []
 
-
-
-  ngOnInit() {
-    for (let i = 0; i < this.numFile; i++) {
-      const row: number[] = [];
-
-      for (let j = 1; j <= this.SEDIE_PER_FILA; j++) {
-        row.push(j);
-      }
-
-      this.rows.push(row);
+    for (let s of this.selectedSeats) {
+      data.push({
+        idSpettacolo: this.idSpettacolo,
+        fila: s.fila,
+        posto: s.posto,
+        ridotto: s.tipo === 'RIDOTTO',
+        importo: this.getImporto(s.tipo)
+      })
     }
 
-    this.cinemaService.getSeat(1).subscribe(res => {
-      this.posti = res.posti
-    })
+    this.cinemaService.acquista(this.idSpettacolo, data).subscribe(() => {
+      alert("Prenotazione confermata!");
+    });
+
+
+
+    console.log("Prenotazione confermata:", this.selectedSeats);
   }
+
+
+
 }
