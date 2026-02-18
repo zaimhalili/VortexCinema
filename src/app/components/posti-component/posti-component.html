@@ -8,20 +8,20 @@
             </div>
             <p class="domanda">Quanti biglietti a prezzo intero?</p>
             <div class="input-number">
-                <button class="add" (click)="changeBigliettoIntero(1, false)">-</button>
+                <button class="add" (click)="changeBigliettoIntero(false)">-</button>
                 <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo intero..."
-                    value="1" min="0" minlength="0" maxlength="3">
-                <button class="add" (click)="changeBigliettoIntero(1, true)">+</button>
+                    [value]="bigliettiInteri" min="0" minlength="0" maxlength="3" [max]="numFile * SEDIE_PER_FILA - bigliettiRidotti">
+                <button class="add" (click)="changeBigliettoIntero(true)">+</button>
             </div>
 
             <p class="domanda">Quanti biglietti sono a prezzi riddoti?</p>
             <div class="input-number">
-                <button class="add" (click)="changeBigliettoRidotto(1, false)">-</button>
-                <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo ridotto...">
-                <button class="add" (click)="changeBigliettoRidotto(1, true)">+</button>
+                <button class="add" (click)="changeBigliettoRidotto(false)">-</button>
+                <input type="number" name="" id="" class="numBiglietti" placeholder="Biglietti a prezzo ridotto..." [value]="bigliettiRidotti" minlength="1" maxlength="3" min="0" [max]="numFile * SEDIE_PER_FILA - bigliettiInteri">
+                <button class="add" (click)="changeBigliettoRidotto(true)">+</button>
             </div>
 
-            <div>Prezzo Totale: <strong>$27.92</strong></div>
+            <div>Prezzo Totale: <strong>{{'€'+ prezzo}}</strong></div>
             <button class="confirm-button">CONFERMA PRENOTAZIONE</button>
 
         </div>

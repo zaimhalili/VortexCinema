@@ -17,6 +17,9 @@ export class PostiComponent {
   numFile: number = 15;
   SEDIE_PER_FILA: number = 20;
   rows: number[][] = [];
+  bigliettiInteri : number = 1;
+  bigliettiRidotti : number = 0;
+  prezzo: number = 10;
 
   constructor(private cinemaService: CinemaService) { }
 
@@ -40,13 +43,30 @@ export class PostiComponent {
     }
   }
 
-  changeBigliettoIntero(num: number, add: boolean) {
-    num++;
+  changeBigliettoIntero(add: boolean) {
+    if(add){
+      this.bigliettiInteri++;
+    }else{
+      if(this.bigliettiInteri <= 1) return;
+      this.bigliettiInteri--;
+    }
+
+    this.calculateCost();
   }
 
-  changeBigliettoRidotto(num: number, add: boolean) {
-    // num = document.getElementsByClassName("numBiglietti")[1]
-    // num++;
+  changeBigliettoRidotto(add: boolean) {
+    if(add){
+      this.bigliettiRidotti++;
+    }else{
+      if(this.bigliettiRidotti <= 0) return;
+      this.bigliettiRidotti--;
+    }
+
+    this.calculateCost();
+  }
+
+  calculateCost() {
+    this.prezzo = this.bigliettiInteri * 10 + this.bigliettiRidotti * 7;
   }
 
   ngOnInit() {
