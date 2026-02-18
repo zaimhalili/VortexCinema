@@ -7,18 +7,28 @@
                 <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
             </div>
 
-            <div class="biglietti" *ngFor="let s of selectedSeats">
-                Sedia: Fila {{ s.fila }} - Posto {{ s.posto }}
+            <div class="scroll-area">
+                <div class="biglietti" *ngFor="let s of selectedSeats">
+                    <button type="button" (click)="removeSelectedSeat(s.fila, s.posto)">    
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    Sedia: Fila {{ s.fila }} - Posto {{ s.posto }}
 
-                <select [(ngModel)]="s.tipo" (change)="calculateCost()">
-                    <option value="INTERO">Intero (€10)</option>
-                    <option value="RIDOTTO">Ridotto (€7)</option>
-                </select>
+                    <select [(ngModel)]="s.tipo" (change)="calculateCost()">
+                        <option value="INTERO">Intero (€10)</option>
+                        <option value="RIDOTTO">Ridotto (€7)</option>
+                    </select>
+                </div>
             </div>
 
+
             <div>Prezzo Totale: <strong>{{'€'+ prezzo}}</strong></div>
-            <button class="confirm-button" (click)="confermaPrenotazione()">
-                CONFERMA PRENOTAZIONE
+            <div *ngIf="selectedSeats.length === 0" class="info-text">
+                Seleziona un posto per continuare
+            </div>
+
+            <button class="confirm-button" (click)="confermaPrenotazione()" [disabled]="isProcessing">
+                {{ isProcessing ? 'Elaborazione...' : 'Acquista' }}
             </button>
 
         </div>
@@ -52,6 +62,15 @@
                     <div class="legend-seat occupied"></div>
                     <span>Occupato</span>
                 </div>
+            </div>
+        </div>
+        <div class="modal-overlay" *ngIf="showSuccessModal">
+            <div class="modal-box">
+                <i class="fa-solid fa-circle-check success-icon"></i>
+                <h2>Prenotazione completata!</h2>
+                <button (click)="showSuccessModal = false">
+                    Chiudi
+                </button>
             </div>
         </div>
 

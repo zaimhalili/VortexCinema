@@ -19,14 +19,15 @@ export class PostiComponent {
   numFile: number = 15;
   SEDIE_PER_FILA: number = 20;
   rows: number[][] = [];
-  prezzo: number = 10;
+  prezzo: number = 0;
   idSpettacolo: number = 0
   selectedSeats: {
     fila: number,
     posto: number,
     tipo: 'INTERO' | 'RIDOTTO'
   }[] = [];
-
+  isProcessing: boolean = false;
+  showSuccessModal: boolean = false;
 
   constructor(private cinemaService: CinemaService, private route: ActivatedRoute) { }
 
@@ -92,6 +93,24 @@ export class PostiComponent {
     this.calculateCost();
   }
 
+  removeSelectedSeat(fila: number, posto: number) {
+    for (let i = 0; i < this.selectedSeats.length; i++) {
+
+      if (
+        this.selectedSeats[i].fila === fila &&
+        this.selectedSeats[i].posto === posto
+      ) {
+
+        this.selectedSeats.splice(i, 1);
+        break; // stop loop after removing
+      }
+    }
+
+    this.calculateCost();
+  }
+  
+  
+
   isSeatSelected(rowIndex: number, seat: number): boolean {
     const fila = rowIndex + 1;
 
@@ -120,9 +139,10 @@ export class PostiComponent {
 
     this.prezzo = total;
   }
-  confermaPrenotazione() {
 
-    if (this.selectedSeats.length === 0) {
+
+  confermaPrenotazione() {
+    if (this.selectedSeats.length === 0 || this.isProcessing) {
       alert("Seleziona almeno un posto.");
       return;
     }
@@ -139,13 +159,20 @@ export class PostiComponent {
       })
     }
 
-    this.cinemaService.acquista(this.idSpettacolo, data).subscribe(() => {
-      alert("Prenotazione confermata!");
-    });
+    this.cinemaService.acquista(this.idSpettacolo, data)
+      .subscribe(() => {
 
+        this.showSuccessModal = true;
+        this.selectedSeats = [];
+        this.calculateCost();
 
+        this.cinemaService.getSeat(this.idSpettacolo)
+          .subscribe(res => {
+            this.posti = res.posti;
+          });
 
-    console.log("Prenotazione confermata:", this.selectedSeats);
+        this.isProcessing = false;
+      });
   }
 
 
