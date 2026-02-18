@@ -19,6 +19,7 @@ main::before {
     bottom: 0;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.7) 100%);
     z-index: 1;
+    backdrop-filter: blur(4px);
 }
 
 main>* {
@@ -237,4 +238,62 @@ article a:hover .icon {
     height: 40px;
     background: linear-gradient(to bottom, transparent, #dab776, transparent);
     opacity: 0.5;
+}
+
+.spettacoli-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.spettacolo-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 240px;
+    padding: 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: var(--font);
+    background: var(--body);
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: none;
+}
+
+.spettacolo-card:hover {
+    background: var(--mid);
+    transform: none;
+}
+
+.spettacolo-card:active {
+    scale: 0.95;
+}
+
+.icon-box {
+    font-size: 22px;
+    color: #e50914;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.time-range {
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.arrow {
+    margin: 0 6px;
+    opacity: 0.6;
+}
+
+.date {
+    font-size: 13px;
+    opacity: 0.6;
+    margin-top: 4px;
 }

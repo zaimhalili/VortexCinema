@@ -6,12 +6,12 @@
                 <img [src]="film.copertina" alt="copertina film">
                 <div class="dark-overlay"></div>
                 <div class="duration">
-                    <B> {{ film.durata ? formatDuration(film.durata) : '' }}</B>
+                    <b> {{ film.anno }}</b>
                 </div>
             </div>
             <div class="details">
                 <h3>{{ film.titolo }}</h3>
-                <h4>{{ film.anno }}</h4>
+                <h4>{{ film.durata ? formatDuration(film.durata) : '' }}</h4>
             </div>
         </a>
 

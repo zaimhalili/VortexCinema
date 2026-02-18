@@ -30,6 +30,42 @@ export class SchedaFilm {
     return `${hours}h ${mins}m`;
   }
 
+  getEndTime(orario: string, durata: number): string {
+
+    if (!orario || !durata) return '';
+
+    const parts = orario.split(':');
+
+    const hours = Number(parts[0]);
+    const minutes = Number(parts[1]);
+
+    let totalMinutes = hours * 60 + minutes;
+
+    totalMinutes += durata;
+
+    const endHours = Math.floor(totalMinutes / 60) % 24;
+    const endMinutes = totalMinutes % 60;
+
+    const formattedMinutes = endMinutes < 10 ? '0' + endMinutes : endMinutes;
+
+    return `${endHours}:${formattedMinutes}`;
+  }
+
+  formatTime(orario: string): string {
+    if (!orario) return '';
+
+    const parts = orario.split(':');
+    const hours = Number(parts[0]);
+    const minutes = Number(parts[1]);
+
+    const formattedHours = hours < 10 ? '0' + hours : hours;
+    const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+
+    return `${formattedHours}:${formattedMinutes}`;
+  }
+
+
+
 
   filmDetails: FilmDetails | undefined
 
