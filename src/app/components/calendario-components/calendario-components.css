@@ -1,0 +1,176 @@
+.calendario-container {
+    background: var(--mid);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.calendario-header {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.day-card {
+    background-color: #DAB776;
+    border: 2px solid var(--font);
+    border-radius: 10px;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-width: 80px;
+}
+
+.day-card:hover {
+    background: rgba(218, 183, 118, 0.2);
+}
+
+.day-card.active {
+    background: #dda43a;
+    border: 2px solid var(--font);
+}
+
+.day-number {
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--font);
+}
+
+.day-card.active .day-number,
+.day-card.active .day-month {
+    color: var(--font);
+}
+
+.day-month {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--font);
+    margin-top: 5px;
+}
+
+.programmazione {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.film-row {
+    background-color: var(--font);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    padding: 25px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    min-height: 280px;
+}
+
+.film-row a {
+    display: block;
+    text-decoration: none;
+}
+
+.film-poster {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.film-poster:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.film-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.film-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--body);
+}
+
+.showtimes {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.showtime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.time {
+    background: #f5f5f5;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000;
+    border-radius: 8px;
+}
+
+.btn-acquista {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-acquista:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 750px) {
+    .film-row {
+        flex-direction: column;
+        align-items: center;
+        min-height: auto;
+    }
+
+    .film-poster {
+        width: 150px;
+        height: 220px;
+    }
+
+    .film-info {
+        width: 100%;
+    }
+
+    .film-title {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .showtimes {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .day-card {
+        min-width: 60px;
+        padding: 10px 15px;
+    }
+
+    .day-number {
+        font-size: 1.5rem;
+    }
+}

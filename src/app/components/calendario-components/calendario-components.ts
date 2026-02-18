@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './calendario-components.css',
 })
 export class CalendarioComponents {
-  days = Array(10).fill(0).map((_, i) => { const d = new Date(); d.setDate(d.getDate() + i); return d; });
+  days = Array(7).fill(0).map((_, i) => { const d = new Date(); d.setDate(d.getDate() + i); return d; });
   films: FilmDetails[] = [];
   selectedDate = new Date();
 

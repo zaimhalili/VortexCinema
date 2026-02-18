@@ -9,11 +9,16 @@
 
     <div class="programmazione">
         <div class="film-row" *ngFor="let film of films" [hidden]="!getShows(film).length">
-            <div class="film-title">{{ film.titolo }}</div>
-            <div class="showtimes">
-                <div class="showtime" *ngFor="let s of getShows(film)">
-                    <div class="time">{{ s.orario }}</div>
-                    <button class="btn-acquista" [routerLink]="'/acquista/' + s.id">Acquista</button>
+            <a [routerLink]="'/film/' + film.id">
+                <img [src]="film.copertina" [alt]="film.titolo" class="film-poster">
+            </a>
+            <div class="film-info">
+                <div class="film-title">{{ film.titolo }}</div>
+                <div class="showtimes">
+                    <div class="showtime" *ngFor="let s of getShows(film)">
+                        <div class="time">{{ s.orario }}</div>
+                        <button class="btn-acquista" [routerLink]="'/acquista/' + s.id">Acquista</button>
+                    </div>
                 </div>
             </div>
         </div>
