@@ -6,7 +6,13 @@
         </div>
     </a>
 
-    <div class="Link">
+    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="Link" [class.menu-open]="menuOpen">
         <a routerLink="/" class="icon-link" title="Home" routerLinkActive="active"
             [routerLinkActiveOptions]="{exact: true}">
             <i class="fa-solid fa-house"></i>
