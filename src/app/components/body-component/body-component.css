@@ -15,6 +15,8 @@ a {
 }
 
 main h1 {
+    font-size: 1.9rem;
+    font-weight: 600;
     color: var(--font);
     text-align: left;
     font-weight: lighter;
@@ -169,7 +171,7 @@ main h1 {
 }
 
 .cinema-description h2 {
-    font-size: 2.5rem;
+    font-size: 1.9rem;
     margin-bottom: 1.5rem;
     color: var(--body);
     font-weight: 600;
@@ -188,26 +190,6 @@ main h1 {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
-.cinema-image {
-    flex: 1;
-    display: flex;
-    justify-content: flex-start;
-}
-
-.cinema-image img {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 1);
-    transition: 0.3s ease-in-out;
-    object-fit: contain;
-    filter: sepia(0.8);
-}
-
-.cinema-image img:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-}
 
 .side-images {
     display: flex;
@@ -223,7 +205,7 @@ main h1 {
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
     transition: 0.3s ease-in-out;
     object-fit: contain;
-    filter: sepia(0.8);
+    filter: sepia(0.5);
 }
 
 .side-img:first-child {
@@ -240,6 +222,8 @@ main h1 {
     background-color: var(--font);
     margin: 4rem 0;
 }
+
+
 
 @media (max-width: 768px) {
     .card-container {
@@ -359,7 +343,24 @@ main h1 {
     }
 }
 
-/* Second Section */
+/* Third Section */
+
+.cinema-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    height: 400px;
+}
+
+.cinema-image img {
+    height: 100%;
+    border-radius: 18px 18px 0 0;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+    transition: 0.3s ease-in-out;
+    object-fit: contain;
+    filter: sepia(0.5);
+}
 
 .prezzi {
     display: flex;
