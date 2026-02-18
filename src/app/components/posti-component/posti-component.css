@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 #tipo-biglietto {
@@ -49,8 +50,19 @@
     padding-bottom: 20px;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: inherit;
+}
+
 .input-number input {
-    border-radius: 5px 0 0 5px;
     padding: 5px 4px;
     background-color: var(--body);
     color: var(--font);
@@ -75,13 +87,25 @@
     color: var(--body);
 }
 
+.numBiglietti{
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+}
+
+.numBiglietti:focus{
+    outline: 1px solid var(--font);
+}
+
 .biglietti-content {
     width: fit-content;
     display: flex;
+    flex: 1;
     flex-direction: column;
     background: var(--font);
     border-radius: 12px;
     padding: 10px 20px;
+    max-width: 800px;
 }
 
 .screen-label {
@@ -91,7 +115,7 @@
     font-weight: 700;
     margin-bottom: 20px;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .screen-label::after {
@@ -231,13 +255,13 @@
 }
 
 .legend-seat.available {
-    background-color: red;
-    border-color: #c11d1d;
-
+    background-color: darkred;
+    border: none;
 }
 
 .legend-seat.selected {
     background-color: gold;
+    border: none;
 }
 
 .legend-seat.selected::before {
@@ -245,8 +269,8 @@
 }
 
 .legend-seat.occupied {
-    background-color: #747272;
-    border-color: #555;
+    background-color: #444;
+    border: none;
 }
 
 .confirm-button {
