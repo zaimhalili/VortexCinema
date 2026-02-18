@@ -96,7 +96,7 @@
                 <p class="modal-sub">Il tuo ordine è stato registrato con successo.</p>
 
                 <div class="modal-receipt">
-                    <div class="receipt-row" *ngFor="let s of purchasedSeats">
+                    <div class="receipt-row" *ngFor="let s of selectedSeats">
                         <div class="receipt-seat">
                             <span class="receipt-badge">F{{ s.fila }}</span>
                             <span class="receipt-badge">P{{ s.posto }}</span>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="receipt-total">
                         <span>Totale pagato</span>
-                        <strong>€{{ purchasedTotal }}</strong>
+                        <strong>€{{ prezzo }}</strong>
                     </div>
                 </div>
 
