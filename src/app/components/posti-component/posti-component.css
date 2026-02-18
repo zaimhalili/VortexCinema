@@ -59,6 +59,7 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+    appearance: inherit;
 }
 
 .input-number input {
@@ -255,11 +256,12 @@ input[type=number] {
 
 .legend-seat.available {
     background-color: darkred;
-
+    border: none;
 }
 
 .legend-seat.selected {
     background-color: gold;
+    border: none;
 }
 
 .legend-seat.selected::before {
@@ -267,8 +269,8 @@ input[type=number] {
 }
 
 .legend-seat.occupied {
-    background-color: #747272;
-    border-color: #555;
+    background-color: #444;
+    border: none;
 }
 
 .confirm-button {
