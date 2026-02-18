@@ -25,8 +25,9 @@ export class PostiComponent {
     posto: number,
     tipo: 'INTERO' | 'RIDOTTO'
   }[] = [];
-  isProcessing: boolean = false;
   showSuccessModal: boolean = false;
+  purchasedSeats: { fila: number, posto: number, tipo: string }[] = [];
+  purchasedTotal: number = 0;
 
   constructor(private cinemaService: CinemaService, private route: ActivatedRoute) { }
 
@@ -141,13 +142,13 @@ export class PostiComponent {
 
 
   confermaPrenotazione() {
-    if (this.selectedSeats.length === 0 || this.isProcessing) {
-      alert("Seleziona almeno un posto.");
-      return;
-    }
+    if (this.selectedSeats.length === 0) return;
 
-    const data: any[] = []
+    this.purchasedSeats = this.selectedSeats.map(s => ({ fila: s.fila, posto: s.posto, tipo: s.tipo }));
+    this.purchasedTotal = this.prezzo;
+    this.showSuccessModal = true;
 
+    const data: any[] = [];
     for (let s of this.selectedSeats) {
       data.push({
         idSpettacolo: this.idSpettacolo,
@@ -155,23 +156,20 @@ export class PostiComponent {
         posto: s.posto,
         ridotto: s.tipo === 'RIDOTTO',
         importo: this.getImporto(s.tipo)
-      })
+      });
     }
 
-    this.cinemaService.acquista(this.idSpettacolo, data)
-      .subscribe(() => {
-
-        this.showSuccessModal = true;
-        this.selectedSeats = [];
-        this.calculateCost();
-
-        this.cinemaService.getSeat(this.idSpettacolo)
-          .subscribe(res => {
-            this.posti = res.posti;
-          });
-
-        this.isProcessing = false;
+    this.cinemaService.acquista(this.idSpettacolo, data).subscribe(() => {
+      this.selectedSeats = [];
+      this.calculateCost();
+      this.cinemaService.getSeat(this.idSpettacolo).subscribe(res => {
+        this.posti = res.posti;
       });
+    });
+  }
+
+  closeModal() {
+    this.showSuccessModal = false;
   }
 
 

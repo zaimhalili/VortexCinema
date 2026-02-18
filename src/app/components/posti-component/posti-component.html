@@ -1,7 +1,6 @@
 <div id="biglietti">
     <div class="biglietti-container">
 
-        <!-- LEFT PANEL: selected tickets -->
         <div id="tipo-biglietti">
             <div class="biglietti-header">
                 <h1>Scegli i Posti</h1>
@@ -47,18 +46,15 @@
                 <strong class="price-amount">€{{ prezzo }}</strong>
             </div>
 
-            <button class="confirm-button" (click)="confermaPrenotazione()"
-                [disabled]="isProcessing || selectedSeats.length === 0">
-                {{ isProcessing ? 'Elaborazione...' : 'Acquista Biglietti' }}
+            <button class="confirm-button" (click)="confermaPrenotazione()" [disabled]="selectedSeats.length === 0">
+                Acquista Biglietti
             </button>
         </div>
-
-        <!-- RIGHT PANEL: seat map -->
         <div class="biglietti-content">
             <div class="screen-label">SCHERMO</div>
 
             <div class="seats-grid">
-                
+
 
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
                     <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
@@ -91,13 +87,32 @@
 
     </div>
 
-    <!-- Success Modal -->
-    <div class="modal-overlay" *ngIf="showSuccessModal">
-        <div class="modal-box">
-            <i class="fa-solid fa-circle-check success-icon"></i>
-            <h2>Prenotazione completata!</h2>
-            <p>I tuoi biglietti sono stati acquistati con successo.</p>
-            <button (click)="showSuccessModal = false">Chiudi</button>
+    <div class="modal-overlay" *ngIf="showSuccessModal" (click)="closeModal()">
+        <div class="modal-box" (click)="$event.stopPropagation()">
+            <div class="modal-state">
+                <div class="modal-icon-wrap success-wrap">
+                    <i class="fa-solid fa-check modal-icon"></i>
+                </div>
+                <h2>Prenotazione Confermata!</h2>
+                <p class="modal-sub">Il tuo ordine è stato registrato con successo.</p>
+
+                <div class="modal-receipt">
+                    <div class="receipt-row" *ngFor="let s of purchasedSeats">
+                        <div class="receipt-seat">
+                            <span class="receipt-badge">F{{ s.fila }}</span>
+                            <span class="receipt-badge">P{{ s.posto }}</span>
+                        </div>
+                        <span class="receipt-tipo">{{ s.tipo === 'INTERO' ? 'Intero' : 'Ridotto' }}</span>
+                        <span class="receipt-price">€{{ s.tipo === 'INTERO' ? 10 : 7 }}</span>
+                    </div>
+                    <div class="receipt-total">
+                        <span>Totale pagato</span>
+                        <strong>€{{ purchasedTotal }}</strong>
+                    </div>
+                </div>
+
+                <button class="modal-close-btn" (click)="closeModal()">Chiudi</button>
+            </div>
         </div>
     </div>
 </div>
