@@ -40,63 +40,6 @@
     letter-spacing: 0.5px;
 }
 
-.domanda {
-    color: var(--font);
-    padding-bottom: 10px;
-}
-
-.input-number {
-    display: flex;
-    padding-bottom: 20px;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-    -moz-appearance: textfield;
-    appearance: inherit;
-}
-
-.input-number input {
-    padding: 5px 4px;
-    background-color: var(--body);
-    color: var(--font);
-    border: none;
-    font-size: 17px;
-}
-
-.add{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--body);
-    border: none;
-    cursor: pointer;
-    padding: 0 10px;
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.add:hover{
-    background-color: var(--font);
-    color: var(--body);
-}
-
-.numBiglietti{
-    width: fit-content;
-    position: relative;
-    z-index: 1;
-}
-
-.numBiglietti:focus{
-    outline: 1px solid var(--font);
-}
-
 .biglietti-content {
     width: fit-content;
     display: flex;
@@ -308,3 +251,4 @@ input[type=number] {
     cursor: not-allowed;
     transform: none;
 }
+
