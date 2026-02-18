@@ -23,4 +23,10 @@ export class CinemaService {
     getSeat(id: number): Observable<SpettacoloPostiResponse> {
         return this.http.get<SpettacoloPostiResponse>(`https://cinemaapi-97482589905.europe-west8.run.app/api/v1/acquista/${id}`)
     }
+
+    acquista(idSpettacolo: number, posti: any[]) {
+        return this.http.post(`http://localhost:8080/acquista/${idSpettacolo}`,
+            posti
+        );
+    }
 }   
