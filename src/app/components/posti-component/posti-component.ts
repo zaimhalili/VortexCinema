@@ -17,11 +17,14 @@ export class PostiComponent {
   numFile: number = 15;
   SEDIE_PER_FILA: number = 20;
   rows: number[][] = [];
+  bigliettiInteri : number = 1;
+  bigliettiRidotti : number = 0;
+  prezzo: number = 10;
 
   constructor(private cinemaService: CinemaService) { }
 
   isSeatOccupied(row: number, column: number): boolean {
-    const fila : number = row + 1
+    const fila: number = row + 1
     const posto = this.posti.find(p =>
       p.fila === fila && p.posto === column
     )
@@ -33,23 +36,37 @@ export class PostiComponent {
   selezionaSedia(row: number, seat: number) {
     const selectSeat = document.getElementsByClassName('seat');
     const pos = row * this.SEDIE_PER_FILA + seat - 1;
-
-    if (!selectSeat[pos].classList.contains('disabled')) {
-      if (!selectSeat[pos].classList.contains('selected')) {
-        selectSeat[pos].classList.add('selected');
-      } else {
-        selectSeat[pos].classList.remove('selected');
-      }
+    if (!selectSeat[pos].classList.contains('selected')) {
+      selectSeat[pos].classList.add('selected');
+    } else {
+      selectSeat[pos].classList.remove('selected');
     }
   }
 
-  addBigliettoIntero(num: number){
-    num++;
+  changeBigliettoIntero(add: boolean) {
+    if(add){
+      this.bigliettiInteri++;
+    }else{
+      if(this.bigliettiInteri <= 1) return;
+      this.bigliettiInteri--;
+    }
+
+    this.calculateCost();
   }
 
-  addBigliettoRidotto(num: number) {
-    document.getElementsByClassName("input-number")[1]
-    num++;
+  changeBigliettoRidotto(add: boolean) {
+    if(add){
+      this.bigliettiRidotti++;
+    }else{
+      if(this.bigliettiRidotti <= 0) return;
+      this.bigliettiRidotti--;
+    }
+
+    this.calculateCost();
+  }
+
+  calculateCost() {
+    this.prezzo = this.bigliettiInteri * 10 + this.bigliettiRidotti * 7;
   }
 
   ngOnInit() {
@@ -63,7 +80,7 @@ export class PostiComponent {
       this.rows.push(row);
     }
 
-    this.cinemaService.getSeat(1).subscribe(res =>{
+    this.cinemaService.getSeat(1).subscribe(res => {
       this.posti = res.posti
     })
   }

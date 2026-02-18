@@ -1,1 +1,21 @@
-<p>calendario-components works!</p>
+<div class="calendario-container">
+    <div class="calendario-header">
+        <div class="day-card" *ngFor="let day of days"
+            [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day">
+            <div class="day-number">{{ day.getDate() }}</div>
+            <div class="day-month">{{ day.toLocaleString('it-IT', {month: 'short'}).toUpperCase() }}</div>
+        </div>
+    </div>
+
+    <div class="programmazione">
+        <div class="film-row" *ngFor="let film of films" [hidden]="!getShows(film).length">
+            <div class="film-title">{{ film.titolo }}</div>
+            <div class="showtimes">
+                <div class="showtime" *ngFor="let s of getShows(film)">
+                    <div class="time">{{ s.orario }}</div>
+                    <button class="btn-acquista" [routerLink]="'/acquista/' + s.id">Acquista</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
