@@ -18,11 +18,12 @@ export class PostiComponent {
   numFile: number = 15;
   SEDIE_PER_FILA: number = 20;
   rows: number[][] = [];
-  bigliettiInteri: number = 1;
-  bigliettiRidotti: number = 0;
   prezzo: number = 10;
-  selectedSeats: { fila: number, posto: number }[] = [];
-  numBiglietti : number = this.bigliettiInteri + this.bigliettiRidotti
+  selectedSeats: {
+    fila: number,
+    posto: number,
+    tipo: 'INTERO' | 'RIDOTTO'
+  }[] = [];
 
   constructor(private cinemaService: CinemaService) { }
 
@@ -42,24 +43,31 @@ export class PostiComponent {
 
     if (this.isSeatOccupied(rowIndex, seat)) return;
 
-    this.numBiglietti = this.bigliettiInteri + this.bigliettiRidotti;
-
     for (let i = 0; i < this.selectedSeats.length; i++) {
       if (
         this.selectedSeats[i].fila === fila &&
         this.selectedSeats[i].posto === seat
       ) {
         this.selectedSeats.splice(i, 1);
+        this.calculateCost();
         return;
       }
     }
 
-    if (this.selectedSeats.length >= this.numBiglietti) return;
+    this.selectedSeats.push({
+      fila,
+      posto: seat,
+      tipo: 'INTERO'
+    });
 
-    this.selectedSeats.push({ fila, posto: seat });
+    this.calculateCost();
   }
-  
 
+  changeTipo(seat: any, tipo: 'INTERO' | 'RIDOTTO') {
+    seat.tipo = tipo;
+    this.calculateCost();
+  }  
+  
   isSeatSelected(rowIndex: number, seat: number): boolean {
     const fila = rowIndex + 1;
 
@@ -75,82 +83,29 @@ export class PostiComponent {
     return false;
   }
 
+  calculateCost() {
+    let total = 0;
 
-  changeBigliettoIntero(add: boolean) {
-    if (add) {
-      this.bigliettiInteri++;
-    } else {
-      if (this.bigliettiInteri <= 1) return;
-      this.bigliettiInteri--;
+    for (let s of this.selectedSeats) {
+      if (s.tipo === 'INTERO') {
+        total += 10;
+      } else {
+        total += 7;
+      }
     }
 
-    this.onTicketChange();
+    this.prezzo = total;
   }
-
-  changeBigliettoRidotto(add: boolean) {
-    if (add) {
-      this.bigliettiRidotti++;
-    } else {
-      if (this.bigliettiRidotti <= 0) return;
-      this.bigliettiRidotti--;
-    }
-
-    this.onTicketChange();
-  }
-
-  calculateCost() : number{
-    this.prezzo = this.bigliettiInteri * 10 + this.bigliettiRidotti * 7
-    return this.prezzo
-  }
-  onTicketChange() {
-
-    const maxSeats = this.numFile * this.SEDIE_PER_FILA;
-
-    // empty input
-    if (!this.bigliettiInteri || this.bigliettiInteri < 1) {
-      this.bigliettiInteri = 1;
-    }
-
-    // empty input 2
-    if (!this.bigliettiRidotti || this.bigliettiRidotti < 0) {
-      this.bigliettiRidotti = 0;
-    }
-
-    if (this.bigliettiInteri > maxSeats) {
-      this.bigliettiInteri = maxSeats;
-    }
-
-    if (this.bigliettiRidotti > maxSeats) {
-      this.bigliettiRidotti = maxSeats;
-    }
-
-    this.calculateCost();
-  }
-
-  prenotazioneCheck(): boolean {
-
-    const maxSeats = this.numFile * this.SEDIE_PER_FILA;
-    this.numBiglietti = this.bigliettiInteri + this.bigliettiRidotti;
-
-    if (this.numBiglietti > maxSeats) {
-      alert("Hai superato il numero massimo di posti disponibili.");
-      return false;
-    }
-
-    if (this.selectedSeats.length !== this.numBiglietti) {
-      alert("Devi selezionare un numero di posti uguale ai biglietti scelti.");
-      return false;
-    }
-
-    return true;
-  }
-
-
   confermaPrenotazione() {
-    if (!this.prenotazioneCheck()) return;
 
-    console.log("Prenotazione confermata");
+    if (this.selectedSeats.length === 0) {
+      alert("Seleziona almeno un posto.");
+      return;
+    }
+
+    console.log("Prenotazione confermata:", this.selectedSeats);
   }
+  
 
 
 
