@@ -5,6 +5,7 @@ import { FilmComponent } from './components/film-component/film-component';
 import { NotFound } from './components/not-found/not-found';
 import { ChiSiamo } from './components/chi-siamo/chi-siamo';
 import { PostiComponent } from './components/posti-component/posti-component';
+import { CalendarioComponents } from './components/calendario-components/calendario-components';
 
 
 
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: "film/:id", component: SchedaFilm },
     { path: "acquista/:id", component: PostiComponent },
     { path: "chisiamo", component: ChiSiamo},
+    { path: "calendario", component: CalendarioComponents },
     { path: "**", component: NotFound },
 ];
