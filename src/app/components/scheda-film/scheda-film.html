@@ -11,14 +11,12 @@
                 Anno<b>{{filmDetails?.anno}}</b>
             </p>
             <p>{{filmDetails?.trama}}</p>
-
-
-
-
         </article>
 
     </section>
+    <h3>Orari</h3>
     <div class="spettacoli-container">
+        
         <a *ngFor="let spettacolo of filmDetails?.spettacoli" [routerLink]="['/acquista', spettacolo.id]"
             class="spettacolo-card">
 
@@ -29,7 +27,7 @@
             <div class="time-box">
                 <div class="time-range">
                     {{ formatTime(spettacolo.orario) }}
-                    <span class="arrow">→</span>
+                    <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
                     {{ getEndTime(spettacolo.orario, filmDetails?.durata || 0) }}
                 </div>
 
