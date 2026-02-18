@@ -209,11 +209,11 @@ main h1 {
 }
 
 .side-img:first-child {
-    border-radius: 0 20px 0 0;
+    border-radius: 18px 18px 18px 18px;
 }
 
 .side-img:last-child {
-    border-radius: 0 0 20px 0;
+    border-radius: 18px 18px 18px 18px;
 }
 
 .riga {
