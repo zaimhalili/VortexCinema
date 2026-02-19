@@ -4,11 +4,19 @@
         <h1 class="cal-title">Calendario Spettacoli</h1>
     </div>
 
-    <div class="cal-days">
-        <button class="day-pill" *ngFor="let day of days"
-            [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day">
-            <span class="dp-num">{{ day.getDate() }}</span>
-            <span class="dp-month">{{ day.toLocaleString('it-IT', {month: 'short'}).toUpperCase() }}</span>
+    <div class="cal-days-wrapper">
+        <button class="cal-nav-btn" (click)="previousDays()">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="cal-days">
+            <button class="day-pill" *ngFor="let day of days"
+                [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day">
+                <span class="dp-num">{{ day.getDate() }}</span>
+                <span class="dp-month">{{ day.toLocaleString('it-IT', {month: 'short'}).toUpperCase() }}</span>
+            </button>
+        </div>
+        <button class="cal-nav-btn" (click)="nextDays()">
+            <i class="fa-solid fa-chevron-right"></i>
         </button>
     </div>
 
