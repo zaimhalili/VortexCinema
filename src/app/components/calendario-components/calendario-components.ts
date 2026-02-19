@@ -11,15 +11,35 @@ import { RouterModule } from '@angular/router';
   styleUrl: './calendario-components.css',
 })
 export class CalendarioComponents {
-  days = Array(5).fill(0).map((_, i) => { const d = new Date(); d.setDate(d.getDate() + i); return d; });
+  startOffset = 0;
+  days: Date[] = [];
   films: FilmDetails[] = [];
   selectedDate = new Date();
 
   constructor(service: CinemaService, private cd: ChangeDetectorRef) {
+    this.updateDays();
     service.getAll().subscribe(f => f.forEach(film => service.getOne(film.id).subscribe(d => {
       this.films.push(d);
       this.cd.detectChanges();
     })));
+  }
+
+  updateDays() {
+    this.days = Array(5).fill(0).map((_, i) => {
+      const d = new Date();
+      d.setDate(d.getDate() + this.startOffset + i);
+      return d;
+    });
+  }
+
+  previousDays() {
+    this.startOffset -= 5;
+    this.updateDays();
+  }
+
+  nextDays() {
+    this.startOffset += 5;
+    this.updateDays();
   }
 
   getShows(film: FilmDetails) {
