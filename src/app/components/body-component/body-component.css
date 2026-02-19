@@ -271,6 +271,7 @@ main h1 {
     overflow: hidden;
     box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
     scale: 0.99;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
 }
 
 .prezzo-card:hover {
