@@ -2,13 +2,12 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { Posti } from '../../models/Posti';
 import { CinemaService } from '../../services/cinema-service';
-import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
   selector: 'app-posti-component',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule],
   templateUrl: './posti-component.html',
   styleUrl: './posti-component.css',
 })
@@ -26,7 +25,6 @@ export class PostiComponent {
     posto: number,
     tipo: 'INTERO' | 'RIDOTTO'
   }[] = [];
-  isProcessing: boolean = false;
   showSuccessModal: boolean = false;
   seatMap = new Map<string, boolean>();
 
@@ -146,42 +144,24 @@ export class PostiComponent {
 
 
   confermaPrenotazione() {
-    if (this.selectedSeats.length === 0 || this.isProcessing) {
-      alert("Seleziona almeno un posto.");
-      return;
-    }
+    if (this.selectedSeats.length === 0) return;
+    this.showSuccessModal = true;
+    const data = this.selectedSeats.map(s => ({
+      idSpettacolo: this.idSpettacolo,
+      fila: s.fila,
+      posto: s.posto,
+      ridotto: s.tipo === 'RIDOTTO',
+      importo: this.getImporto(s.tipo)
+    }));
+    this.cinemaService.acquista(this.idSpettacolo, data).subscribe(() => {
+      this.cinemaService.getSeat(this.idSpettacolo).subscribe(res => { this.posti = res.posti; });
+    });
+  }
 
-    const data: any[] = []
-
-    for (let s of this.selectedSeats) {
-      data.push({
-        idSpettacolo: this.idSpettacolo,
-        fila: s.fila,
-        posto: s.posto,
-        ridotto: s.tipo === 'RIDOTTO',
-        importo: this.getImporto(s.tipo)
-      })
-    }
-
-    this.cinemaService.acquista(this.idSpettacolo, data)
-      .subscribe(() => {
-
-        this.showSuccessModal = true;
-        this.selectedSeats = [];
-        this.calculateCost();
-
-        this.cinemaService.getSeat(this.idSpettacolo)
-          .subscribe(res => {
-            this.posti = res.posti;
-
-            this.seatMap = new Map<string, boolean>();
-            for (let p of this.posti) {
-              this.seatMap.set(`${p.fila}-${p.posto}`, p.occupato);
-            }
-          });
-
-        this.isProcessing = false;
-      });
+  closeModal() {
+    this.showSuccessModal = false;
+    this.selectedSeats = [];
+    this.calculateCost();
   }
 
 

@@ -34,7 +34,7 @@ a {
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   color: var(--mid);
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
-  font-weight: 400;
+  font-weight: 700;
   font-size: 2rem;
   margin: 0;
   flex: 1;
@@ -272,7 +272,7 @@ header {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 700px) {
   .hamburger {
     display: flex;
   }

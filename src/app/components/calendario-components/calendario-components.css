@@ -1,251 +1,248 @@
-.calendario-container {
-    background: var(--mid);
+.cal-page {
+    background: var(--body);
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 60px 40px;
+    color: var(--font);
 }
 
-.calendario-header {
+.cal-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.cal-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    color: #A07830;
+    font-weight: 700;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+.cal-title {
+    font-family: "Russo One", sans-serif;
+    font-size: 3rem;
+    color: var(--font);
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+.cal-days {
     display: flex;
     gap: 10px;
     justify-content: center;
-    margin-bottom: 40px;
     flex-wrap: wrap;
+    margin-bottom: 56px;
 }
 
-.day-card {
-    background-color: #DAB776;
-    border: 2px solid var(--font);
-    border-radius: 10px;
-    padding: 15px 20px;
-    cursor: pointer;
-    text-align: center;
-    transition: all 0.3s ease;
-    min-width: 80px;
-}
-
-.day-card:hover {
-    background: rgba(218, 183, 118, 0.2);
-}
-
-.day-card.active {
-    background: #dda43a;
-    border: 2px solid var(--font);
-}
-
-.day-number {
-    font-size: 2rem;
-    font-weight: 900;
-    color: var(--font);
-}
-
-.day-card.active .day-number,
-.day-card.active .day-month {
-    color: var(--font);
-}
-
-.day-month {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--font);
-    margin-top: 5px;
-}
-
-.programmazione {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.film-row {
-    background-color: var(--font);
-    border-radius: 15px;
-    margin-bottom: 30px;
-    padding: 25px;
+.day-pill {
     display: flex;
-    gap: 30px;
+    flex-direction: column;
     align-items: center;
-    min-height: 280px;
-}
-
-.film-row a {
-    display: block;
-    text-decoration: none;
-}
-
-.film-poster {
-    width: 200px;
-    height: 280px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    flex-shrink: 0;
+    background: transparent;
+    border: 1px solid rgba(64, 54, 45, 0.22);
+    border-radius: 12px;
+    padding: 14px 22px;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.2s ease;
+    min-width: 72px;
+    color: var(--font);
+    font-family: "Outfit", sans-serif;
 }
 
-.film-poster:hover {
-    transform: scale(1.05);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+.day-pill:hover {
+    border-color: #A07830;
+    background: rgba(160, 120, 48, 0.07);
 }
 
-.film-info {
-    flex: 1;
+.day-pill.active {
+    background: var(--font);
+    border-color: var(--font);
+    color: var(--body);
+}
+
+.dp-num {
+    font-family: "Russo One", sans-serif;
+    font-size: 1.7rem;
+    line-height: 1;
+}
+
+.dp-month {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+
+.cal-list {
+    max-width: 1060px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.film-title {
-    font-size: 1.8rem;
-    font-weight: 900;
-    color: var(--body);
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.showtimes {
+.cal-card {
     display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    border: 1px solid rgba(64, 54, 45, 0.14);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    background: #fff;
 }
 
-.showtime {
+.cal-card:hover {
+    border-color: rgba(64, 54, 45, 0.3);
+    box-shadow: 0 6px 24px rgba(64, 54, 45, 0.08);
+}
+
+.cal-poster-wrap {
+    position: relative;
+    flex-shrink: 0;
+    display: block;
+    text-decoration: none;
+}
+
+.cal-poster {
+    width: 175px;
+    height: 255px;
+    object-fit: cover;
+    display: block;
+}
+
+.cal-poster-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(40, 33, 27, 0.52);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.22s ease;
+    font-size: 2.6rem;
+    color: #fff;
+}
+
+.cal-poster-wrap:hover .cal-poster-overlay {
+    opacity: 1;
+}
+
+.cal-info {
+    flex: 1;
+    padding: 30px 36px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 8px;
+    justify-content: space-between;
 }
 
-.time {
-    background: #f5f5f5;
-    padding: 8px 27px;
+.cal-film-title {
+    font-family: "Russo One", sans-serif;
+    font-size: 1.85rem;
+    color: var(--font);
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+}
+
+.cal-shows {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(64, 54, 45, 0.1);
+}
+
+.cal-show {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cal-time {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--body);
+    border: 1px solid rgba(64, 54, 45, 0.18);
+    border-radius: 8px;
+    padding: 9px 18px;
     font-size: 1rem;
     font-weight: 600;
-    color: #000;
-    border-radius: 8px;
-    min-width: fit-content;
+    color: var(--font);
+    white-space: nowrap;
+    font-family: "Outfit", sans-serif;
 }
 
-.btn-acquista {
-    background-color: green;
-    color: white;
+.cal-time i {
+    color: #A07830;
+    font-size: 0.82rem;
+}
+
+.cal-buy-btn {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--font);
+    color: var(--body);
     border: none;
     border-radius: 8px;
-    padding: 8px 20px;
-    font-size: 0.9rem;
+    padding: 9px 20px;
+    font-size: 0.88rem;
     font-weight: 700;
     cursor: pointer;
-    transition: all 0.3s ease;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: "Outfit", sans-serif;
+    letter-spacing: 0.02em;
 }
 
-.btn-acquista:hover {
-    background: #45a049;
+.cal-buy-btn:hover {
+    background: #5a4a38;
     transform: translateY(-2px);
 }
 
-@media (max-width: 1200px) {
-
-
-    .calendario-container {
-        padding: 30px 15px;
+@media (max-width: 900px) {
+    .cal-page {
+        padding: 40px 20px;
     }
 
-    .programmazione {
-        max-width: 800px;
-        padding: 0 20px;
+    .cal-title {
+        font-size: 2.2rem;
     }
 
-    .film-row {
-        border-radius: 15px;
-        padding: 20px;
-        gap: 20px;
-        min-height: 240px;
-        display: flex;
-        align-items: center;
+    .cal-poster {
+        width: 135px;
+        height: 200px;
     }
 
-    .film-poster {
-        width: 160px;
-        height: 240px;
+    .cal-film-title {
+        font-size: 1.45rem;
     }
 
-    .film-title {
-        font-size: 1.5rem;
-    }
-
-    .film-info {
-        gap: 15px;
-    }
-
-    .day-card {
-        min-width: 55px;
-        padding: 8px 12px;
-    }
-
-    .day-number {
-        font-size: 1.4rem;
-    }
-
-    .day-month {
-        font-size: 0.7rem;
-    }
-
-    .time {
-        padding: 6px 12px;
-        font-size: 0.95rem;
-    }
-
-    .btn-acquista {
-        padding: 6px 16px;
-        font-size: 0.85rem;
+    .cal-info {
+        padding: 22px 24px;
     }
 }
 
-@media (max-width: 360px) {
-    .film-row {
+@media (max-width: 560px) {
+    .cal-card {
         flex-direction: column;
-        align-items: center;
-        min-height: auto;
     }
 
-    .film-poster {
-        width: 150px;
+    .cal-poster {
+        width: 100%;
         height: 220px;
     }
 
-    .film-info {
-        width: 100%;
+    .cal-title {
+        font-size: 1.7rem;
     }
 
-    .film-title {
-        font-size: 1.4rem;
-        text-align: center;
-    }
-
-    .showtimes {
-        width: 100%;
-        justify-content: center;
-    }
-
-    .day-card {
-        min-width: 50px;
-        padding: 6px 10px;
-    }
-
-    .day-number {
-        font-size: 1.2rem;
-    }
-
-    .day-month {
-        font-size: 0.65rem;
-    }
-
-    .time {
-        padding: 6px 12px;
-        font-size: 0.9rem;
-    }
-
-    .btn-acquista {
-        padding: 6px 12px;
-        font-size: 0.8rem;
+    .cal-info {
+        padding: 20px;
     }
 }

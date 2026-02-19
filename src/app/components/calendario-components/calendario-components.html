@@ -1,23 +1,39 @@
-<div class="calendario-container">
-    <div class="calendario-header">
-        <div class="day-card" *ngFor="let day of days"
-            [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day">
-            <div class="day-number">{{ day.getDate() }}</div>
-            <div class="day-month">{{ day.toLocaleString('it-IT', {month: 'short'}).toUpperCase() }}</div>
-        </div>
+<div class="cal-page">
+    <div class="cal-header">
+        <p class="cal-eyebrow">PROGRAMMAZIONE</p>
+        <h1 class="cal-title">Calendario Spettacoli</h1>
     </div>
 
-    <div class="programmazione">
-        <div class="film-row" *ngFor="let film of films" [hidden]="!getShows(film).length">
-            <a [routerLink]="'/film/' + film.id">
-                <img [src]="film.copertina" [alt]="film.titolo" class="film-poster">
+    <div class="cal-days">
+        <button class="day-pill" *ngFor="let day of days"
+            [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day">
+            <span class="dp-num">{{ day.getDate() }}</span>
+            <span class="dp-month">{{ day.toLocaleString('it-IT', {month: 'short'}).toUpperCase() }}</span>
+        </button>
+    </div>
+
+    <div class="cal-list">
+        <div class="cal-card" *ngFor="let film of films" [hidden]="!getShows(film).length">
+            <a [routerLink]="'/film/' + film.id" class="cal-poster-wrap">
+                <img [src]="film.copertina" [alt]="film.titolo" class="cal-poster">
+                <div class="cal-poster-overlay">
+                    <i class="fa-solid fa-circle-play"></i>
+                </div>
             </a>
-            <div class="film-info">
-                <div class="film-title">{{ film.titolo }}</div>
-                <div class="showtimes">
-                    <div class="showtime" *ngFor="let s of getShows(film)">
-                        <div class="time">{{ formatTime(s.orario) }}</div>
-                        <button class="btn-acquista" [routerLink]="'/acquista/' + s.id">Acquista</button>
+            <div class="cal-info">
+                <div class="cal-film-meta">
+                    <h2 class="cal-film-title">{{ film.titolo }}</h2>
+                </div>
+                <div class="cal-shows">
+                    <div class="cal-show" *ngFor="let s of getShows(film)">
+                        <div class="cal-time">
+                            <i class="fa-regular fa-clock"></i>
+                            {{ formatTime(s.orario) }}
+                        </div>
+                        <a class="cal-buy-btn" [routerLink]="'/acquista/' + s.id">
+                            <i class="fa-solid fa-ticket"></i>
+                            Acquista
+                        </a>
                     </div>
                 </div>
             </div>

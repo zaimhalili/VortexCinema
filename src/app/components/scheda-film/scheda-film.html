@@ -6,17 +6,21 @@
         <article>
             <h1>{{filmDetails?.titolo}}</h1>
             <p>
-                Regista<b>{{filmDetails?.regista}}</b> | Durata<b>{{ filmDetails?.durata ?
-                    formatDuration(filmDetails?.durata!) : '' }}</b> |
-                Anno<b>{{filmDetails?.anno}}</b>
+                <span>Regista <b> {{filmDetails?.regista}}</b></span>
+                <span>Durata <b> {{ filmDetails?.durata ?
+                        formatDuration(filmDetails?.durata!) : '' }}</b></span>
+                <span>Anno <b>{{filmDetails?.anno}} </b></span>
             </p>
-            <p>{{filmDetails?.trama}}</p>
+            <p class="trama">{{filmDetails?.trama}}</p>
+            <p class="attori" *ngIf="filmDetails?.attori">
+                <strong>Attori: </strong> {{filmDetails?.attori}}
+            </p>
         </article>
 
     </section>
     <h3>Scegli l'orario</h3>
     <div class="spettacoli-container">
-        
+
         <a *ngFor="let spettacolo of filmDetails?.spettacoli" [routerLink]="['/acquista', spettacolo.id]"
             class="spettacolo-card">
 

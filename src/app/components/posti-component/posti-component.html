@@ -7,42 +7,61 @@
                 <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
             </div>
 
+
             <div class="scroll-area">
-                <div class="biglietti" *ngFor="let s of selectedSeats">
-                    <button type="button" (click)="removeSelectedSeat(s.fila, s.posto)">    
+                <div *ngIf="selectedSeats.length === 0" class="empty-state">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Nessun posto selezionato</span>
+                </div>
+
+                <div class="ticket-card" *ngFor="let s of selectedSeats">
+                    <div class="ticket-left">
+                        <span class="ticket-label">FILA</span>
+                        <span class="ticket-value">{{ s.fila }}</span>
+                    </div>
+                    <div class="ticket-divider">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="ticket-center">
+                        <span class="ticket-label">POSTO</span>
+                        <span class="ticket-value">{{ s.posto }}</span>
+                    </div>
+                    <div class="ticket-toggle">
+                        <button class="toggle-btn" [class.active]="s.tipo === 'INTERO'"
+                            (click)="changeTipo(s, 'INTERO')">
+                            Intero<br><small>€10</small>
+                        </button>
+                        <button class="toggle-btn" [class.active]="s.tipo === 'RIDOTTO'"
+                            (click)="changeTipo(s, 'RIDOTTO')">
+                            Ridotto<br><small>€7</small>
+                        </button>
+                    </div>
+                    <button class="ticket-remove" type="button" (click)="removeSelectedSeat(s.fila, s.posto)">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
-                    Sedia: Fila {{ s.fila }} - Posto {{ s.posto }}
-
-                    <select [(ngModel)]="s.tipo" (change)="calculateCost()">
-                        <option value="INTERO">Intero (€10)</option>
-                        <option value="RIDOTTO">Ridotto (€7)</option>
-                    </select>
                 </div>
             </div>
 
-
-            <div>Prezzo Totale: <strong>{{'€'+ prezzo}}</strong></div>
-            <div *ngIf="selectedSeats.length === 0" class="info-text">
-                Seleziona un posto per continuare
+            <div class="price-row">
+                <span>Totale</span>
+                <strong class="price-amount">€{{ prezzo }}</strong>
             </div>
 
-            <button class="confirm-button" (click)="confermaPrenotazione()" [disabled]="isProcessing">
-                {{ isProcessing ? 'Elaborazione...' : 'Acquista' }}
+            <button class="confirm-button" (click)="confermaPrenotazione()" [disabled]="selectedSeats.length === 0">
+                Acquista Biglietti
             </button>
-
         </div>
-
         <div class="biglietti-content">
             <div class="screen-label">SCHERMO</div>
+
             <div class="seats-grid">
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
                     <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
                     <div class="seats-container">
                         <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row" class="seat"
                             [class.disabled]="isSeatOccupied(rowIndex, seat)"
-                            [class.selected]="isSeatSelected(rowIndex, seat)" [attr.data-row]=" rowIndex + 1"
-                            [attr.data-seat]="seat" [disabled]="isSeatOccupied(rowIndex, seat)">
+                            [class.selected]="isSeatSelected(rowIndex, seat)"
+                            [disabled]="isSeatOccupied(rowIndex, seat)">
                             {{ seat }}
                         </button>
                     </div>
@@ -64,15 +83,35 @@
                 </div>
             </div>
         </div>
-        <div class="modal-overlay" *ngIf="showSuccessModal">
-            <div class="modal-box">
-                <i class="fa-solid fa-circle-check success-icon"></i>
-                <h2>Prenotazione completata!</h2>
-                <button (click)="showSuccessModal = false">
-                    Chiudi
-                </button>
+
+    </div>
+
+    <div class="modal-overlay" *ngIf="showSuccessModal" (click)="closeModal()">
+        <div class="modal-box" (click)="$event.stopPropagation()">
+            <div class="modal-state">
+                <div class="modal-icon-wrap success-wrap">
+                    <i class="fa-solid fa-check modal-icon"></i>
+                </div>
+                <h2>Prenotazione Confermata!</h2>
+                <p class="modal-sub">Il tuo ordine è stato registrato con successo.</p>
+
+                <div class="modal-receipt">
+                    <div class="receipt-row" *ngFor="let s of selectedSeats">
+                        <div class="receipt-seat">
+                            <span class="receipt-badge">F{{ s.fila }}</span>
+                            <span class="receipt-badge">P{{ s.posto }}</span>
+                        </div>
+                        <span class="receipt-tipo">{{ s.tipo === 'INTERO' ? 'Intero' : 'Ridotto' }}</span>
+                        <span class="receipt-price">€{{ s.tipo === 'INTERO' ? 10 : 7 }}</span>
+                    </div>
+                    <div class="receipt-total">
+                        <span>Totale pagato</span>
+                        <strong>€ {{ prezzo }}</strong>
+                    </div>
+                </div>
+
+                <button class="modal-close-btn" (click)="closeModal()">Chiudi</button>
             </div>
         </div>
-
     </div>
 </div>
