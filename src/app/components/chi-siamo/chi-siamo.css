@@ -62,10 +62,17 @@
     padding: 4rem 0;
 }
 
+.cs-about-text {
+    background: var(--font);
+    border-radius: 20px;
+    padding: 2.5rem 3rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
 .cs-about-text h2 {
     font-family: "Russo One", Arial, sans-serif;
     font-size: 1.6rem;
-    color: var(--font);
+    color: var(--body);
     letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 1.5rem;
@@ -73,7 +80,7 @@
 
 .cs-about-text p {
     font-size: 1rem;
-    color: var(--font);
+    color: var(--body);
     line-height: 1.8;
     font-weight: 300;
     margin-bottom: 1rem;
@@ -124,9 +131,11 @@
     background: var(--font);
     border-radius: 20px;
     padding: 2.5rem 2rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
     gap: 1rem;
+    column-gap: 1.2rem;
     transition: transform 0.3s ease;
 }
 
@@ -137,6 +146,9 @@
 .cs-pillar i {
     font-size: 1.4rem;
     opacity: 0.6;
+    grid-row: 1;
+    grid-column: 1;
+    align-self: center;
 }
 
 .cs-pillar:nth-child(1) i {
@@ -157,6 +169,10 @@
     color: var(--body);
     letter-spacing: 2px;
     text-transform: uppercase;
+    grid-row: 1;
+    grid-column: 2;
+    margin: 0;
+    align-self: center;
 }
 
 .cs-pillar p {
@@ -164,6 +180,9 @@
     color: var(--mid);
     line-height: 1.7;
     font-weight: 300;
+    grid-row: 2;
+    grid-column: 1 / -1;
+    margin: 0;
 }
 
 .cs-team-section {
