@@ -23,7 +23,7 @@ main::before {
 }
 
 main>* {
-    position: relative;
+    text-align: center;
     z-index: 2;
 }
 
@@ -51,12 +51,13 @@ section {
 article {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 45px;
     color: var(--font);
     align-self: center;
 }
 
 article h1 {
+    text-align: left;
     font-size: 2.5rem;
     font-weight: 400;
     margin: 0;
@@ -75,6 +76,12 @@ article p:first-of-type {
     align-items: center;
 }
 
+article p:first-of-type span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
 article p:first-of-type::before {
     content: '';
     display: inline-block;
@@ -82,6 +89,16 @@ article p:first-of-type::before {
     height: 8px;
     background-color: var(--body);
     border-radius: 50%;
+}
+
+article p:first-of-type span:not(:last-child)::after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--body);
+    border-radius: 50%;
+    margin-left: 15px;
 }
 
 article p:last-of-type {
@@ -262,6 +279,50 @@ h3 {
     font-size: 13px;
     opacity: 0.6;
     margin-top: 4px;
+}
+
+@media screen and (max-width: 850px) {
+    main {
+        padding: 20px;
+    }
+
+    section {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .Copertina {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .Copertina img {
+        width: 100%;
+        height: auto;
+        max-height: 500px;
+    }
+
+    article {
+
+        text-align: center;
+        align-items: center;
+        max-width: 600px;
+    }
+
+    article h1 {
+        font-size: 2rem;
+    }
+
+    article p:first-of-type {
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .spettacoli-container {
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 360px) {
