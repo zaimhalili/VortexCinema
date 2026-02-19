@@ -1,34 +1,37 @@
 <header>
-    <a routerLink="/" class="contenitore-logo">
-        <div id="titolo">
-            <img src="/img/Logo.png" alt="Logo" class="logo" />
-            <h2>NG Movies</h2>
+    <div>
+        <a routerLink="/" class="contenitore-logo">
+            <div id="titolo">
+                <img src="/img/Logo.png" alt="Logo" class="logo" />
+                <h2>NG Movies</h2>
+            </div>
+        </a>
+
+        <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="Link" [class.menu-open]="menuOpen">
+            <a routerLink="/" class="icon-link" title="Home" routerLinkActive="active"
+                [routerLinkActiveOptions]="{exact: true}">
+                <i class="fa-solid fa-house"></i>
+                <span class="link-text">Home</span>
+            </a>
+            <a routerLink="/filmList" class="icon-link" title="Film" routerLinkActive="active">
+                <img src="/img/Icona-Film.png" alt="Film" class="icon" />
+                <span class="link-text">Film</span>
+            </a>
+            <a routerLink="/calendario" class="icon-link" title="Calendario" routerLinkActive="active">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span class="link-text">Calendario</span>
+            </a>
+            <a routerLink="/chisiamo" class="icon-link" title="Chi Siamo" routerLinkActive="active">
+                <i class="fa-solid fa-user"></i>
+                <span class="link-text">Chi Siamo</span>
+            </a>
         </div>
-    </a>
-
-    <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <div class="Link" [class.menu-open]="menuOpen">
-        <a routerLink="/" class="icon-link" title="Home" routerLinkActive="active"
-            [routerLinkActiveOptions]="{exact: true}">
-            <i class="fa-solid fa-house"></i>
-            <span class="link-text">Home</span>
-        </a>
-        <a routerLink="/filmList" class="icon-link" title="Film" routerLinkActive="active">
-            <img src="/img/Icona-Film.png" alt="Film" class="icon" />
-            <span class="link-text">Film</span>
-        </a>
-        <a routerLink="/calendario" class="icon-link" title="Calendario" routerLinkActive="active">
-            <i class="fa-solid fa-calendar-days"></i>
-            <span class="link-text">Calendario</span>
-        </a>
-        <a routerLink="/chisiamo" class="icon-link" title="Chi Siamo" routerLinkActive="active">
-            <i class="fa-solid fa-user"></i>
-            <span class="link-text">Chi Siamo</span>
-        </a>
     </div>
+
 </header>

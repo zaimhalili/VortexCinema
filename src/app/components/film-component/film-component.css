@@ -1,21 +1,23 @@
 .calendario {
     background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
     min-height: 100vh;
-    padding: 80px 40px;
+    padding: 2rem 40px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: var(--mid);
 }
 
 .calendario-header {
     text-align: center;
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }
 
 .calendario-header h1 {
-    font-size: 56px;
-    font-weight: 900;
+    font-size: 1.9rem !important;
+    font-weight: lighter;
     color: #dab776;
-    margin: 0 0 16px 0;
     letter-spacing: 2.5px;
     text-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
