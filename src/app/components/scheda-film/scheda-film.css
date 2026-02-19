@@ -29,7 +29,14 @@ main>* {
 
 section {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
     gap: 40px;
+    height: 450px;
 }
 
 .Copertina {
@@ -37,10 +44,10 @@ section {
     border-radius: 5px;
     object-fit: contain;
     width: fit-content;
+    height: fit-content;
 }
 
 .Copertina img {
-    height: 100%;
     height: 450px;
     border-radius: 5px;
     object-fit: cover;
@@ -51,9 +58,14 @@ section {
 article {
     display: flex;
     flex-direction: column;
-    gap: 45px;
     color: var(--font);
     align-self: center;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+article div {
+    margin-top: 20px;
 }
 
 article h1 {
@@ -82,7 +94,7 @@ article p:first-of-type span {
     gap: 8px;
 }
 
-article p:first-of-type::before {
+article div p:first-of-type::before {
     content: '';
     display: inline-block;
     width: 8px;
@@ -91,7 +103,7 @@ article p:first-of-type::before {
     border-radius: 50%;
 }
 
-article p:first-of-type span:not(:last-child)::after {
+article div p:first-of-type span:not(:last-child)::after {
     content: '';
     display: inline-block;
     width: 8px;
@@ -101,36 +113,31 @@ article p:first-of-type span:not(:last-child)::after {
     margin-left: 15px;
 }
 
-article .trama {
-    grid-column: 1 / 3;
-    grid-row: 2;
+.film-trama {
     font-size: 1rem;
     line-height: 1.8;
-    margin: 20px 0 0 0;
-    color: var(--font);
+    color: var(--font) !important;
     background-color: var(--body);
     padding: 20px 25px;
     border-radius: 5px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     max-width: 1000px;
+    text-align: left;
 }
 
-article .attori {
+.attori {
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
-    color: var(--font);
+    color: var(--font) !important;
     background-color: var(--body);
     padding: 15px 25px;
     border-radius: 5px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    max-width: 1000px;
+    margin-top: 20px;
 }
 
-article .attori strong {
+.attori strong {
     color: var(--font);
     font-weight: 600;
-    margin-right: 8px;
 }
 
 article a {
@@ -297,12 +304,17 @@ h3 {
 .date {
     font-size: 13px;
     opacity: 0.6;
+    text-align: left;
     margin-top: 4px;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 940px) {
     main {
         padding: 20px;
+    }
+
+    .flex {
+        height: 300px;
     }
 
     section {
@@ -311,40 +323,209 @@ h3 {
         gap: 30px;
     }
 
-    .Copertina {
-        width: 100%;
-        max-width: 250px;
+    article div {
+        margin: 0;
+    }
+
+    .film-trama {
+        padding: 15px 20px;
+        line-height: 1.4;
     }
 
     .Copertina img {
-        width: 100%;
-        height: auto;
-        max-height: 500px;
-    }
-
-    article {
-
-        text-align: center;
-        align-items: center;
-        max-width: 600px;
-    }
-
-    article h1 {
-        font-size: 2rem;
-    }
-
-    article p:first-of-type {
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: 14px;
+        height: 300px;
     }
 
     .spettacoli-container {
         justify-content: center;
     }
+
+    article {
+        justify-content: space-between;
+    }
+
+    .attori {
+        width: 100%;
+        margin-top: 10px;
+        padding: 15px 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .flex {
+        flex-direction: column;
+        height: auto;
+        /* Remove fixed height so content breathes */
+        gap: 20px;
+    }
+
+    .Copertina {
+        align-self: center;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .Copertina img {
+        height: 320px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    article {
+        width: 100%;
+        align-self: stretch;
+        height: auto;
+        gap: 16px;
+        justify-content: flex-start;
+    }
+
+    article h1 {
+        font-size: 1.8rem;
+        text-align: left;
+    }
+
+    article p:first-of-type {
+        flex-wrap: wrap;
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    article div p:first-of-type span:not(:last-child)::after {
+        margin-left: 8px;
+    }
+
+    .film-trama {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding: 15px 18px;
+    }
+
+    article a {
+        align-self: stretch;
+        justify-content: center;
+        padding: 13px 24px;
+        font-size: 15px;
+    }
+
+    .attori {
+        font-size: 0.875rem;
+        padding: 12px 18px;
+    }
+
+    h3 {
+        padding: 2rem 0 0 0;
+        font-size: 1.2rem;
+    }
+
+    .spettacoli-container {
+        gap: 14px;
+        justify-content: center;
+    }
+
+    .spettacolo-card {
+        min-width: 180px;
+        flex: 1 1 calc(50% - 7px);
+        max-width: calc(50% - 7px);
+        padding: 14px;
+    }
+
+    .time-range {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        padding: 16px;
+    }
+
+    .Copertina img {
+        height: 260px;
+    }
+
+    article h1 {
+        font-size: 1.5rem;
+    }
+
+    article p:first-of-type {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .film-trama {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        padding: 12px 14px;
+    }
+
+    article a {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+
+    .spettacolo-card {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .spettacoli-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .time-range {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 360px) {
+    main {
+        padding: 12px;
+    }
+
+    .Copertina {
+        width: fit-content;
+    }
+
+    article div p {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    article div p:first-of-type::before,
+    article div p:first-of-type span:not(:last-child)::after {
+        display: none;
+    }
+
+    article div p span b{
+        margin: 0;
+    }
+
+    .Copertina img {
+        width: auto;
+        height: 220px;
+    }
+
+    article h1 {
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .film-trama {
+        font-size: 0.8rem;
+        padding: 10px 12px;
+    }
+
+    article a {
+        align-self: stretch;
+        justify-content: center;
+    }
+
     .spettacoli-container {
         flex-direction: column;
         align-items: center;
@@ -363,27 +544,17 @@ h3 {
     .spettacolo-card {
         width: 100%;
         max-width: 400px;
+        flex: 1;
+        padding: 12px 14px;
     }
 
     article {
-        grid-column: 1 / 3;
-        grid-row: 3;
+        grid-column: unset;
+        grid-row: unset;
     }
 
-    article p:last-of-type {
-        grid-column: 1 / -1;
-        grid-row: auto;
-
-    }
-
-    b :first-child {
+    b:first-child {
         display: block;
         margin-bottom: 8px;
     }
-
-    article h1 {
-        font-size: 32px;
-        text-align: center;
-    }
-
 }

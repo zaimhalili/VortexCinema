@@ -1,23 +1,29 @@
 <main [style.backgroundImage]="'url(' + filmDetails?.copertina + ')'">
     <section>
-        <div class="Copertina">
-            <img [src]="filmDetails?.copertina" alt="copertina film">
-        </div>
-        <article>
-            <h1>{{filmDetails?.titolo}}</h1>
-            <p>
-                <span>Regista <b> {{filmDetails?.regista}}</b></span>
-                <span>Durata <b> {{ filmDetails?.durata ?
-                        formatDuration(filmDetails?.durata!) : '' }}</b></span>
-                <span>Anno <b>{{filmDetails?.anno}} </b></span>
-            </p>
-            <p class="trama">{{filmDetails?.trama}}</p>
-            <p class="attori" *ngIf="filmDetails?.attori">
-                <strong>Attori: </strong> {{filmDetails?.attori}}
-            </p>
-        </article>
+        <div class="flex">
+            <div class="Copertina">
+                <img [src]="filmDetails?.copertina" alt="copertina film">
+            </div>
+            <article>
+                <div>
+                    <h1>{{filmDetails?.titolo}}</h1>
+                    <p>
+                        <span>Regista <b> {{filmDetails?.regista}}</b></span>
+                        <span>Durata <b> {{ filmDetails?.durata ?
+                                formatDuration(filmDetails?.durata!) : '' }}</b></span>
+                        <span>Anno <b>{{filmDetails?.anno}} </b></span>
+                    </p>
+                </div>
 
+                <p class="film-trama">{{filmDetails?.trama}}</p>
+            </article>
+        </div>
+
+        <p class="attori" *ngIf="filmDetails?.attori">
+            <strong>Attori: </strong> {{filmDetails?.attori}}
+        </p>
     </section>
+
     <h3>Scegli l'orario</h3>
     <div class="spettacoli-container">
 
