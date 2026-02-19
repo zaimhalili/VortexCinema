@@ -275,8 +275,8 @@ select:focus{
     margin-top: 20px;
     width: 100%;
     padding: 18px 32px;
-    background: linear-gradient(135deg, #C9A961 0%, #B8902F 100%);
-    color: var(--font);
+    background: linear-gradient(135deg, #C9A961 0%, var(--font) 100%);
+    color: var(--body);
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 2px;
@@ -284,8 +284,6 @@ select:focus{
     border-radius: 100px;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 30px rgba(201, 169, 97, 0.5),
-        0 4px 8px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
 }
 
@@ -294,7 +292,7 @@ select:focus{
 }
 
 .confirm-button:active {
-    transform: translateY(0);
+    transform: scale(0.95);
 }
 
 .confirm-button:disabled {
