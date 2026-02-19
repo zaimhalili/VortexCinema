@@ -1,6 +1,3 @@
-/* ============================
-   PAGE WRAPPER
-   ============================ */
 #biglietti {
     background: var(--mid);
     display: flex;
@@ -221,7 +218,7 @@
     color: var(--font);
 }
 
-.seats-loader {
+/* .seats-loader {
     position: absolute;
     inset: 0;
     display: flex;
@@ -237,9 +234,9 @@
     font-weight: 600;
     letter-spacing: 1px;
     backdrop-filter: blur(3px);
-}
+} */
 
-.spinner {
+/* .spinner {
     width: 40px;
     height: 40px;
     border: 4px solid rgba(217, 198, 163, 0.2);
@@ -252,12 +249,12 @@
     to {
         transform: rotate(360deg);
     }
-}
+} */
 
-.seats-grid.is-loading {
+/* .seats-grid.is-loading {
     position: relative;
     pointer-events: none;
-}
+} */
 
 .biglietti-content {
     width: fit-content;
@@ -302,7 +299,7 @@
     padding: 10px;
     border-radius: 8px;
     border: 1px solid rgba(218, 183, 118, 0.1);
-    overflow-y: hidden;
+    overflow-x: scroll;
 }
 
 .seat-row {
@@ -660,5 +657,336 @@
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #biglietti {
+        padding: 2rem 28px;
+    }
+
+    .biglietti-container {
+        gap: 20px;
+    }
+
+    #tipo-biglietti {
+        width: 35%;
+    }
+
+    .seat {
+        width: 22px;
+        height: 22px;
+        font-size: 11px;
+    }
+
+    .seats-container {
+        gap: 8px;
+    }
+
+    .seat-row {
+        gap: 14px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #biglietti {
+        padding: 2rem 20px;
+    }
+
+    .biglietti-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+    }
+
+    #tipo-biglietti {
+        width: 100%;
+        max-width: 680px;
+        align-self: center;
+    }
+
+    .biglietti-header {
+        margin-bottom: 20px;
+    }
+
+    .biglietti-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .biglietti-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 16px 12px;
+    }
+
+    .seats-grid {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 12px 8px;
+    }
+
+    .seats-grid::after {
+        content: '';
+        display: block;
+        min-width: 1px;
+    }
+
+    .seat {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .seats-container {
+        gap: 9px;
+    }
+
+    .seat-row {
+        gap: 16px;
+        justify-content: flex-start;
+    }
+
+    .confirm-button {
+        margin-top: 14px;
+        padding: 16px 28px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #biglietti {
+        padding: 1.5rem 16px;
+        min-height: unset;
+    }
+
+    .biglietti-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .biglietti-header .subtitle {
+        font-size: 14px;
+    }
+    .ticket-card {
+        min-height: 68px;
+    }
+
+    .ticket-left,
+    .ticket-center {
+        padding: 0 12px;
+        min-width: 48px;
+    }
+
+    .ticket-value {
+        font-size: 1.5rem;
+    }
+
+    .ticket-label {
+        font-size: 0.55rem;
+        letter-spacing: 1.5px;
+    }
+
+    .toggle-btn {
+        padding: 6px 9px;
+        font-size: 0.72rem;
+        border-radius: 8px;
+    }
+
+    .ticket-toggle {
+        padding: 0 8px;
+        gap: 5px;
+    }
+
+    .ticket-remove {
+        width: 36px;
+        height: 68px;
+    }
+
+    /* Price row */
+    .price-row {
+        padding: 12px 14px;
+        font-size: 0.95rem;
+    }
+
+    .price-amount {
+        font-size: 1.3rem;
+    }
+
+    .biglietti-content {
+        padding: 12px 10px;
+    }
+
+    .seats-grid {
+        gap: 8px;
+        padding: 8px 6px;
+    }
+
+    .seat {
+        width: 22px;
+        height: 22px;
+        font-size: 10px;
+        border-radius: 2px;
+    }
+
+    .seats-container {
+        gap: 7px;
+    }
+
+    .seat-row {
+        gap: 10px;
+    }
+
+    .row-label {
+        font-size: 10px;
+        width: 14px;
+    }
+
+    .screen-label {
+        font-size: 12px;
+        margin-bottom: 14px;
+    }
+
+    /* Legend */
+    .seats-legend {
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+        padding: 8px;
+    }
+
+    .legend-item {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .legend-seat {
+        width: 20px;
+        height: 20px;
+    }
+
+    .seats-grid {
+        position: relative;
+    }
+
+    .confirm-button {
+        padding: 15px 24px;
+        font-size: 14px;
+        letter-spacing: 1.5px;
+    }
+
+    .modal-box {
+        max-width: calc(100vw - 32px);
+        border-radius: 16px;
+    }
+
+    .modal-state {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #biglietti {
+        padding: 1rem 12px;
+    }
+
+    .biglietti-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .ticket-left,
+    .ticket-center {
+        padding: 0 8px;
+        min-width: 40px;
+    }
+
+    .ticket-value {
+        font-size: 1.3rem;
+    }
+
+    .ticket-toggle {
+        padding: 0 6px;
+        gap: 4px;
+    }
+
+    .toggle-btn {
+        padding: 5px 7px;
+        font-size: 0.68rem;
+    }
+
+    .ticket-remove {
+        width: 32px;
+    }
+
+    .seat {
+        width: 20px;
+        height: 20px;
+        font-size: 9px;
+    }
+
+    .seats-container {
+        gap: 6px;
+    }
+
+    .seat-row {
+        gap: 8px;
+    }
+
+    .row-label {
+        font-size: 9px;
+        width: 12px;
+    }
+    .seats-grid {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(218, 183, 118, 0.4) transparent;
+    }
+
+    .seats-grid::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .seats-grid::-webkit-scrollbar-thumb {
+        background: rgba(218, 183, 118, 0.4);
+        border-radius: 4px;
+    }
+    .legend-item {
+        font-size: 11px;
+    }
+
+    .legend-seat {
+        width: 18px;
+        height: 18px;
+    }
+    .price-row {
+        padding: 10px 12px;
+    }
+
+    .price-amount {
+        font-size: 1.2rem;
+    }
+
+    .confirm-button {
+        padding: 14px 20px;
+        font-size: 13px;
+    }
+
+    .modal-state {
+        padding: 1.75rem 1.25rem;
+        gap: 0.5rem;
+    }
+
+    .modal-state h2 {
+        font-size: 1.1rem;
+    }
+
+    .receipt-badge {
+        font-size: 0.68rem;
+        padding: 2px 6px;
+    }
+
+    .receipt-price {
+        font-size: 0.82rem;
+    }
+
+    .receipt-total strong {
+        font-size: 1.05rem;
     }
 }
