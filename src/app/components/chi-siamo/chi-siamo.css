@@ -177,7 +177,7 @@
 
 .cs-pillar p {
     font-size: 0.9rem;
-    color: var(--mid);
+    color: var(--body);
     line-height: 1.7;
     font-weight: 300;
     grid-row: 2;
