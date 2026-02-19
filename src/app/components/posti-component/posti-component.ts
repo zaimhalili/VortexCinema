@@ -28,7 +28,7 @@ export class PostiComponent {
   showSuccessModal: boolean = false;
   seatMap = new Map<string, boolean>();
 
-  constructor(private cinemaService: CinemaService, private route: ActivatedRoute, private cd:ChangeDetectorRef) { }
+  constructor(private cinemaService: CinemaService, private route: ActivatedRoute, private cd: ChangeDetectorRef) { }
 
 
 
@@ -154,7 +154,14 @@ export class PostiComponent {
       importo: this.getImporto(s.tipo)
     }));
     this.cinemaService.acquista(this.idSpettacolo, data).subscribe(() => {
-      this.cinemaService.getSeat(this.idSpettacolo).subscribe(res => { this.posti = res.posti; });
+      this.cinemaService.getSeat(this.idSpettacolo).subscribe(res => {
+        this.posti = res.posti;
+
+        this.seatMap = new Map<string, boolean>();
+        for (let p of this.posti) {
+          this.seatMap.set(`${p.fila}-${p.posto}`, p.occupato);
+        }
+      });
     });
   }
 
@@ -163,7 +170,4 @@ export class PostiComponent {
     this.selectedSeats = [];
     this.calculateCost();
   }
-
-
-
 }
