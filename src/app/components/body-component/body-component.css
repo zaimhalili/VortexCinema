@@ -365,8 +365,48 @@ main h1 {
 }
 
 @media (max-width: 768px) {
+    .card-container {
+        justify-content: center;
+    }
+
     .card {
         height: fit-content;
+    }
+
+    .cinema-wrapper {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .cinema-content {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .cinema-description {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .cinema-description h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .cinema-description p {
+        font-size: 1.1rem;
+    }
+
+    .side-images {
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side-img {
+        max-width: 45%;
     }
 
     .prezzi {
@@ -384,6 +424,32 @@ main h1 {
 }
 
 @media (max-width: 480px) {
+    main {
+        padding: 1.5rem 20px;
+        align-items: center;
+    }
+
+    .cinema-wrapper {
+        padding: 1rem;
+    }
+
+    .cinema-description h2 {
+        font-size: 1.3rem;
+    }
+
+    .cinema-description p {
+        font-size: 1rem;
+    }
+
+    .side-images {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .side-img {
+        max-width: 100%;
+    }
+
     .prezzi {
         padding: 2rem 1.2rem;
         border-radius: 16px;
