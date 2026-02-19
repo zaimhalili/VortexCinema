@@ -766,6 +766,7 @@
     .biglietti-header .subtitle {
         font-size: 0.875rem;
     }
+
     .ticket-card {
         min-height: 68px;
     }
@@ -934,6 +935,7 @@
         font-size: 0.56rem;
         width: 12px;
     }
+
     .seats-grid {
         scrollbar-width: thin;
         scrollbar-color: rgba(218, 183, 118, 0.4) transparent;
@@ -947,6 +949,7 @@
         background: rgba(218, 183, 118, 0.4);
         border-radius: 4px;
     }
+
     .legend-item {
         font-size: 0.69rem;
     }
@@ -955,6 +958,7 @@
         width: 18px;
         height: 18px;
     }
+
     .price-row {
         padding: 10px 12px;
     }
