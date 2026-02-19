@@ -156,6 +156,32 @@
     border-top: 1px solid rgba(64, 54, 45, 0.1);
 }
 
+.cal-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 30px 20px;
+    text-align: center;
+    border-top: 1px solid rgba(64, 54, 45, 0.1);
+}
+
+.cal-empty i {
+    font-size: 2.5rem;
+    color: var(--font);
+    opacity: 0.5;
+}
+
+.cal-empty p {
+    font-size: 0.95rem;
+    color: var(--font);
+    opacity: 0.8;
+    margin: 0;
+    font-weight: 300;
+}
+
 .cal-show {
     display: flex;
     align-items: center;

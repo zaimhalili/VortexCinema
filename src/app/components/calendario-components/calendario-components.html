@@ -13,7 +13,7 @@
     </div>
 
     <div class="cal-list">
-        <div class="cal-card" *ngFor="let film of films" [hidden]="!getShows(film).length">
+        <div class="cal-card" *ngFor="let film of films">
             <a [routerLink]="'/film/' + film.id" class="cal-poster-wrap">
                 <img [src]="film.copertina" [alt]="film.titolo" class="cal-poster">
                 <div class="cal-poster-overlay">
@@ -24,7 +24,7 @@
                 <div class="cal-film-meta">
                     <h2 class="cal-film-title">{{ film.titolo }}</h2>
                 </div>
-                <div class="cal-shows">
+                <div class="cal-shows" *ngIf="getShows(film).length > 0">
                     <div class="cal-show" *ngFor="let s of getShows(film)">
                         <div class="cal-time">
                             <i class="fa-regular fa-clock"></i>
@@ -35,6 +35,10 @@
                             Acquista
                         </a>
                     </div>
+                </div>
+                <div class="cal-empty" *ngIf="getShows(film).length === 0">
+                    <i class="fa-solid fa-calendar-xmark"></i>
+                    <p>Non ci sono spettacoli programmati per questo giorno</p>
                 </div>
             </div>
         </div>
