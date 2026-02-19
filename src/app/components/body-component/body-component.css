@@ -16,7 +16,6 @@ a {
 
 main h1 {
     font-size: 1.9rem;
-    font-weight: 600;
     font-weight: lighter;
     color: var(--font);
     text-align: left;
@@ -45,10 +44,6 @@ main h1 {
     cursor: pointer;
     border-radius: 20px;
     transition: 0.3s ease-in-out;
-}
-
-.card:hover {
-    background-color: #eeddc7;
 }
 
 .card:hover {
@@ -174,7 +169,7 @@ main h1 {
 }
 
 .cinema-description p {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
     color: var(--body);
@@ -243,7 +238,7 @@ main h1 {
 }
 
 .prezzi-header p {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     line-height: 1.8;
     margin-bottom: 1rem;
     color: var(--body);
@@ -403,7 +398,7 @@ main h1 {
     }
 
     .cinema-description p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .side-images {
