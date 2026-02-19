@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { Posti } from '../../models/Posti';
 import { CinemaService } from '../../services/cinema-service';
 import { ActivatedRoute } from '@angular/router';
@@ -26,8 +26,15 @@ export class PostiComponent {
     tipo: 'INTERO' | 'RIDOTTO'
   }[] = [];
   showSuccessModal: boolean = false;
+  seatMap = new Map<string, boolean>();
 
-  constructor(private cinemaService: CinemaService, private route: ActivatedRoute) { }
+  constructor(private cinemaService: CinemaService, private route: ActivatedRoute, private cd:ChangeDetectorRef) { }
+
+
+
+  getImporto(tipo: "INTERO" | "RIDOTTO") {
+    return tipo === "RIDOTTO" ? 7 : 10
+  }
 
   ngOnInit() {
     for (let i = 0; i < this.numFile; i++) {
@@ -44,22 +51,19 @@ export class PostiComponent {
 
     this.cinemaService.getSeat(this.idSpettacolo).subscribe(res => {
       this.posti = res.posti
+
+      this.seatMap = new Map<string, boolean>();
+      for (let p of this.posti) {
+        this.seatMap.set(`${p.fila}-${p.posto}`, p.occupato);
+      }
+      this.cd.detectChanges();
     })
   }
 
-  getImporto(tipo: "INTERO" | "RIDOTTO") {
-    return tipo === "RIDOTTO" ? 7 : 10
-  }
-
   isSeatOccupied(row: number, column: number): boolean {
-    const fila: number = row + 1
-    const posto = this.posti.find(p =>
-      p.fila === fila && p.posto === column
-    )
-
-    return posto ? posto.occupato : false;
+    const fila = row + 1;
+    return this.seatMap.get(`${fila}-${column}`) || false;
   }
-
 
   selezionaSedia(rowIndex: number, seat: number) {
     const fila = rowIndex + 1;
