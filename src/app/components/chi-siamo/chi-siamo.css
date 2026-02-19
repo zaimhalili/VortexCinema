@@ -136,8 +136,19 @@
 
 .cs-pillar i {
     font-size: 1.4rem;
-    color: var(--body);
     opacity: 0.6;
+}
+
+.cs-pillar:nth-child(1) i {
+    color: lightgreen;
+}
+
+.cs-pillar:nth-child(2) i {
+    color: lightskyblue;
+}
+
+.cs-pillar:nth-child(3) i {
+    color: red;
 }
 
 .cs-pillar h3 {
@@ -173,7 +184,6 @@
 .cs-team-sub {
     font-size: 0.9rem;
     color: var(--font);
-    opacity: 0.5;
     font-weight: 300;
     margin-bottom: 2rem;
 }
