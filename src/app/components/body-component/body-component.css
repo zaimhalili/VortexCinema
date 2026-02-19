@@ -365,6 +365,10 @@ main h1 {
 }
 
 @media (max-width: 768px) {
+    .card-container {
+        justify-content: center;
+    }
+
     .card {
         height: fit-content;
     }
@@ -422,6 +426,7 @@ main h1 {
 @media (max-width: 480px) {
     main {
         padding: 1.5rem 20px;
+        align-items: center;
     }
 
     .cinema-wrapper {

@@ -279,6 +279,8 @@ header {
 
   #titolo {
     width: 62px;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   #titolo:hover {
