@@ -11,7 +11,10 @@
                         formatDuration(filmDetails?.durata!) : '' }}</b></span>
                 <span>Anno <b>{{filmDetails?.anno}} </b></span>
             </p>
-            <p>{{filmDetails?.trama}}</p>
+            <p class="trama">{{filmDetails?.trama}}</p>
+            <p class="attori" *ngIf="filmDetails?.attori">
+                <strong>Attori: </strong> {{filmDetails?.attori}}
+            </p>
         </article>
 
     </section>
