@@ -15,7 +15,7 @@
     width: 100%;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
 }
@@ -190,7 +190,6 @@
     cursor: pointer;
     font-size: 1rem;
     transition: background 0.2s ease, color 0.2s ease;
-    flex-shrink: 0;
 }
 
 .ticket-remove:hover {
@@ -299,7 +298,9 @@
     padding: 10px;
     border-radius: 8px;
     border: 1px solid rgba(218, 183, 118, 0.1);
-    overflow-x: scroll;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    align-items: center;
 }
 
 .seat-row {
@@ -751,6 +752,15 @@
         padding: 16px 28px;
         font-size: 15px;
     }
+
+    .seats-grid::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .seats-grid::-webkit-scrollbar-thumb {
+        background: rgba(218, 183, 118, 0.4);
+        border-radius: 4px;
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -766,6 +776,7 @@
     .biglietti-header .subtitle {
         font-size: 14px;
     }
+
     .ticket-card {
         min-height: 68px;
     }
@@ -934,19 +945,13 @@
         font-size: 9px;
         width: 12px;
     }
+
     .seats-grid {
         scrollbar-width: thin;
         scrollbar-color: rgba(218, 183, 118, 0.4) transparent;
     }
 
-    .seats-grid::-webkit-scrollbar {
-        height: 4px;
-    }
 
-    .seats-grid::-webkit-scrollbar-thumb {
-        background: rgba(218, 183, 118, 0.4);
-        border-radius: 4px;
-    }
     .legend-item {
         font-size: 11px;
     }
@@ -955,6 +960,7 @@
         width: 18px;
         height: 18px;
     }
+
     .price-row {
         padding: 10px 12px;
     }

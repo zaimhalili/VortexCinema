@@ -33,7 +33,7 @@ main h1 {
 
 .card {
     height: fit-content;
-    height: 420px;
+    max-height: 420px;
     width: 1/5;
     flex: 1;
     overflow: hidden;
@@ -226,6 +226,7 @@ main h1 {
     overflow: hidden;
     box-shadow: inset 0 0 40px black;
     padding: 2rem 2rem;
+    margin: 0 auto;
 }
 
 .prezzi-header {
