@@ -2,7 +2,7 @@
     <h1 data-aos="fade">Film Consigliati</h1>
     <section class="card-container">
         <a [routerLink]="'film/' + film.id" class="card" *ngFor="let film of films; let i = index" data-aos="fade-up"
-            [attr.data-aos-delay]="i * 150">
+            [attr.data-aos-delay]="i * 50">
             <div class="image">
                 <img [src]="film.copertina" alt="copertina film">
                 <div class="dark-overlay"></div>
