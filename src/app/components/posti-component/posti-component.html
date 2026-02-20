@@ -3,18 +3,18 @@
 
         <div id="tipo-biglietti">
             <div class="biglietti-header">
-                <h1>Scegli i Posti</h1>
-                <p class="subtitle">Seleziona i posti disponibili per una visione unica</p>
+                <h1 data-aos="fade" data-aos-delay="250">Scegli i Posti</h1>
+                <p class="subtitle" data-aos="fade" data-aos-delay="450">Seleziona i posti disponibili per una visione unica</p>
             </div>
 
 
-            <div class="scroll-area">
+            <div class="scroll-area" >
                 <div *ngIf="selectedSeats.length === 0" class="empty-state">
                     <i class="fa-solid fa-ticket"></i>
                     <span>Nessun posto selezionato</span>
                 </div>
 
-                <div class="ticket-card" *ngFor="let s of selectedSeats">
+                <div class="ticket-card" *ngFor="let s of selectedSeats" data-aos="fade">
                     <div class="ticket-left">
                         <span class="ticket-label">FILA</span>
                         <span class="ticket-value">{{ s.fila }}</span>
@@ -56,9 +56,9 @@
 
             <div class="seats-grid">
                 <div *ngFor="let row of rows; let rowIndex = index" class="seat-row">
-                    <div class="row-label"><b>{{ rowIndex + 1 }}</b></div>
+                    <div class="row-label" ><b>{{ rowIndex + 1 }}</b></div>
                     <div class="seats-container">
-                        <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row" class="seat"
+                        <button (click)="selezionaSedia(rowIndex, seat)" *ngFor="let seat of row; let i = index" class="seat"
                             [class.disabled]="isSeatOccupied(rowIndex, seat)"
                             [class.selected]="isSeatSelected(rowIndex, seat)"
                             [disabled]="isSeatOccupied(rowIndex, seat)">

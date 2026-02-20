@@ -1,13 +1,13 @@
 <main [style.backgroundImage]="'url(' + filmDetails?.copertina + ')'">
     <section>
         <div class="flex">
-            <div class="Copertina">
+            <div class="Copertina" data-aos="slide-right">
                 <img [src]="filmDetails?.copertina" alt="copertina film">
             </div>
             <article>
                 <div>
-                    <h1>{{filmDetails?.titolo}}</h1>
-                    <p>
+                    <h1 data-aos="fade" data-aos-delay="250">{{filmDetails?.titolo}}</h1>
+                    <p data-aos="fade" data-aos-delay="350">
                         <span>Regista <b> {{filmDetails?.regista}}</b></span>
                         <span>Durata <b> {{ filmDetails?.durata ?
                                 formatDuration(filmDetails?.durata!) : '' }}</b></span>
@@ -15,20 +15,21 @@
                     </p>
                 </div>
 
-                <p class="film-trama">{{filmDetails?.trama}}</p>
+                <p class="film-trama" data-aos="fade" data-aos-delay="550">{{filmDetails?.trama}}</p>
             </article>
         </div>
 
-        <p class="attori" *ngIf="filmDetails?.attori">
+        <p class="attori" *ngIf="filmDetails?.attori" data-aos="fade" data-aos-delay="750">
             <strong>Attori: </strong> {{filmDetails?.attori}}
         </p>
     </section>
 
-    <h3>Scegli l'orario</h3>
+    <h3 data-aos="fade" data-aos-delay="900">Scegli l'orario</h3>
     <div class="spettacoli-container">
 
-        <a *ngFor="let spettacolo of filmDetails?.spettacoli" [routerLink]="['/acquista', spettacolo.id]"
-            class="spettacolo-card">
+        <a *ngFor="let spettacolo of filmDetails?.spettacoli; let i = index" [routerLink]="['/acquista', spettacolo.id]"
+            class="spettacolo-card" data-aos="fade-down"
+            [attr.data-aos-delay]="i * 100">
 
             <div class="icon-box">
                 <i class="fa-solid fa-ticket"></i>

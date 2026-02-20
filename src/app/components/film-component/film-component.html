@@ -1,20 +1,22 @@
 <div class="calendario">
     <div class="calendario-header">
-        <h1>I Nostri Film</h1>
-        <p>Scopri gli ultimi film in uscita</p>
+        <h1 data-aos="fade" data-aos-delay="250">I Nostri Film</h1>
+        <p data-aos="fade" data-aos-delay="450">Scopri gli ultimi film in uscita</p>
     </div>
 
     <div class="films-container">
-        <div [routerLink]="'/film/' + film.id" *ngFor="let film of films" class="film-item"
-            [style.backgroundImage]="'url(' + film.copertina + ')'">
-            <div class="film-item-overlay"></div>
+        <div [routerLink]="'/film/' + film.id" *ngFor="let film of films; let i = index" class="film-item"
+            [style.backgroundImage]="'url(' + film.copertina + ')'" data-aos="fade-up"
+            [attr.data-aos-delay]="i * 150">
+            <div class="film-item-overlay" ></div>
 
-            <div class="film-poster">
+            <div class="film-poster" data-aos="zoom-in-left" data-aos-delay="250">
                 <img [src]="film.copertina" [alt]="film.titolo">
             </div>
-            <div class="film-content">
-                <div class="distributor">Film</div>
-                <h2 class="film-title">{{ film.titolo }}</h2>
+            <div class="film-content" data-aos="fade-up"
+            [attr.data-aos-delay]="i * 150">
+                <div class="distributor" data-aos="fade" data-aos-delay="250">Film</div>
+                <h2 class="film-title" data-aos="fade" data-aos-delay="450">{{ film.titolo }}</h2>
                 <div class="film-meta">
                     <div class="meta-item">
                         <span class="label">Durata:</span>

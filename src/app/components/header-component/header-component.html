@@ -3,8 +3,8 @@
     <div>
         <a routerLink="/" class="contenitore-logo">
             <div id="titolo">
-                <img src="/img/Logo.png" alt="Logo" class="logo" />
-                <h2>NG Movies</h2>
+                <img src="/img/Logo.png" alt="Logo" class="logo" data-aos="fade-left"/>
+                <h2 data-aos="zoom-in" data-aos-delay="400">NG Movies</h2>
             </div>
         </a>
 
@@ -16,19 +16,19 @@
 
         <div class="Link" [class.menu-open]="menuOpen">
             <a routerLink="/" class="icon-link" title="Home" routerLinkActive="active"
-                [routerLinkActiveOptions]="{exact: true}">
+                [routerLinkActiveOptions]="{exact: true}" data-aos="fade-left">
                 <i class="fa-solid fa-house"></i>
                 <span class="link-text">Home</span>
             </a>
-            <a routerLink="/filmList" class="icon-link" title="Film" routerLinkActive="active">
-                <img src="/img/Icona-Film.png" alt="Film" class="icon" />
+            <a routerLink="/filmList" class="icon-link" title="Film" routerLinkActive="active"  data-aos="fade-left" data-aos-delay="250">
+                <img src="/img/Icona-Film.png" alt="Film" class="icon"/>
                 <span class="link-text">Film</span>
             </a>
-            <a routerLink="/calendario" class="icon-link" title="Calendario" routerLinkActive="active">
+            <a routerLink="/calendario" class="icon-link" title="Calendario" routerLinkActive="active"  data-aos="fade-left" data-aos-delay="450">
                 <i class="fa-solid fa-calendar-days"></i>
                 <span class="link-text">Calendario</span>
             </a>
-            <a routerLink="/chisiamo" class="icon-link" title="Chi Siamo" routerLinkActive="active">
+            <a routerLink="/chisiamo" class="icon-link" title="Chi Siamo" routerLinkActive="active"  data-aos="fade-left" data-aos-delay="650">
                 <i class="fa-solid fa-user"></i>
                 <span class="link-text">Chi Siamo</span>
             </a>

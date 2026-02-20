@@ -9,8 +9,9 @@
             <i class="fa-solid fa-chevron-left"></i>
         </button>
         <div class="cal-days">
-            <button class="day-pill" *ngFor="let day of days"
-                [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day">
+            <button class="day-pill" *ngFor="let day of days; let i = index"
+                [class.active]="day.toDateString() === selectedDate.toDateString()" (click)="selectedDate = day" data-aos="fade-down"
+                [attr.data-aos-delay]="i * 50">
                 <span class="dp-num">{{ day.getDate() }}</span>
                 <span class="dp-month">{{ day.toLocaleString('it-IT', {month: 'short'}).toUpperCase() }}</span>
             </button>
@@ -21,24 +22,25 @@
     </div>
 
     <div class="cal-list">
-        <div class="cal-card" *ngFor="let film of films">
-            <a [routerLink]="'/film/' + film.id" class="cal-poster-wrap">
-                <img [src]="film.copertina" [alt]="film.titolo" class="cal-poster">
+        <div class="cal-card" *ngFor="let film of films; let i = index"  data-aos="fade-up">
+            <a [routerLink]="'/film/' + film.id" class="cal-poster-wrap" >
+                <img [src]="film.copertina" [alt]="film.titolo" class="cal-poster" data-aos="zoom-out">
                 <div class="cal-poster-overlay">
                     <i class="fa-solid fa-circle-play"></i>
                 </div>
             </a>
             <div class="cal-info">
                 <div class="cal-film-meta">
-                    <h2 class="cal-film-title">{{ film.titolo }}</h2>
+                    <h2 class="cal-film-title"  data-aos="fade-up"
+                    [attr.data-aos-delay]="i * 150">{{ film.titolo }}</h2>
                 </div>
                 <div class="cal-shows" *ngIf="getShows(film).length > 0">
                     <div class="cal-show" *ngFor="let s of getShows(film)">
-                        <div class="cal-time">
+                        <div class="cal-time" data-aos="fade" data-aos-delay="250">
                             <i class="fa-regular fa-clock"></i>
                             {{ formatTime(s.orario) }}
                         </div>
-                        <a class="cal-buy-btn" [routerLink]="'/acquista/' + s.id">
+                        <a class="cal-buy-btn" [routerLink]="'/acquista/' + s.id"  data-aos="fade" data-aos-delay="450">
                             <i class="fa-solid fa-ticket"></i>
                             Acquista
                         </a>

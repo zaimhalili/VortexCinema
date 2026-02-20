@@ -1,7 +1,8 @@
 <main>
-    <h1>Film Consigliati</h1>
-    <section class="card-container" *ngIf="films.length > 0">
-        <a [routerLink]="'film/' + film.id" class="card" *ngFor="let film of films">
+    <h1 data-aos="fade">Film Consigliati</h1>
+    <section class="card-container">
+        <a [routerLink]="'film/' + film.id" class="card" *ngFor="let film of films; let i = index" data-aos="fade-up"
+            [attr.data-aos-delay]="i * 150">
             <div class="image">
                 <img [src]="film.copertina" alt="copertina film">
                 <div class="dark-overlay"></div>
@@ -22,20 +23,22 @@
                 <div class="cinema-content">
 
                     <div class="cinema-description">
-                        <h2>NgMovies</h2>
-                        <p>Benvenuto su NgMovies, la piattaforma definitiva per gli amanti del cinema. Scopri i
+                        <h2 data-aos="fade-right">NgMovies</h2>
+                        <p data-aos="fade-right" data-aos-delay="250">Benvenuto su NgMovies, la piattaforma definitiva
+                            per gli amanti del cinema. Scopri i
                             <b>migliori
                                 film</b> di tutti i tempi, leggi le trame dettagliate e immergiti nel mondo del grande
                             schermo.
                         </p>
-                        <p>Con una vasta collezione di film selezionati, NgMovies ti offre un'esperienza di
+                        <p data-aos="fade-right" data-aos-delay="450">Con una vasta collezione di film selezionati,
+                            NgMovies ti offre un'esperienza di
                             intrattenimento
                             senza pari.</p>
                     </div>
                 </div>
                 <div class="side-images">
-                    <img src="/img/bar.png" alt="Bar" class="side-img">
-                    <img src="/img/sala.png" alt="Sala Cinema" class="side-img">
+                    <img src="/img/bar.png" alt="Bar" class="side-img" data-aos="zoom-in">
+                    <img src="/img/sala.png" alt="Sala Cinema" class="side-img" data-aos="zoom-in" data-aos-delay="200">
                 </div>
             </div>
         </div>
@@ -44,12 +47,13 @@
 
         <div class="prezzi">
             <div class="prezzi-header">
-                <h2>Listino Prezzi</h2>
-                <p>Due tipologie di biglietto, un'unica esperienza cinematografica di qualità.</p>
+                <h2 data-aos="fade-down" data-aos-delay="50">Listino Prezzi</h2>
+                <p data-aos="fade-down" data-aos-delay="450">Due tipologie di biglietto, un'unica esperienza
+                    cinematografica di qualità.</p>
             </div>
 
             <div class="prezzi-cards">
-                <div class="prezzo-card">
+                <div class="prezzo-card" data-aos="fade-right" data-aos-delay="200">
                     <div class="prezzo-icon">
                         <i class="fa-solid fa-ticket"></i>
                     </div>
@@ -64,7 +68,7 @@
                     </ul>
                 </div>
 
-                <div class="prezzo-card featured">
+                <div class="prezzo-card featured" data-aos="fade-left" data-aos-delay="350">
                     <div class="prezzo-badge">Risparmia</div>
                     <div class="prezzo-icon">
                         <i class="fa-solid fa-star"></i>
