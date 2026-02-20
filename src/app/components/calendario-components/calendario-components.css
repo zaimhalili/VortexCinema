@@ -261,7 +261,8 @@
 .cal-buy-btn:hover {
     background: #5a4a38;
 }
-.cal-buy-btn:active{
+
+.cal-buy-btn:active {
     scale: 0.95;
 }
 
