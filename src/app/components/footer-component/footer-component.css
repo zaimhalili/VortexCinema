@@ -3,6 +3,12 @@ footer {
     margin-top: auto;
 }
 
+.footer-content,
+.footer-grid {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
 .footer-red-section {
     background-color: var(--font);
     padding: 40px 60px;
