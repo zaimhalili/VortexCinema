@@ -12,6 +12,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   templateUrl: './scheda-film.html',
   styleUrl: './scheda-film.css',
 })
+
 export class SchedaFilm {
   rows: Array<number[]> = [];
   readonly ROWS = 15;

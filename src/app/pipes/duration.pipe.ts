@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from "@angular/core";
     name: "duration",
     standalone: true
 })
+
 export class DurationPipe implements PipeTransform {
 
     transform(minutes: number): string {
@@ -18,5 +19,4 @@ export class DurationPipe implements PipeTransform {
 
         return `${hours}h ${mins}m`;
     }
-
 }

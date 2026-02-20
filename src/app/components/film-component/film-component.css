@@ -1,8 +1,6 @@
 .calendario {
-    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
     min-height: 100vh;
     padding: 2rem 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     position: relative;
     max-width: 1600px;
     margin: 0 auto;
@@ -15,16 +13,16 @@
 }
 
 .calendario-header h1 {
-    font-size: 1.9rem !important;
+    font-size: 1.9rem;
     font-weight: lighter;
-    color: #dab776;
-    letter-spacing: 2.5px;
-    text-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    color: var(--font);
+    letter-spacing: 2px;
 }
 
 .calendario-header p {
-    font-size: 18px;
-    color: #aaa;
+    font-size: 1.1rem;
+    color: var(--font);
+    opacity: 0.6;
     margin: 0;
     font-weight: 300;
     letter-spacing: 0.8px;
@@ -130,7 +128,7 @@
 }
 
 .distributor {
-    font-size: 13px;
+    font-size: 0.81rem;
     font-weight: 700;
     color: #dab776;
     letter-spacing: 1.5px;
@@ -139,7 +137,7 @@
 }
 
 .film-title {
-    font-size: 32px;
+    font-size: 2rem;
     font-weight: 900;
     color: #fff;
     margin: 0;
@@ -150,8 +148,8 @@
 
 .film-title .subtitle {
     display: block;
-    font-size: 18px;
-    color: #999;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
     font-weight: 400;
     margin-top: 8px;
 }
@@ -172,7 +170,7 @@
 }
 
 .meta-item .label {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
     color: #dab776;
     letter-spacing: 1px;
@@ -180,7 +178,7 @@
 }
 
 .meta-item .value {
-    font-size: 15px;
+    font-size: 0.94rem;
     color: #e0e0e0;
     font-weight: 500;
 }
@@ -196,7 +194,7 @@
 
 .film-watermark p {
     margin: 0;
-    font-size: 16px;
+    font-size: 1rem;
     color: #dab776;
     line-height: 1.6;
     font-weight: 700;
@@ -216,7 +214,7 @@
     }
 
     .film-title {
-        font-size: 26px;
+        font-size: 1.625rem;
     }
 
     .film-meta {
@@ -230,7 +228,7 @@
     }
 
     .calendario-header h1 {
-        font-size: 40px;
+        font-size: 2.5rem;
     }
 
     .film-item {
@@ -239,11 +237,11 @@
     }
 
     .film-title {
-        font-size: 22px;
+        font-size: 1.375rem;
     }
 
     .distributor {
-        font-size: 11px;
+        font-size: 0.69rem;
     }
 }
 
@@ -253,7 +251,7 @@
     }
 
     .calendario-header h1 {
-        font-size: 30px;
+        font-size: 1.875rem;
         letter-spacing: 1px;
     }
 
@@ -271,10 +269,10 @@
     }
 
     .film-title {
-        font-size: 18px;
+        font-size: 1.125rem;
     }
 
     .meta-item .value {
-        font-size: 13px;
+        font-size: 0.81rem;
     }
 }

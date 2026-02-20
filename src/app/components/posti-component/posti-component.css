@@ -36,7 +36,7 @@
 }
 
 .biglietti-header .subtitle {
-    font-size: 16px;
+    font-size: 1rem;
     color: var(--font);
     margin: 0;
     font-weight: 300;
@@ -268,7 +268,7 @@
 
 .screen-label {
     text-align: center;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--mid);
     font-weight: 700;
     margin-bottom: 20px;
@@ -311,7 +311,7 @@
 }
 
 .row-label {
-    font-size: 11px;
+    font-size: 0.69rem;
     font-weight: 700;
     color: var(--body);
     text-align: center;
@@ -337,7 +337,7 @@
     background-color: darkred;
     color: white;
     letter-spacing: 1.1;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
     font-weight: 300;
     border-radius: 3px;
@@ -409,7 +409,7 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 13px;
+    font-size: 0.81rem;
     font-weight: 600;
     color: var(--body);
 }
@@ -446,7 +446,7 @@
     padding: 18px 32px;
     background: linear-gradient(135deg, #C9A961 0%, var(--font) 100%);
     color: var(--body);
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 900;
     letter-spacing: 2px;
     border: none;
@@ -677,7 +677,7 @@
     .seat {
         width: 22px;
         height: 22px;
-        font-size: 11px;
+        font-size: 0.69rem;
     }
 
     .seats-container {
@@ -735,7 +735,7 @@
     .seat {
         width: 26px;
         height: 26px;
-        font-size: 11px;
+        font-size: 0.69rem;
     }
 
     .seats-container {
@@ -750,16 +750,7 @@
     .confirm-button {
         margin-top: 14px;
         padding: 16px 28px;
-        font-size: 15px;
-    }
-
-    .seats-grid::-webkit-scrollbar {
-        height: 4px;
-    }
-
-    .seats-grid::-webkit-scrollbar-thumb {
-        background: rgba(218, 183, 118, 0.4);
-        border-radius: 4px;
+        font-size: 0.94rem;
     }
 }
 
@@ -774,7 +765,7 @@
     }
 
     .biglietti-header .subtitle {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .ticket-card {
@@ -834,7 +825,7 @@
     .seat {
         width: 22px;
         height: 22px;
-        font-size: 10px;
+        font-size: 0.625rem;
         border-radius: 2px;
     }
 
@@ -847,12 +838,12 @@
     }
 
     .row-label {
-        font-size: 10px;
+        font-size: 0.625rem;
         width: 14px;
     }
 
     .screen-label {
-        font-size: 12px;
+        font-size: 0.75rem;
         margin-bottom: 14px;
     }
 
@@ -865,7 +856,7 @@
     }
 
     .legend-item {
-        font-size: 12px;
+        font-size: 0.75rem;
         gap: 8px;
     }
 
@@ -880,7 +871,7 @@
 
     .confirm-button {
         padding: 15px 24px;
-        font-size: 14px;
+        font-size: 0.875rem;
         letter-spacing: 1.5px;
     }
 
@@ -930,7 +921,7 @@
     .seat {
         width: 20px;
         height: 20px;
-        font-size: 9px;
+        font-size: 0.56rem;
     }
 
     .seats-container {
@@ -942,7 +933,7 @@
     }
 
     .row-label {
-        font-size: 9px;
+        font-size: 0.56rem;
         width: 12px;
     }
 
@@ -952,8 +943,13 @@
     }
 
 
+    .seats-grid::-webkit-scrollbar-thumb {
+        background: rgba(218, 183, 118, 0.4);
+        border-radius: 4px;
+    }
+
     .legend-item {
-        font-size: 11px;
+        font-size: 0.69rem;
     }
 
     .legend-seat {
@@ -971,7 +967,7 @@
 
     .confirm-button {
         padding: 14px 20px;
-        font-size: 13px;
+        font-size: 0.81rem;
     }
 
     .modal-state {

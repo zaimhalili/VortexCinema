@@ -10,7 +10,7 @@ footer {
 }
 
 .marketing-title {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--body);
     margin-bottom: 35px;
@@ -31,7 +31,7 @@ footer {
 }
 
 .label {
-    font-size: 10px;
+    font-size: 0.625rem;
     font-weight: 700;
     color: var(--body);
     text-transform: uppercase;
@@ -71,7 +71,7 @@ footer {
 }
 
 .footer-column h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 700;
     color: var(--font);
     text-transform: uppercase;
@@ -80,7 +80,7 @@ footer {
 }
 
 .footer-column p {
-    font-size: 13px;
+    font-size: 0.81rem;
     color: var(--font);
     line-height: 1.6;
 }
@@ -117,6 +117,6 @@ footer {
 }
 
 .bi {
-    font-size: 20px;
+    font-size: 1.25rem;
     color: var(--font);
 }

@@ -28,7 +28,7 @@ export class BodyComponent {
 
   films: Film[] = [];
 
-  constructor(private cinemaService: CinemaService, private cd:ChangeDetectorRef) { }
+  constructor(private cinemaService: CinemaService, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.cinemaService.getAll().subscribe((films) => {

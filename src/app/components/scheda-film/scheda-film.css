@@ -79,7 +79,7 @@ article h1 {
 }
 
 article p:first-of-type {
-    font-size: 15px;
+    font-size: 0.94rem;
     font-weight: 400;
     margin: 0;
     color: var(--body);
@@ -150,7 +150,7 @@ article a {
     background-color: var(--body);
     color: var(--font);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 700;
     border: none;
     border-radius: 25px;
@@ -220,7 +220,7 @@ article a:hover .icon {
 }
 
 .info-label {
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 700;
     color: #dab776;
     text-transform: uppercase;
@@ -228,7 +228,7 @@ article a:hover .icon {
 }
 
 .info-value {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--body);
     letter-spacing: 0.3px;
@@ -290,7 +290,7 @@ h3 {
 }
 
 .time-range {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -302,7 +302,7 @@ h3 {
 }
 
 .date {
-    font-size: 13px;
+    font-size: 0.81rem;
     opacity: 0.6;
     text-align: left;
     margin-top: 4px;
@@ -389,7 +389,7 @@ h3 {
     article p:first-of-type {
         flex-wrap: wrap;
         gap: 8px;
-        font-size: 13px;
+        font-size: 0.81rem;
     }
 
     article div p:first-of-type span:not(:last-child)::after {
@@ -406,7 +406,7 @@ h3 {
         align-self: stretch;
         justify-content: center;
         padding: 13px 24px;
-        font-size: 15px;
+        font-size: 0.94rem;
     }
 
     .attori {
@@ -432,7 +432,7 @@ h3 {
     }
 
     .time-range {
-        font-size: 15px;
+        font-size: 0.94rem;
     }
 }
 
@@ -450,7 +450,7 @@ h3 {
     }
 
     article p:first-of-type {
-        font-size: 12px;
+        font-size: 0.75rem;
         gap: 6px;
     }
 
@@ -462,7 +462,7 @@ h3 {
 
     article a {
         padding: 12px 20px;
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 
     .spettacolo-card {
@@ -476,7 +476,7 @@ h3 {
     }
 
     .time-range {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 
@@ -501,7 +501,7 @@ h3 {
         display: none;
     }
 
-    article div p span b{
+    article div p span b {
         margin: 0;
     }
 
