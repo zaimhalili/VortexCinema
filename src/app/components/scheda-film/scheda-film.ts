@@ -77,14 +77,7 @@ export class SchedaFilm {
   constructor(private cinemaService: CinemaService, private route: ActivatedRoute, private cd: ChangeDetectorRef) {
     let id = Number(this.route.snapshot.paramMap.get("id"))
 
-    for (let i = 1; i <= this.ROWS; i++) {
-      const row: number[] = [];
-      for (let j = 1; j <= this.SEATS_PER_ROW; j++) {
-        row.push(j);
-      }
-      this.rows.push(row);
-    }
-
+    
     this.cinemaService.getOne(id).subscribe((film) => {
       this.filmDetails = film
       cd.detectChanges()
