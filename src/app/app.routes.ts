@@ -8,7 +8,6 @@ import { PostiComponent } from './components/posti-component/posti-component';
 import { CalendarioComponents } from './components/calendario-components/calendario-components';
 
 
-
 export const routes: Routes = [
     { path: "", component: BodyComponent },
     { path: "filmList", component: FilmComponent },
