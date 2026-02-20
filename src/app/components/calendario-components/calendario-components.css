@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: transparent;
+    background-color: #FBF4E7;
     border: 1px solid rgba(64, 54, 45, 0.22);
     border-radius: 12px;
     padding: 14px 22px;
@@ -236,7 +236,7 @@
 }
 
 .cal-time i {
-    color: #A07830;
+    color: var(--font);
     font-size: 0.82rem;
 }
 
